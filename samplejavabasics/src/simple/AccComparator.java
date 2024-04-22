@@ -2,7 +2,7 @@ package simple;
 
 import java.util.ArrayList;
 import java.util.Collections;
-//import java.util.Comparator;
+import java.util.Comparator;
 import java.util.List;
 
 public class AccComparator {
@@ -30,11 +30,12 @@ public class AccComparator {
 //			}
 //		
 //		};	
-//		Comparator<Integer> cr = (o1, o2) -> (o1 < o2) ? 1 : -1;	
-//		Collections.sort(ls, cr);
+		
+		Comparator<Integer> cr = (o1, o2) -> (o1 < o2) ? 1 : -1;	
+		Collections.sort(ls, cr);
+		System.out.println(ls);
 		
 		Collections.sort(ls, (o1, o2) -> (o1 < o2) ? 1 : -1);
-
 		System.out.println(ls);
 	}
 

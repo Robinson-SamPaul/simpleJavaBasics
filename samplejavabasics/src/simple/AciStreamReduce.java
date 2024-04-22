@@ -26,8 +26,10 @@ public class AciStreamReduce {
 //		Integer maxNumber = ls.stream().reduce(Integer.MIN_VALUE, Integer::max);
 		Integer maxNumber = ls.stream().reduce(Integer.MIN_VALUE, (val, num) -> Integer.max(val, num));
 		System.out.println(maxNumber);
-		Arrays.stream(ls).reduce(0, (a, b) -> a > b ? a : b);
-//		System.out.println(max);
+
+		int arr[] = {1, 96, 3, 4, 5};
+		int bigVal = Arrays.stream(arr).reduce(0, (a, b) -> a > b ? a : b);
+		System.out.println(bigVal);
 	}
 
 }

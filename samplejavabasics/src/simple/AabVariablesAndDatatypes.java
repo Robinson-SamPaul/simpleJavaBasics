@@ -14,5 +14,4 @@ public class AabVariablesAndDatatypes {
 		double h = 56.7;	//8 byte
 		System.out.println(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g + " " + h);
 	}
-
 }

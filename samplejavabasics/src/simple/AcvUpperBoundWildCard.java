@@ -9,7 +9,7 @@ public class AcvUpperBoundWildCard {
 
 	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		List<Integer> ints = new ArrayList<>();
 		ints.add(6);
 		List<Integer> v1 = MathCalc.isNumber1(ints);
@@ -29,6 +29,10 @@ public class AcvUpperBoundWildCard {
 		System.out.println("Not works as it is not superclass of arraylist " + listOfLinkedLists);
 	}
 
+	/*
+	 * extends - upper boundtype/wildcard
+	 * super - lower/super boundtype/wildcard
+	 */
 }
 
 class MathCalc {

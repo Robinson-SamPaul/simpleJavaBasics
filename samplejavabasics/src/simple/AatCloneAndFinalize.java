@@ -41,13 +41,16 @@ public class AatCloneAndFinalize {
 		System.out.println("Object3 = " + s3.rollNo);
 		System.out.println();
 		
-		Students s4 = (Students) s1.clone(); // by default, it's undefined, we need to ovverride clone method, Cloneable interface gives permission to copy object, exceptions must be thrown
+		Students s4 = (Students) s1.clone(); // by default, it's undefined, we need to override clone method, Cloneable interface gives permission to copy object, exceptions must be thrown
 		s4.rollNo = 7;
 		System.out.println("Object1 = " + s1.rollNo);
 		System.out.println("Object2 = " + s2.rollNo);
 		System.out.println("Object3 = " + s3.rollNo);
 		System.out.println("Object4 = " + s4.rollNo);
 		System.out.println();
+
+		System.out.println(s1 == s4);
+		System.out.println(s1.equals(s4));
 		
 		sn.close();
 		

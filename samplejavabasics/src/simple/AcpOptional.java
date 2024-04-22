@@ -33,25 +33,37 @@ public class AcpOptional {
 		System.out.println();
 		
 		Optional<String> optional = Optional.ofNullable(null);
-		System.out.println(optional);
-		System.out.println(optional.isPresent());
+		System.out.println("null value " + optional);
+		System.out.println("null present " + optional.isPresent());
+		System.out.println("null empty " + optional.isEmpty());
 		System.out.println();
 		
 		optional = Optional.of("");
-		System.out.println(optional);
-		System.out.println(optional.isPresent());
-		System.out.println(optional.isEmpty());
+		System.out.println("_ value " + optional);
+		System.out.println("_ present " + optional.isPresent());
+		System.out.println("_ empty " + optional.isEmpty()); // empty mean null, not empty string
 		System.out.println();
 		
 		optional = Optional.of("test");
-		System.out.println(optional);
-		System.out.println(optional.isPresent());
-		System.out.println(optional.isEmpty());
+		System.out.println("test value " + optional);
+		System.out.println("test present " + optional.isPresent());
+		System.out.println("test empty " + optional.isEmpty());
 		System.out.println();
+		
+		System.out.println(optional.get());
+//		Integer length = optional.map(s -> s.length()).orElse(100);
+		Integer length = optional.map(String::length).orElse(100);
+		System.out.println(length);
+		optional = Optional.ofNullable(null);
+		System.out.println(optional.isPresent() ? optional.get() : optional.orElse("test"));
 	}
 	
 	public static String value(int n) {
 		
 		return (n >= 0) ? "Hello" : null;
+	}
+	
+	public static String temp() {
+		return "test";
 	}
 }

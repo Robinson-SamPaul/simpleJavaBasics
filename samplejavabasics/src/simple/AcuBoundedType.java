@@ -8,7 +8,7 @@ public class AcuBoundedType {
 		System.out.println("Unbouded type = " + MathTry.isNumberWithException("HI"));
 		System.out.println("Unbouded type = " + MathTry.isNumber(7));
 //		System.out.println("Unbouded type = " + MathTry.isNumber("HI"));
-		System.err.println(new MathTry().returnNull(null));
+		System.err.println(new MathTry().returnNull(null)); // generic param can have null values passed
 	}
 
 }
