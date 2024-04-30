@@ -33,6 +33,10 @@ public class AcvUpperBoundWildCard {
 	 * extends - upper boundtype/wildcard
 	 * super - lower/super boundtype/wildcard
 	 */
+	
+	/*
+	 * WE CAN CREATE CLASS, INTERFACE WITH GENERICS, BUT CAN'T WITH WILDCARDS
+	 */
 }
 
 class MathCalc {
@@ -48,6 +52,10 @@ class MathCalc {
 	}
 	
 	public static void listCheck(@SuppressWarnings("rawtypes") List<? super ArrayList> list) { // super/lower bound, if only '?' is mentioned = unbounded similiar to Bounded.
+		System.out.println("It works");
+	}
+	
+	public <T> void listCheck1(List<T> list) {
 		System.out.println("It works");
 	}
 }

@@ -77,7 +77,7 @@ interface ConstRefInt {
 	 * If it has 1 param, it'll call 1 param constructor,
 	 * no param? then call non Param constructor
 	 */
-	//	ConstRefCls method(int i); 
+//		ConstRefCls method(int i); 
 }
 
 class ConstRefCls {

@@ -50,6 +50,18 @@ public class AbhList {
 		while(i.hasNext()) {
 			System.out.print(i.next() + " ");
 		}
+		
+		System.out.println();
+		List<Integer> integers = new ArrayList<>() 
+		{ // anonymous inner class
+			private static final long serialVersionUID = 4122606379714971121L; // needed as ArrayList implements Serializable
+			{ // instantiation initializer
+				add(4);
+				add(5);
+				add(6);
+			}
+		};
+		System.out.println(integers);
 	}
 
 }
