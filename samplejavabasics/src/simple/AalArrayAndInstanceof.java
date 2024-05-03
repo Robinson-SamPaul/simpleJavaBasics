@@ -1,5 +1,7 @@
 package simple;
 
+import java.util.Arrays;
+
 public class AalArrayAndInstanceof {
 
 	public static void main(String[] args) {
@@ -15,6 +17,17 @@ public class AalArrayAndInstanceof {
 		for(i = 0; i < 5; i++) {
 			System.out.println(String.format(("%x %x"),a[i],b[i]));
 		}
+		
+		int arr1[] = new int[3];
+		System.out.println(Arrays.toString(arr1));
+		System.out.println(arr1.toString());
+		System.out.println(arr1.getClass());
+		System.out.println(arr1.length);
+				
+		Integer arr2[] = new Integer[3];
+		System.out.println(Arrays.toString(arr2));
+		System.out.println(arr2.toString());
+		System.out.println(arr2.getClass());
 	}
 
 }

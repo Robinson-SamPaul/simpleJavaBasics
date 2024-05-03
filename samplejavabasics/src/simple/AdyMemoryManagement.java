@@ -125,10 +125,59 @@ public class AdyMemoryManagement {
 		System.out.println("Are withHash1 and withHash2 equal? " + withHash1.equals(withHash2));
 		System.out.println();
 		System.out.println("Are withoutHash1 and withoutHash2 equal? " + (withoutHash1 == withoutHash2));
+//		equals() from Object class and == operator will behave exactly the same, If v don't override hash and equals
 		System.out.println("Are withoutHash1 and withoutHash2 equal? " + withoutHash1.equals(withoutHash2));
 		System.out.println();
 		System.out.println("Are withHash3 and withHash4 equal? " + (withHash3 == withHash4));
 		System.out.println("Are withHash3 and withHash4 equal? " + withHash3.equals(withHash4));
+		
+		/*
+		 * Just for our understanding, OK?
+		 * Don't take this like very technical. 
+		 * So, hashcode will return some ID of address 
+		 * If we use contract of hashcode and equals 
+		 * that is, if we override the both methods 
+		 * Then we won't get different ID of same objects 
+		 * To get unique address of each object we should be using
+		 * "System.identityHashCode()"
+		 */
+
+		Memory1 withHash5 = withHash1;
+		System.out.println(withHash1 + "\t" + withHash1.hashCode() + "\t" + System.identityHashCode(withHash1));
+		System.out.println(withHash2 + "\t" + withHash2.hashCode() + "\t" + System.identityHashCode(withHash2));
+		System.out.println(withoutHash1 + "\t" + withoutHash1.hashCode() + "\t" + System.identityHashCode(withoutHash1));
+		System.out.println(withoutHash2 + "\t" + withoutHash2.hashCode() + "\t" + System.identityHashCode(withoutHash2));
+		System.out.println(withHash5 + "\t" + withHash5.hashCode() + "\t" + System.identityHashCode(withHash5));
+		withHash1.name = "Prajwal";
+		withHash2.name = "Prajwal";
+		System.out.println(withHash1 + "\t" + withHash1.hashCode() + "\t" + System.identityHashCode(withHash1));
+		System.out.println(withHash2 + "\t" + withHash2.hashCode() + "\t" + System.identityHashCode(withHash2));
+		System.out.println(withoutHash1 + "\t" + withoutHash1.hashCode() + "\t" + System.identityHashCode(withoutHash1));
+		System.out.println(withoutHash2 + "\t" + withoutHash2.hashCode() + "\t" + System.identityHashCode(withoutHash2));
+		System.out.println(withHash5 + "\t" + withHash5.hashCode() + "\t" + System.identityHashCode(withHash5));
+		
+		/*
+		 * Output
+		 * 
+		 * Basically A and C have same address
+		 * All three have same values
+		 * Just because all has same values
+		 * Doesn't mean changing 1 will affect another
+		 * Except if it is in same address (A&C)
+		 * 
+		 * {id=1, name=Shiva}	    79856159	1651191114  A1 has unique hash and ID
+		 * {id=1, name=Shiva}	    79856159	1586600255  B1 has same hash and different ID
+		 * {id=1, name=Shiva}	    474675244	474675244	A2 has hash and ID as same, as no contract
+		 * {id=1, name=Shiva}	    932583850	932583850	B2 has hash and ID as same, as no contract
+		 * {id=1, name=Shiva}	    79856159	1651191114  C1 has same as A1
+		 *  												name is being changed
+		 * {id=1, name=Prajwal}		1342431511	1651191114	A1 hash is changed, but ID remains same
+		 * {id=1, name=Prajwal}		1342431511	1586600255  B1 hash is also changed, but ID remains same
+		 * {id=1, name=Shiva}	    474675244	474675244	A2 has hash and ID as same, as no contract
+		 * {id=1, name=Shiva}	    932583850	932583850	B2 has hash and ID as same, as no contract
+		 * {id=1, name=Prajwal}		1342431511	1651191114	C1 does same like A1
+
+		 */
 	}
 }
 
