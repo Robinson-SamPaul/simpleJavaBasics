@@ -21,13 +21,17 @@ public class AavStaticAndFinal {
 }
 
 class Pupil {
+	
 	int rollNo;
 	String name;
+	
 	static String college;
 	static { // used to initialize static variables, can be reassigned
 		college = "Standsford";
 	}
+	
 	final int fees = 25000;
+	
 	@Override
 	public String toString() {
 		return "Pupil [rollNo=" + rollNo + ", name=" + name + ", college=" + college+", fees=" + fees+"]";
@@ -35,13 +39,19 @@ class Pupil {
 	static void show1() {
 		System.out.println("static method");
 	}
-	final void show2() { // can't be overridden
+	
+	/*
+	 * final methods can't be overridden, 
+	 * even private methods also can't be overridden,
+	 * but final methods can be accessed outside, private can't
+	 */
+	final void show2() { 
 		System.out.println("final method");
 	}
+	
 	public Pupil(int rollNo, String name) {
 		super();
 		this.rollNo = rollNo;
 		this.name = name;
-	}
-	
+	}	
 }

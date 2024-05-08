@@ -68,5 +68,7 @@ public class AefFuncIntrfsAndCmpring {
 		members.stream().sorted(Comparator.comparing(Member::getId).reversed())
 		.forEach(obj -> System.out.print(obj));
 		System.out.println();	
+		
+		System.out.println("\nFunction Object with constructor reference : " + functionObj);
 	}
 }

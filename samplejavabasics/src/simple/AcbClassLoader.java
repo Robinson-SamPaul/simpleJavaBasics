@@ -14,7 +14,7 @@ class Loader {
 		System.out.println("static block is called only once when class loads");
 	}
 	{ // instance block
-		System.out.println("Instance block is called only once when class loads");
+		System.out.println("Instance block is called even before when constructor getting called everytime");
 	}
 	Loader() {
 		System.out.println("Constructor");
@@ -22,5 +22,11 @@ class Loader {
 	/*
 	 * Both constructor and instance block will be called 
 	 * every time when we create instance
+	 * 
+	 * instance block will be called first, and then constructor
+	 * in case if u r accessing class variable in instance block
+	 * before constructor is called
+	 * which will initialize that field
+	 * then default value will be executed = null/0
 	 */
 }

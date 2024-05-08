@@ -31,16 +31,16 @@ public class AbzRaceCondition {
 		t1.join(); // it'll finish this t1 obj's method and start main method.
 		t2.join();
 		
-		System.out.println(Counter.count);
+		System.out.println(c.count);
 	}
 }
 
 class Counter {
 	
-	static int count;
+	int count;
 	
-//	public void increment() {
-	public synchronized void increment() { // only one thread can execute at a time.
+	public void increment() {
+//	public synchronized void increment() { // only one thread can execute this method at a time.
 		
 		++count;
 	}
