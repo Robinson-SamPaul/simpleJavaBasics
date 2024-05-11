@@ -7,6 +7,21 @@ public class AdyMemoryManagement {
 	
 	public static void main(String[] args) {
 		
+		/*
+		 * A stack stores frames, also called “stack frames.” 
+		 * A stack frame is created every time a new method is called
+		 * New stack is created when new thread is invoked
+		 * In the thread stack, thread cache will be there
+		 * where each cache may have different values by visibility if v don't use volatile
+		 * 
+		 * stack follows LIFO, unused stacks will be deleted, main stack frame will be deleted last (LIFO)
+		 * stack overflow error(stack full), stores as key-value pairs
+		 * 
+		 * heap unused things will be deleted by garbage collector
+		 * System.gc() - even though v declare,
+		 * can't guarantee, it'll be run
+		 * fully depends on JVM
+		 */
 		stringMemory();
 		objectMemory();
 		primitiveMemory();
@@ -94,6 +109,21 @@ public class AdyMemoryManagement {
 		String str2 = new String("hello");
 		String str3 = "hello";
 		String str4 = "hello";
+		
+		/*
+		 * System.identityHashCode() this will return strObj's address, 
+		 * not strPoolCnst address
+		 * 
+		 * string literal will create value in stack
+		 * which point to SPC
+		 * string object will create object in heap
+		 * which points to heap
+		 * which point to SPC
+		 */		
+		System.err.println(str1.hashCode() + " " + System.identityHashCode(str1));
+		System.err.println(str2.hashCode() + " " + System.identityHashCode(str2));
+		System.err.println(str3.hashCode() + " " + System.identityHashCode(str3));
+		System.err.println(str4.hashCode() + " " + System.identityHashCode(str4));
 
 		// == will compare memory address
 		// equals will compare value
@@ -231,3 +261,84 @@ class Memory2 {
 		return "\n\t\t{id=" + id + ", name=" + name + "}";
 	}
 }
+
+/*
+
+Young Generation:
+	The young generation in Java's memory management consists of two parts: 
+	Eden space and survivor spaces (usually two survivor spaces, S0 and S1).
+	When Java objects are first created, they are allocated in the Eden space, 
+	which is a part of the young generation.
+	As objects survive garbage collection cycles, they may be promoted to the survivor spaces.
+New Generation:
+	The term "new generation" is less commonly used than "young generation," 
+	but it generally refers to the same space in Java's memory model.
+	Like the young generation, the new generation includes Eden space and survivor spaces, 
+	serving the same purpose of managing short-lived objects.
+Non heap:
+	used for meta-spaces, and stores static fields and metghods
+
+Objects in Java's memory management move to the Survivor spaces 
+during the garbage collection process in the Young Generation. 
+Here's an overview of when objects are moved to the Survivor phase:
+
+Initial Allocation:
+	When objects are first created in Java, they are typically allocated in the Young Generation, 
+	specifically in the Eden space.
+Eden Space Collection:
+	During garbage collection in the Young Generation (Minor Garbage Collection or Young Generation Garbage Collection), 
+	the garbage collector identifies and removes unreachable objects from the Eden space.
+	Surviving objects from the Eden space are moved to one of the Survivor spaces. 
+	The Survivor spaces are usually denoted as Survivor space 1 (S1) and Survivor space 2 (S2).
+Survivor Space Management:
+	Initially, objects from the Eden space are moved to either Survivor space 1 or Survivor space 2, 
+	depending on which Survivor space was used during the previous garbage collection cycle.
+	Surviving objects in one Survivor space are aged during subsequent garbage collection cycles. 
+	Each time an object survives a garbage collection cycle, its age (number of collections survived) increases.
+Aging and Promotion:
+	As objects in the Survivor spaces age (survive multiple garbage collection cycles), 
+	they become candidates for promotion to the Old Generation.
+	The JVM uses a mechanism called generational promotion to determine when objects in the Survivor spaces 
+	should be promoted to the Old Generation.
+	Generational promotion is based on the idea that long-lived objects tend to 
+	survive multiple garbage collection cycles in the Young Generation.
+Promotion to Old Generation:
+	Objects in the Survivor spaces that are deemed long-lived 
+	(after surviving a certain number of garbage collection cycles) are promoted or tenured to the Old Generation.
+	Promotion to the Old Generation occurs during a garbage collection cycle in the Young Generation 
+	when objects are identified as candidates for promotion based on their age.
+
+class A {						
+int val = 10;
+void add(int a, int b) {
+	Sout(a+b);
+}
+}
+
+clas Main {
+psvm {
+	int val = 5;
+	A a = new A();
+	a.add(1, 2);
+	A b = new A();
+}
+}
+
+Main stack
+val = 5
+a = 101
+b = 102
+
+add stack
+a = 1
+b = 2
+
+Heap
+101(a)
+val = 10
+add()
+
+102(b)
+val =10
+
+*/

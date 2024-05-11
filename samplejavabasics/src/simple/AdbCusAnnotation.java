@@ -20,6 +20,13 @@ public class AdbCusAnnotation {
 
 }
 
+/*
+ * RetentionPolicy:
+ * 
+ * SOURCE: Only available during compilation. 
+ * CLASS: Included in compiled byte code but not accessible at runtime. 
+ * RUNTIME: Included in compiled byte code and accessible at runtime via reflection.
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @interface AnnotationSample {
 	double maxValue();
