@@ -13,7 +13,7 @@ public class AenMainThread {
 
 class MainNonThread {
 	
-	protected static void display() {
+	public static void display() {
 	
 		for (int i=0; i<5; i++) {
 			sleep(2000);

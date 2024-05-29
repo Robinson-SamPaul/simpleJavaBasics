@@ -69,7 +69,8 @@ public class AesVolatile {
 		 * Anyway no difference in output, 
 		 * can't make it much visible, 
 		 * but get the idea of it
-		 */        writerThread.start();
+		 */        
+        writerThread.start();
         readerThread.start();
     }
 
