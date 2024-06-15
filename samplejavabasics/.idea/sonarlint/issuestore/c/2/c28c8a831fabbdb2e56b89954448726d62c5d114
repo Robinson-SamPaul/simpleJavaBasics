@@ -1,0 +1,15 @@
+
+¨
+java:S1149)"eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList".(ÎÍ¡8¬œÁ¡ı1J$02bf1cb1-99b7-43c7-a181-899ccc848757
+“
+java:S1149Z"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(Ÿíÿ8°œÁ¡ı1J$4c2b8605-80c3-4196-82f7-dc80289e5b8a
+f	java:S106*"+Replace this use of System.out by a logger.(…‹—®J$907eb54a-ecb5-402a-a86f-5ade95f731b1
+¡
+java:S2142?"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8ĞœÁ¡ı1J$ef91af94-3511-48ed-a8cd-8f1475a08ac7
+f	java:S106B"+Replace this use of System.out by a logger.(…‹—®J$7e8153fc-5dc0-48ea-a3c3-eb5a9956b222
+~	java:S125R"<This block of commented-out lines of code should be removed.(„û¦ú8ÙœÁ¡ı1J$be2ce6ee-caf2-428b-96f1-4c066d0729d7
+k	java:S106f"+Replace this use of System.out by a logger.(¥Ëã®ûÿÿÿÿJ$c73e8f8e-3520-4fc0-be58-c51078e2fc30
+k	java:S106{"+Replace this use of System.out by a logger.(¤çßÕşÿÿÿÿJ$9e356f73-bafa-4565-88d9-62650437dfa9
+r	java:S106}"+Replace this use of System.out by a logger.(¤çßÕşÿÿÿÿ8éœÁ¡ı1J$a4e07fe6-1dfb-43d2-bca3-adb8f69d7b46
+s	java:S106ˆ"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8íœÁ¡ı1J$b5700c4b-2d9a-448d-9bee-5a20287f4f74
+s	java:S106"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8ïœÁ¡ı1J$f0043187-4bda-4bcd-a040-a719934da533

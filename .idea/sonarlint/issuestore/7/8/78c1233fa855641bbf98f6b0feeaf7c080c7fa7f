@@ -1,0 +1,18 @@
+
+ 
+java:S1149	"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(ì­ŠÜúÿÿÿÿJ$f620493c-dbdc-4546-9d0a-e86118fa5b32
+f	java:S106"+Replace this use of System.out by a logger.(¤ú×ËJ$b92a2836-fa92-4439-9dec-c5eb1f6077ec
+¡
+java:S2142 "^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8ÈÎ´Ø2J$be6c64bd-c711-4768-a711-41e90080b4b4
+f	java:S106$"+Replace this use of System.out by a logger.(ÿçÜëJ$06a4007d-0523-426e-8d0f-8cc3a8b92029
+k	java:S106%"+Replace this use of System.out by a logger.(Éã·¢ÿÿÿÿÿJ$02747536-e388-4c4d-8e5f-dce1b8dc7542
+k	java:S106&"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿJ$24e818cc-b8ab-4695-aa36-e95250afb51d
+f	java:S106("+Replace this use of System.out by a logger.(¡‹”ñJ$d6fa31d5-77d4-48ff-bddb-c6b7072ea678
+f	java:S106)"+Replace this use of System.out by a logger.(ıƒç²J$5744d3ac-9133-4ac1-848a-caad703dee76
+r	java:S106*"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8ÎÎ´Ø2J$57ca206d-86d1-4d2c-893f-e56fc4265fe5
+r	java:S106."+Replace this use of System.out by a logger.(î¸Óııÿÿÿÿ8ÎÎ´Ø2J$23f7934d-6b09-4b70-9285-3896648d0031
+r	java:S1062"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8ÏÎ´Ø2J$2b167bf6-c5ae-45ea-8a0e-58740b868980
+m	java:S1064"+Replace this use of System.out by a logger.(´×®«8ÏÎ´Ø2J$bf2e0a01-712a-48f2-8e42-f13c268582f1
+r	java:S1065"+Replace this use of System.out by a logger.(µî™Üÿÿÿÿÿ8ÑÎ´Ø2J$8c4da924-7d46-496b-afbe-10d60ab177bf
+m	java:S106@"+Replace this use of System.out by a logger.(Ã§’8ÒÎ´Ø2J$5d4e2734-9cfd-44e5-8556-d4542cacf0b3
+G	java:S106A"+Replace this use of System.out by a logger.(é”Öú8”İÂØ2

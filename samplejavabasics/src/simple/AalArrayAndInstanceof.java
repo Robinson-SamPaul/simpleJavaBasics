@@ -19,15 +19,18 @@ public class AalArrayAndInstanceof {
 		}
 		
 		int arr1[] = new int[3];
+		System.out.println("int array");
 		System.out.println(Arrays.toString(arr1));
 		System.out.println(arr1.toString());
 		System.out.println(arr1.getClass());
 		System.out.println(arr1.length);
 				
 		Integer arr2[] = new Integer[3];
+		System.out.println("Integer array");
 		System.out.println(Arrays.toString(arr2));
 		System.out.println(arr2.toString());
 		System.out.println(arr2.getClass());
+		System.out.println(arr2.length);
 	}
 
 }

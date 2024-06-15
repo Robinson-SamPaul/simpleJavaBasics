@@ -1,8 +1,12 @@
 package simple;
 
+import java.net.URI;
+
 public class AerSynchronised {
 
     public static void main(String[] args) {
+    	
+    	System.out.println(URI.create("https://youtu.be/YqPJoq1GcLM?si=9L3PBufu6oIPsx1q&t=480"));
 
     	/*
     	 * If each toy has its own key (synchronized on an object instance), 

@@ -12,7 +12,6 @@ public class AbaEncapsulation {
 		obj2.setS("Rob");
 		System.out.println(obj1 + "\n" + obj2);
 	}
-
 }
 
 class Encap {
@@ -34,5 +33,4 @@ class Encap {
 	public String toString() {
 		return "Encap [a=" + a + ", s=" + s + "]";
 	}
-	
 }

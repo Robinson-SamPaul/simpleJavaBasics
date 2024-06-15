@@ -34,3 +34,22 @@ class Abs extends Abstracts {
 		System.out.println("Anonymous local class");
 	}
 }
+/*
+Instantiation:
+	Abstract class: Cannot be instantiated directly. 
+		Super obj = new Super() is not possible, even if u have constructor
+		must be Super obj = new Sub(); "inside Sub() {super()}"
+	Interface: Cannot be instantiated at all.
+Multiple Inheritance:
+	Abstract class: A class can extend only one abstract class.
+	Interface: A class can implement multiple interfaces.
+Methods:
+	Abstract class: Can have both abstract and concrete methods.
+	Interface: Can have only abstract methods (until Java 8), but can have default and static methods as well.
+Fields:
+	Abstract class: Can have instance variables with any access modifier.
+	Interface: Can have only public, static, and final fields.
+Constructors:
+	Abstract class: Can have constructors.
+	Interface: Cannot have constructors.
+*/

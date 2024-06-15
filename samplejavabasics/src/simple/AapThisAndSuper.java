@@ -3,12 +3,12 @@ package simple;
 public class AapThisAndSuper {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// one constructor can call only one, but by default super constructor will be called internally, we can't stop it
 		Second s = new Second("Sun");
 		s.show();
-//		First f = new Second("Fun");
+		First f = new Second("Fun");
+		f.display();
 	}
-
 }
 
 class First {
@@ -35,6 +35,7 @@ class Second extends First {
 		super(str2);
 //		super.str1 = str2;
 		System.out.println("Sub Parameterized Constructor " + str2);
+//		super(str2); // Constructor call must be the first statement in a constructor
 	}
 	void display() {
 		System.out.println("Sub method");

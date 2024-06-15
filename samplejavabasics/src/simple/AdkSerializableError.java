@@ -3,6 +3,7 @@ package simple;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.NotSerializableException;
@@ -57,69 +58,61 @@ public class AdkSerializableError {
 
 	public static void main(String[] args) throws IOException {
 		
-		System.out.println("*** Writing non-serializable objects using ObjectOutputStream");
-		
-		NonSerializableProduct p = new NonSerializableProduct("Monitor", 99, 5);
-
 		String fileName = "Serializable.txt";
+		
+		/*
+		 * It'll write, but not the object, but the exception message, 
+		 * try commenting next write and try, or else, that will override this
+		 */		
+		writeNonSerail(fileName); 
 
+		writeSerial(fileName);
+
+		readSerial(fileName);
+
+	}
+	
+	private static void writeNonSerail(String fileName) throws IOException {
+		System.out.println("*** Writing non-serializable objects using ObjectOutputStream");
+		NonSerializableProduct p = new NonSerializableProduct("Monitor", 99, 5);
 		try (ObjectOutputStream objOut = new ObjectOutputStream(
 				new BufferedOutputStream(new FileOutputStream(fileName)))) {
-			
-			objOut.writeObject(p);
-						
-		} 
-		catch (NotSerializableException nse) {
-
-			nse.printStackTrace();
+			objOut.writeObject(p);			
+		} catch (NotSerializableException nse) {
+			System.out.println("Error during NonSerializableProduct " + nse.getStackTrace());
+		} finally {
+			System.out.println("*** Completed writing non-serializable objects using ObjectOutputStream\n\n");
 		}
-		finally {
-			System.out.println("*** Completed writing non-serializable objects using ObjectOutputStream");
-		}
-
-
-		System.out.println("*** Writing serializable objects using ObjectOutputStream");
-		
+	}
+	
+	private static void writeSerial(String fileName) throws FileNotFoundException, IOException {
+		System.out.println("*** Writing serializable objects using ObjectOutputStream");		
 		SerializableProduct p1 = new SerializableProduct("Monitor", 99, 5);
-//		p1.showDetails();
-
+		p1.showDetails();
 		SerializableProduct p2 = new SerializableProduct("Projector", 199, 3);
-//		p2.showDetails();
-
+		p2.showDetails();
 		try (ObjectOutputStream objOut = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(fileName)))) {
-			
 			objOut.writeObject(p1);
-			objOut.writeObject(p2);
-						
-		} 
-		catch (NotSerializableException nse) {
+			objOut.writeObject(p2);		
+		} catch (NotSerializableException nse) {
+			System.out.println("Error during SerializableProduct " + nse);
+		} finally {
 
-			nse.printStackTrace();
+			System.out.println("*** Completed writing non-serializable objects using ObjectOutputStream\n\n");
 		}
-		finally {
-
-			System.out.println("*** Completed writing non-serializable objects using ObjectOutputStream");
-		}
-
-
+	}
+	
+	private static void readSerial(String fileName) throws FileNotFoundException, IOException {
 		System.out.println("*** Reading objects using a ObjectInputStream");
-
 		try (ObjectInputStream objIn = new ObjectInputStream(
 				new BufferedInputStream(new FileInputStream(fileName)))) {
-
 			SerializableProduct o1 = (SerializableProduct) objIn.readObject();
 			o1.showDetails();
-
 			SerializableProduct o2 = (SerializableProduct) objIn.readObject();
 			o2.showDetails();
-
-		} 
-		catch (ClassNotFoundException cnfe) {
-
+		} catch (ClassNotFoundException cnfe) {
 			System.out.println("*** Thrown when the class read in using readObject() is not found");
-		}
-		finally {
-
+		} finally {
 			System.out.println("*** Completed reading objects from a ObjectInputStream");
 		}
 

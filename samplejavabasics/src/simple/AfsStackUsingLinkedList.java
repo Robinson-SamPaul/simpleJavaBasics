@@ -4,6 +4,14 @@ public class AfsStackUsingLinkedList {
 	
 	public static void main(String[] args) throws StackUnderflowException {
 		
+		StackUsingLinkedList<Integer> linkedList = new StackUsingLinkedList<>();
+		linkedList.push(1);
+		linkedList.push(2);
+		linkedList.push(3);
+		linkedList.push(4);
+		System.out.println(linkedList);
+		linkedList.pop();
+		System.out.println(linkedList);
 	}
 }
 

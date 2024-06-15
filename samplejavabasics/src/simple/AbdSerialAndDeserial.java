@@ -12,7 +12,7 @@ public class AbdSerialAndDeserial {
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		// TODO Auto-generated method stub
 		Demo obj1 = new Demo(7, "Sam");
-		String f = "C:\\Users\\ROBINSON\\eclipse-workspace\\samplejavabasics\\src\\simple\\File.txt";
+		String f = ".\\src\\simple\\Serial.txt";
 		FileOutputStream fos = new FileOutputStream(f);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(obj1);

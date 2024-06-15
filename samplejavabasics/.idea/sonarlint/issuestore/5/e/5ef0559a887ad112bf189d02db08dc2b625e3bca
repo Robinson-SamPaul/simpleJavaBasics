@@ -1,0 +1,20 @@
+
+V	java:S125"<This block of commented-out lines of code should be removed.(ËŒñùÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(»ÓÅê
+M
+java:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(½ô³şÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(…”­ö
+@	java:S106""+Replace this use of System.out by a logger.(Ù©È±
+E	java:S106$"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+?	java:S106'"+Replace this use of System.out by a logger.(°Í(
+@	java:S106*"+Replace this use of System.out by a logger.(Ù©È±
+E	java:S106,"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S106/"+Replace this use of System.out by a logger.(‡¯±’ùÿÿÿÿ
+E	java:S1061"+Replace this use of System.out by a logger.(‡¯±’ùÿÿÿÿ
+V	java:S1254"<This block of commented-out lines of code should be removed.(Œ±¦—ùÿÿÿÿ
+@	java:S1066"+Replace this use of System.out by a logger.(‘àıØ
+E	java:S1069"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+t
+java:S1171="YMove the contents of this initializer to a standard constructor or to field initializers.(ÍÔ”øÿÿÿÿ
+@	java:S106C"+Replace this use of System.out by a logger.(ö–ËÖ

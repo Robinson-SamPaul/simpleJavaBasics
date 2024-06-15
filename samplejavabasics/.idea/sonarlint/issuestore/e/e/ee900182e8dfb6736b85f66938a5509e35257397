@@ -1,0 +1,16 @@
+
+f
+java:S1104"PMake var1 a static final constant or non-public and provide accessors if needed.(éŠøä
+G
+java:S3011",This accessibility bypass should be removed.(³ä¦Üøÿÿÿÿ
+G
+java:S3011",This accessibility update should be removed.(Àüå¢øÿÿÿÿ
+G
+java:S3011",This accessibility bypass should be removed.(Ğ¾ş‡ÿÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(Áªø
+<
+java:S1170 "!Make this final field static too.(¦ªÛ€øÿÿÿÿ
+—
+java:S1186#"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ôá†ö
+F
+java:S2065!"0Remove the "transient" modifier from this field.(º’÷ï

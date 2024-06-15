@@ -8,6 +8,12 @@ public class AdyMemoryManagement {
 	public static void main(String[] args) {
 		
 		/*
+		 * The memory for static variables is allocated in a special area of the JVM memory 
+		 * called the "method area" (or "class area"). T
+		 * his is distinct from the heap where instance variables are stored.
+		 */
+		
+		/*
 		 * A stack stores frames, also called “stack frames.” 
 		 * A stack frame is created every time a new method is called
 		 * New stack is created when new thread is invoked
@@ -38,6 +44,8 @@ public class AdyMemoryManagement {
 		System.out.println();
 		System.out.println(Arrays.toString(directArr1));
 		System.out.println(directArr1.hashCode());
+		System.out.println(Arrays.toString(directArr2));
+		System.out.println(directArr2.hashCode());
 		System.out.println(Arrays.toString(addArr));
 		System.out.println(addArr.hashCode());
 		System.out.println();
@@ -45,6 +53,7 @@ public class AdyMemoryManagement {
 		System.out.println(addArr.equals(directArr1));
 		System.out.println(directArr2 == directArr1);
 		System.out.println(directArr2.equals(directArr1));
+		System.out.println(Arrays.equals(directArr1, directArr2)); // compares inner values of array
 	}
 
 	@SuppressWarnings("removal")

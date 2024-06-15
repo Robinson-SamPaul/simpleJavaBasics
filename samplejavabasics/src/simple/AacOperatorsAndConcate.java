@@ -14,8 +14,6 @@ public class AacOperatorsAndConcate {
 		int f = 2 & 3;
 		int g = 2<<2;
 		System.out.println(a + " " + b + " " + c + " " + d + " " + e + " " + f + " " + g);
-//		System.out.println(e);
-		
+		System.out.println(e);		
 	}
-
 }

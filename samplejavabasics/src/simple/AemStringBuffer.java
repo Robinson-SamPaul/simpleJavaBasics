@@ -3,7 +3,9 @@ package simple;
 public class AemStringBuffer {
     
 	public static void main(String[] args) {
-        
+
+		System.out.println("Refer " + AaoBufferAndBuilder.class);
+		
 		StringBuffer stringBuffer = new StringBuffer();
         StringBuilder stringBuilder = new StringBuilder();
 

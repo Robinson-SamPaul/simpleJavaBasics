@@ -1,0 +1,22 @@
+
+f	java:S106"+Replace this use of System.out by a logger.( „¾·J$81f78dfd-16af-49ad-8398-dc2efc2fa1ec
+f	java:S106 "+Replace this use of System.out by a logger.(Ò‚ÀïJ$3d59dea0-4c69-4ca9-aaf9-3849e3ff4ae8
+k	java:S106!"+Replace this use of System.out by a logger.(çñ¿âûÿÿÿÿJ$3b125969-2369-4dc1-a496-a655130a53b1
+f	java:S1065"+Replace this use of System.out by a logger.( „¾·J$1f57c8d4-7d49-4161-87ec-db612e883eaa
+G	java:S1066"+Replace this use of System.out by a logger.(Ò‚Àï8ñÉ·2
+L	java:S1067"+Replace this use of System.out by a logger.(çñ¿âûÿÿÿÿ8òÉ·2
+k	java:S106L"+Replace this use of System.out by a logger.(˜ĞÚÿüÿÿÿÿJ$e2ff989f-cd66-43a9-a467-74986a4c31ef
+­
+java:S2118P"eMake the "simple.AdkSerializableError$NonSerializableProduct" class "Serializable" or don't write it.(ìê•ºûÿÿÿÿ8Ÿõ¦¹€2J$992704aa-9f5e-4db9-8c6c-b4213f3fcc78
+m	java:S106R"+Replace this use of System.out by a logger.(éÊ½8´Ö©¹€2J$e810f38f-ae40-4794-91f0-bc4782e3aab2
+m	java:S106T"+Replace this use of System.out by a logger.(İü°¶8½Á«¹€2J$f69fc160-8481-4d83-bda7-1cf2b39ad61f
+”
+java:S1130X"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(ç¾®>8ŸÉ·2
+r	java:S106Y"+Replace this use of System.out by a logger.(éÃ“Àûÿÿÿÿ8¹Á«¹€2J$97abca15-06f2-451e-ba92-49ed76302bd4
+m	java:S106b"+Replace this use of System.out by a logger.(ş˜“ù8¢¡®¹€2J$99e31284-5a06-432c-8c5f-e8ca594eef84
+m	java:S106e"+Replace this use of System.out by a logger.(İü°¶8¹Á«¹€2J$7efe9040-3c6b-4f3d-932b-02faa2847255
+š
+java:S1130i"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(ÏìÜ²şÿÿÿÿ8 ŸÉ·2
+r	java:S106j"+Replace this use of System.out by a logger.(ñûÜîûÿÿÿÿ8¡®¹€2J$05f2f8f6-16c6-4e47-878a-de6713875b19
+m	java:S106r"+Replace this use of System.out by a logger.(™¹­Ô8¡¡®¹€2J$36048c3a-2e8d-4608-80ff-d15fd205dcd1
+L	java:S106t"+Replace this use of System.out by a logger.(Ø—ˆúÿÿÿÿ8«ŸÉ·2

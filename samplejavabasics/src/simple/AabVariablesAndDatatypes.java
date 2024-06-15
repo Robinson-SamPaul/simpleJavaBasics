@@ -4,6 +4,7 @@ public class AabVariablesAndDatatypes {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//1byte = 8bits
 		boolean a = true;	//1 byte
 		byte b = -128;		//1 byte
 		char c = '\u0000';	//2 byte 

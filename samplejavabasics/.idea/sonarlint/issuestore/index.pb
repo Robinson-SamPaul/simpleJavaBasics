@@ -14,3 +14,25 @@ T
 $src/simple/AdkSerializableError.java,4\e\4e16c89073f3226873314e6477c79ba5f1518981
 R
 "src/simple/AegMarkerInterface.java,7\a\7a9030ff6871cc3f44975124a7dbe6a7f7c8e673
+Q
+!src/simple/AezDifferentLists.java,c\2\c28c8a831fabbdb2e56b89954448726d62c5d114
+T
+$src/simple/AfaHashSetVsLinkedHS.java,4\8\48b87c006e10236d8faebc4a45391d6d0ffffa09
+J
+src/simple/AfcTreeSet.java,b\8\b8da31759c80dfff2c39d824867ba0f3d1a7292a
+J
+src/simple/AfdDifMaps.java,5\0\50361846edf1cc75f8494cdbcd8bda87a2776af2
+Q
+!src/simple/AcyFieldModifiers.java,d\b\db6fc554ad93b18a8add78d9124a21685de000c7
+P
+ src/simple/AczPrivateAccess.java,e\e\ee900182e8dfb6736b85f66938a5509e35257397
+P
+ src/simple/AblPriorityQueue.java,f\c\fcc26f9028d0a1ef0b0848ba9fb61273ca4ae946
+J
+src/simple/AbmDequeue.java,7\d\7df6d4778aae2c867805f3e133242be799713445
+G
+src/simple/AbhList.java,5\e\5ef0559a887ad112bf189d02db08dc2b625e3bca
+Q
+!src/simple/AdxInheritMethods.java,2\e\2ec12644a97b5cc9338bbef23711f9f47d153211
+S
+#src/simple/AdyMemoryManagement.java,4\f\4f40a96b1a4c08ab1b345a185feec22a633538e2

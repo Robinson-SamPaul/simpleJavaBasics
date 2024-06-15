@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 import java.util.Vector;
 import java.util.concurrent.CopyOnWriteArrayList; 
@@ -90,6 +91,16 @@ public class AezDifferentLists {
 		integers4.push(3);
 		integers4.add(5); // can call super class method with sub class ref, but not vice versa
 		integers4.pop();
+		
+		/*AblPriorityQueue.java*/
+		Queue<Integer> queue = new LinkedList<>();
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+
+        while (!queue.isEmpty()) {
+            System.out.println(queue.poll());  // Prints: 1, 2, 3
+        }
 		
 		/*
 		 * Implements the List interface and internally uses a copy-on-write array.

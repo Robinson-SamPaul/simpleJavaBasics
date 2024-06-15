@@ -1,5 +1,5 @@
 
-@	java:S106"+Replace this use of System.err by a logger.(ç´¼“
-E	java:S106"+Replace this use of System.err by a logger.(¢¬ãˆøÿÿÿÿ
-@	java:S106"+Replace this use of System.out by a logger.(ï³ª
-@	java:S106$"+Replace this use of System.out by a logger.(ï³ª
+f	java:S106"+Replace this use of System.err by a logger.(ç´¼“J$5cfdac19-1d7e-4817-b5a9-615f929d2aa9
+k	java:S106"+Replace this use of System.err by a logger.(¢¬ãˆøÿÿÿÿJ$df1e11bc-caff-4dd4-b2e9-39b2900efe76
+f	java:S106"+Replace this use of System.out by a logger.(ï³ªJ$ba2629d3-77e3-4fdc-abdc-a6d5c49c2680
+f	java:S106$"+Replace this use of System.out by a logger.(ï³ªJ$97a6273f-4376-4f12-b88e-0df7dd4fac55

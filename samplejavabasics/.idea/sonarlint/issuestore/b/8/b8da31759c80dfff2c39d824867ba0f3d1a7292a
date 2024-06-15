@@ -1,0 +1,11 @@
+
+C
+java:S16049"(Make this anonymous inner class a lambda(œˆÄ¨þÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(ö–ËÖ
+E	java:S1067"+Replace this use of System.out by a logger.(å»ž¿þÿÿÿÿ
+Q	java:S125="<This block of commented-out lines of code should be removed.(ˆÿÏÃ
+@	java:S106F"+Replace this use of System.out by a logger.(»Òóœ
+i
+java:S1602I"SRemove useless curly braces around statement and then remove useless return keyword(—ç•§
+E	java:S106Q"+Replace this use of System.out by a logger.(ˆÃ¿–üÿÿÿÿ
+P	java:S125i"<This block of commented-out lines of code should be removed.(ŠÇ¹E

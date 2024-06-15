@@ -11,9 +11,7 @@ public class AaxPolymorphism {
 		movr.show(); // overriding
 		MethodOverloading mvrld = new MethodOverriding();
 		mvrld.show(); // overriding
-
 	}
-
 }
 
 class MethodOverloading {

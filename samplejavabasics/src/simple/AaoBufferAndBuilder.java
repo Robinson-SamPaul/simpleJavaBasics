@@ -9,15 +9,19 @@ public class AaoBufferAndBuilder {
 		String t = s.concat(" world");
 		System.out.println(s.hashCode());
 		System.out.println(t.hashCode());
+		
 		StringBuffer sbf = new StringBuffer(s); // thread safe
 		System.out.println(sbf.hashCode());
 		sbf.append(" world");
 		System.out.println(sbf.hashCode());
+		
 		StringBuilder sbl = new StringBuilder(s);
 		System.out.println(sbl.hashCode());
 		sbl.append(" world");
 		System.out.println(sbl.hashCode());
 		System.out.println(t + " " + sbf + " " + sbl);
+		
+		System.out.println("Refer " + AemStringBuffer.class);
 	}
 
 }

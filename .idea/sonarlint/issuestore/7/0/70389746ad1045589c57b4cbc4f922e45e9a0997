@@ -1,0 +1,32 @@
+
+[
+java:S1659"Declare "i" on a separate line.(¨Å•J$63657972-9e2f-498a-8f3c-8fb1fe1158a8
+s
+java:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿJ$f9136742-4100-4130-acc1-613bb377bc5a
+\
+java:S2129	" Remove this "String" constructor(İºË€J$1214e316-46a9-40de-ab2b-b819b32dd3fd
+k	java:S106
+"+Replace this use of System.out by a logger.(äÜ¹ÑûÿÿÿÿJ$c21d1949-b99f-48ff-b9e5-b398558971c8
+f
+java:S1197"*Move the array designators [] to the type.(¨Å•J$213ced2e-260e-4a36-a98b-83d5a17241c8
+k
+java:S1197"*Move the array designators [] to the type.(æ¯ÕÿÿÿÿÿJ$a6392f47-c959-426b-b44a-774631100407
+k	java:S106"+Replace this use of System.out by a logger.(®§¶ìıÿÿÿÿJ$7925377b-bbe2-458b-a3b7-2fee7498a223
+f
+java:S1197"*Move the array designators [] to the type.(ª®»”J$d6810e71-e841-4ced-b94b-f0c2174ecfd4
+f	java:S106"+Replace this use of System.out by a logger.(”È¨ÖJ$faf4527f-1b0b-4589-a7b9-52afbb3a9da8
+k	java:S106"+Replace this use of System.out by a logger.(ù£·êıÿÿÿÿJ$14f7d97e-1b75-41f4-b0a0-146f1d7ea4a7
+f	java:S106"+Replace this use of System.out by a logger.(ÚÉ÷×J$27b4c943-5c69-42e5-bc28-7a4d0974b53c
+a
+java:S2116"%Use "Arrays.toString(array)" instead.(ÚÉ÷×J$9904a795-2565-43dc-afac-c6d27b3e7369
+k	java:S106"+Replace this use of System.out by a logger.(¸“ºšúÿÿÿÿJ$e739b750-1771-4ea9-a991-1b112ab7bc81
+m	java:S106"+Replace this use of System.out by a logger.(ªş§·8ê“‰Ø2J$b8eb6870-f7e3-4c87-a070-f19503e53293
+r
+java:S1197"*Move the array designators [] to the type.(¦Ïº£øÿÿÿÿ8ë“‰Ø2J$142db944-7d59-4e45-b502-2186b4e81dde
+m	java:S106"+Replace this use of System.out by a logger.(†Â›×8ì“‰Ø2J$7875109c-684f-42bc-a585-f4cad5e311bb
+m	java:S106"+Replace this use of System.out by a logger.(ïÍØƒ8î“‰Ø2J$76c85af5-6382-4ae9-b794-a6518fffaa1a
+r	java:S106"+Replace this use of System.out by a logger.(ó†©òûÿÿÿÿ8î“‰Ø2J$5a3a037e-14d8-4a14-9203-40d40c166bb2
+m
+java:S2116"%Use "Arrays.toString(array)" instead.(ó†©òûÿÿÿÿ8î“‰Ø2J$e1af8e63-2984-43ae-a8d6-95250a63345e
+r	java:S106 "+Replace this use of System.out by a logger.(âÑ¬¼ûÿÿÿÿ8ï“‰Ø2J$e42c0e88-b6b9-4349-ab33-6c543839e8e8
+L	java:S106!"+Replace this use of System.out by a logger.(áá‹Ùşÿÿÿÿ8‰ŠØ2

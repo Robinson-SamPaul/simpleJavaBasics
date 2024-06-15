@@ -16,7 +16,6 @@ class SameFile {
 //	private String show08(String str) {
 //		return "private same file " + str;
 //	}
-	
 }
 
 class SameFileSub extends SameFile {
