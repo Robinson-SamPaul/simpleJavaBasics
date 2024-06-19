@@ -9,6 +9,7 @@ public class AckSystemDot {
 		char c = 'd';
 		float f = 0.7f;
 		System.out.format("Hello Worl%c%s %d + %f", c, s, i, f); // decimal - f, normal - d
+		/* can also use String.format(s, args) */
 	}
 
 }

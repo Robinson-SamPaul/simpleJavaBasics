@@ -8,7 +8,8 @@ import java.util.Arrays;
 public class AcwReflection2 {
 
 	public static void main(String[] args) throws IllegalAccessException, NoSuchMethodException, SecurityException {
-		// TODO Auto-generated method stub
+		System.out.println(AcaReflection.class);
+		
 		Employee2 e = new Employee2(1, null);
 		
 		Field[] variable = e.getClass().getFields();

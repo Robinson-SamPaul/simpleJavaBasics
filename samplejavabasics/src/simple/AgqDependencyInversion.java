@@ -3,7 +3,8 @@ package simple;
 public class AgqDependencyInversion {
 
 	public static void main(String[] args) {
-		// It's like Dependency Injection
+
+		// we can be dependent on AbstractClasses/Interfaces, not not on classes
 		String dependency = ""
 				+ "High-level modules should not depend on low-level modules. "
 				+ "Both should depend on abstractions."
@@ -38,8 +39,8 @@ public class AgqDependencyInversion {
 }
 /**************************************************************************************************************************/
 /*
- * In this example, the Switch class (high-level module) depends directly on the
- * Light class (low-level module). If you wanted to change the Light class to
+ * In this example, the Switch class (high-level module<means main class>) depends directly on the
+ * Light class (low-level module<main class's work stuff will be present>). If you wanted to change the Light class to
  * another type of device, you would need to modify the Switch class, violating
  * DIP.
  */
@@ -99,6 +100,3 @@ class Switch2 {
         }
     }
 }
-
-
-

@@ -3,6 +3,8 @@ package simple;
 public class AgrSingletonDesign {
 
 	public static void main(String[] args) {
+		System.out.println(AglDesignPattern.class);
+		
 		Singleton obj1 = Singleton.getInstance();
 		System.out.println(obj1.hashCode());
 		System.out.println(Thread.currentThread().getName());
@@ -17,7 +19,6 @@ public class AgrSingletonDesign {
 				System.out.println(Thread.currentThread().getName());
 			}
 		};
-		thread.run();
 		Thread thread2 = new Thread(thread);
 		thread2.setName("Custom thread");
 		

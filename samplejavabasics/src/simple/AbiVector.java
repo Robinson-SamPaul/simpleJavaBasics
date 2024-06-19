@@ -5,8 +5,7 @@ import java.util.Vector;
 public class AbiVector {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-//		Vector - unsorted, ordered, duplicate, synchronised, increase 100% of current if exceeds the size.
+//		Vector - unsorted, ordered, duplicate, synchronized, increase 100% of current if exceeds the size.
 		Vector<Integer> val = new Vector<>();
 		val.add(6);
 		val.add(7);

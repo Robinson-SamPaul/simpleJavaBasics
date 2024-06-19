@@ -14,7 +14,7 @@ public class AbnHashSet {
 		val.add(78);
 		System.out.println(val);
 		val.remove(78);
-//		System.out.println(val);
+		System.out.println(val);
 	}
 
 }

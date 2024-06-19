@@ -3,7 +3,8 @@ package simple;
 public class ActGenerics {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		System.out.println(AbgCollectionGenerics.class);
+		
 		Container<Integer> intVal = new Container<>(4);
 		System.out.println(intVal);
 		

@@ -33,5 +33,5 @@ public class AbrDeleteQuery {
             e.printStackTrace();
         }
     }
-
+    // MySql connector jar needed
 }

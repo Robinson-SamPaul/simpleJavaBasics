@@ -1,0 +1,28 @@
+
+>
+java:S1604+"(Make this anonymous inner class a lambda(•–ª
+>
+java:S1604c"(Make this anonymous inner class a lambda(ï‘Ø
+E	java:S106"+Replace this use of System.out by a logger.(÷«…¾şÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+?	java:S106"+Replace this use of System.out by a logger.(ÊÆçp
+E	java:S106"+Replace this use of System.out by a logger.(ÌĞ¿Åøÿÿÿÿ
+E	java:S106!"+Replace this use of System.out by a logger.(ÛßÇ´şÿÿÿÿ
+?	java:S106$"+Replace this use of System.out by a logger.(ª¤ƒ
+E	java:S106("+Replace this use of System.out by a logger.(³Õ¿êúÿÿÿÿ
+@	java:S1063"+Replace this use of System.out by a logger.(Øš¥‰
+@	java:S1067"+Replace this use of System.out by a logger.(Ç°Ğ§
+E	java:S106;"+Replace this use of System.out by a logger.(…¡Ç’ÿÿÿÿÿ
+E	java:S106="+Replace this use of System.out by a logger.(œÃƒ‹şÿÿÿÿ
+E	java:S106A"+Replace this use of System.out by a logger.(ŠÎ·ïøÿÿÿÿ
+E	java:S106B"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+@	java:S106I"+Replace this use of System.out by a logger.(Ç‡ÎÉ
+E	java:S106P"+Replace this use of System.out by a logger.(¥¢À„ùÿÿÿÿ
+E	java:S106V"+Replace this use of System.out by a logger.(¹¨ÛÁÿÿÿÿÿ
+@	java:S106]"+Replace this use of System.out by a logger.(ìØÛÁ
+E	java:S106^"+Replace this use of System.out by a logger.(ƒÇãˆúÿÿÿÿ
+U
+java:S4968c"?Replace this type parametrization by the 'final' type `String`.(ï‘Ø
+•
+java:S6204s"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ÒŞ›øúÿÿÿÿ
+?	java:S106u"+Replace this use of System.out by a logger.(‚Æÿg

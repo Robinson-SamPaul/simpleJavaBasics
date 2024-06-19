@@ -1,42 +1,30 @@
 package simple;
-  
-import java.util.Iterator;
-import java.util.ArrayList;  
-  
-  
-//creating FailFastIterator2.java class   
-public class Main {  
-      
-    //main() method starts  
-    public static void main(String[] args)   
-    {  
-        //creating ArrayList  
-        ArrayList<String> students = new ArrayList<String>();   
-        students.add("Emma");   
-        students.add("Paul");   
-        students.add("Walker");  
-        students.add("Elanie");  
-        students.add("Amara");
-          
-        //creating an instance of the Iterator class  
-        Iterator<String> itr = students.iterator();   
-          
-        //iterating ArrayList using Iterator   
-        while (itr.hasNext()) {  
-            if ((String)itr.next() == "Paul")   
-                // It will not throw an exception   
-                students.remove("Amara");  
-        }  
-          
-        System.out.println(students);  
-          
-        itr = students.iterator();   
-          
-        //iterating ArrayList using Iterator   
-        while (itr.hasNext()) {  
-            if ((String)itr.next() == "Walker")   
-                // It will throw an exception on next call of next() method  
-                students.remove("Walker");  
-        }  
-    }   
-}  
+
+import simple.OuterClazz.StaticNestedClass;
+
+class OuterClazz {
+    private int outerField = 10;
+
+    // Static nested class
+    static class StaticNestedClass {
+        private int nestedField;
+
+        public StaticNestedClass(int nestedField) {
+            this.nestedField = nestedField;
+        }
+
+        public void printNestedField() {
+            System.out.println("Nested field: " + nestedField);
+            // Can't access outerField because it's a static nested class
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an instance of the static nested class
+        StaticNestedClass nestedInstance = new StaticNestedClass(5);
+        nestedInstance.printNestedField();
+        System.out.println(OuterClass.class);
+    }
+}

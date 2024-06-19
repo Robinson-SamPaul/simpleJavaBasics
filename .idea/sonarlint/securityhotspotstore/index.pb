@@ -35,3 +35,7 @@ f
 0samplejavabasics/src/simple/AemStringBuffer.java,7\8\78c1233fa855641bbf98f6b0feeaf7c080c7fa7f
 g
 7samplejavabasics/src/simple/AdnCreateFileUsingPath.java,d\3\d3f2e2da20fb91b756d4464bfd990436a42491fd
+Z
+*samplejavabasics/src/simple/AfeStream.java,2\5\2543699a623cbd069046559e66be0f78d5570c10
+f
+6samplejavabasics/src/simple/AbgCollectionGenerics.java,0\6\06d6ad7b842052ba9438d502f03a8727afd7b08e

@@ -12,6 +12,8 @@ public class AbgCollectionGenerics {
 		val.add(7);
 		val.add("hi");
 		System.out.println(val);
+		
+		System.out.println(ActGenerics.class);
 	}
 
 }

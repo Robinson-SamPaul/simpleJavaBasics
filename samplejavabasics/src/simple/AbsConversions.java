@@ -4,7 +4,7 @@ public class AbsConversions {
 
 	public static void main(String[] args) {
 		
-//		To Integer
+		/* To Integer */
 		
 		Integer wrapInt = 7;
 		int normInt1 = wrapInt.intValue();
@@ -12,11 +12,11 @@ public class AbsConversions {
 		int normInt2 = Character.getNumericValue(charInt);
 		String strInt = "7";
 		int normInt3 = Integer.valueOf(strInt);
-//		int normInt3 = Integer.parseInt(strInt); // It is also possible
+		int normInt4 = Integer.parseInt(strInt); // It is also possible
 		
-		System.out.println(normInt1 + normInt2 + normInt3);
+		System.out.println(normInt1 + normInt2 + normInt3 + normInt4);
 		
-//		To Character
+		/* To Character */
 		
 		Character wrapChar = 'c';
 		char normChar1 = wrapChar.charValue();
@@ -40,7 +40,5 @@ public class AbsConversions {
 		String normStr4 = sbfStr.toString();
 		
 		System.out.println(normStr1 + normStr2 + normStr3 + normStr4);
-		
-		
 	}
 }

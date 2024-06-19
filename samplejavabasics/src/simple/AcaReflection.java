@@ -6,18 +6,20 @@ import java.lang.reflect.Method;
 public class AcaReflection {
 
 	public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
-		// TODO Auto-generated method stub
+		
 		Employee e = new Employee();
 		System.out.println(e.getClass());
 		System.out.println(e.getName()); // null
 		System.out.println(e.getClass().getName());
 		Method m[] = e.getClass().getMethods();
 		for(Method met : m) {
-//			System.out.println(met);
+			System.out.println(met);
 			System.out.println(met.getName());
 		}
 		m[4].invoke(e);
-		m[2].invoke(e, "Arg"); // can't expect to work properly, as method array gives random methods in unorder, can't specify index 
+		m[2].invoke(e, "Arg"); // can't expect to work properly, as method array gives random methods in unorder, can't specify index
+
+		System.out.println(AcwReflection2.class);
 	}
 
 }

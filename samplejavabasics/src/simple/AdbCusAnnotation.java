@@ -8,6 +8,9 @@ public class AdbCusAnnotation {
 	public static void main(String[] args) throws Exception {
 		Class<?> clazz = Class.forName("simple.DummyForAnnotaion");
 		
+		DummyForAnnotaion annotaion = new DummyForAnnotaion(80000); // will work, it's not process, just meta info, below is the actual impl
+		System.out.println(annotaion);
+		
 		AnnotationSample sampleClass = clazz.getDeclaredAnnotation(AnnotationSample.class);
 		System.out.println(sampleClass);
 		
@@ -18,19 +21,25 @@ public class AdbCusAnnotation {
 		System.out.println(sampleMethod);
 		
 		DummyForAnnotaion obj = new DummyForAnnotaion(10);
+		test(annotaion);
+		test(obj);
+		test(new DummyForAnnotaion(700));
+	}
+	
+	private static void test(DummyForAnnotaion obj) {
+
 		if (obj.getClass().isAnnotationPresent(AnnotationSample.class)) {
 			System.out.println("Annotation is having retentionPolicy as 'runtime', hence accessible");
 			AnnotationSample annotaionObj = obj.getClass().getAnnotation(AnnotationSample.class);
 			if(annotaionObj.maxValue() == 1000 && annotaionObj.minValue() == 100) {
 				System.out.println("Properly used");
 			} else {
-				System.err.println("Not used properly");
+				System.out.println("Not used properly");
 			}
 		} else {
 			System.err.println("Annotation is not having retentionPolicy as 'runtime', hence not accessible");
 		}
 	}
-
 }
 
 /*

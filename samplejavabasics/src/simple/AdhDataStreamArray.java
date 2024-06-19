@@ -32,7 +32,6 @@ public class AdhDataStreamArray {
 			}
 			
 		} finally {
-
 			System.out.println("Writing done");
 		}
 

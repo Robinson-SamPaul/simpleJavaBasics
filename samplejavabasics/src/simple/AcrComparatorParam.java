@@ -7,7 +7,8 @@ import java.util.TreeSet;
 public class AcrComparatorParam {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		System.out.println(AccComparator.class);
+		
 		Comparator<Integer> comparator = (o1, o2) -> {
 				if(o1.equals(o2)) return 0;
 				return o2-o1; // To make descending order, by default = o1 - o2

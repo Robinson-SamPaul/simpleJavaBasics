@@ -26,7 +26,7 @@ public class AehFailSafe {
 		/*
 		 * v r getting concurrent modification exception as v trying to manipulate
 		 * collection while iterating through it still, it'll remove/add/any process but
-		 * throw exception to avoid v can use iterator
+		 * throw exception, to avoid v can use iterator
 		 */
 		System.out.println(integers);
 

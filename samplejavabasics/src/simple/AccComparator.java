@@ -37,6 +37,9 @@ public class AccComparator {
 		
 		Collections.sort(ls, (o1, o2) -> (o1 < o2) ? 1 : -1);
 		System.out.println(ls);
+		
+		System.out.println(AcrComparatorParam.class);
+		System.out.println(AcjStreamSorted.class);
 	}
 
 }

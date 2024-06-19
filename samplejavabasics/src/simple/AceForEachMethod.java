@@ -24,5 +24,12 @@ public class AceForEachMethod {
 		
 		ls.forEach(n -> System.out.println(n));
 	}
-
 }
+/*
+Comparator: Passed to sort methods.
+Consumer: Passed to forEach methods.
+Predicate: Passed to methods like filter and removeIf.
+Function: Passed to methods like map and computeIfAbsent.
+Supplier: Passed to methods like orElseGet and generate.
+BiFunction: Passed to methods like merge.
+*/

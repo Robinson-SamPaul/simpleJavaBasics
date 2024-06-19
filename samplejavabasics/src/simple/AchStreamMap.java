@@ -32,7 +32,7 @@ public class AchStreamMap {
 		optionalMap();
 	}
 	
-	private static void optionalMap() {
+	private static void optionalMap() { // not part of stream, but of optional class/object
 		Optional<String> stringValue = Optional.of("Sam");
 		Optional<String> nullValue = Optional.ofNullable(null);
 		List<Optional<String>> optionals = new ArrayList<>();

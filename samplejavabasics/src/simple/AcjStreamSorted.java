@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 public class AcjStreamSorted {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		System.out.println(AccComparator.class);
 		
 		List<Integer> ls = Arrays.asList(2,3,5,4,6,7);
 		Stream<Integer> s1 = ls

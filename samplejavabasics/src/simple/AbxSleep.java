@@ -13,7 +13,6 @@ public class AbxSleep {
 		obj1.start();
 		obj2.start();
 	}
-
 }
 
 class A1 extends Thread{

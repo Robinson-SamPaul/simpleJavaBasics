@@ -49,7 +49,7 @@ public class AbhList {
 		System.out.println(val);
 		
 		Iterator<Integer> i = val.iterator();
-//		System.out.println(i);
+		System.out.println(i);
 		while(i.hasNext()) {
 			System.out.print(i.next() + " ");
 		}

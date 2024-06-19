@@ -31,7 +31,7 @@ public class AddProxyMethod {
 		repo.show();
 		repo.print("Hello World!");
 		repo.toString();
-//		repo.hashCode(); exception, sue to hashcode return int primitive datatype and not object
+//		repo.hashCode(); exception, due to hashcode return int primitive datatype and not object
 		
 		List<String> strings = new ArrayList<>();
 		List list = (List) Proxy.newProxyInstance(classLoader, new Class[] {List.class}, new ListInvokeHandler(strings));
@@ -43,7 +43,6 @@ public class AddProxyMethod {
 		list.remove("Sam");
 		System.out.println(strings);
 	}
-
 }
 
 interface Repo {
@@ -91,7 +90,7 @@ class ListInvokeHandler implements InvocationHandler {
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-//		System.out.println(proxy); exception
+		// System.out.println(proxy); // exception
 		System.out.println("Method = " + method);
 		System.out.println("Arguments = " + args);
 		System.out.println();
