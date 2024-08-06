@@ -12,7 +12,7 @@ E	java:S106$"+Replace this use of System.out by a logger.(ªÓ¼áþÿÿÿÿ
 E	java:S106,"+Replace this use of System.out by a logger.(ªÓ¼áþÿÿÿÿ
 E	java:S106/"+Replace this use of System.out by a logger.(‡¯±’ùÿÿÿÿ
 E	java:S1061"+Replace this use of System.out by a logger.(‡¯±’ùÿÿÿÿ
-V	java:S1254"<This block of commented-out lines of code should be removed.(Œ±¦—ùÿÿÿÿ
+L	java:S1064"+Replace this use of System.out by a logger.(´‹¹öþÿÿÿÿ8ž³„ÿ‚2
 @	java:S1066"+Replace this use of System.out by a logger.(‘àýØ
 E	java:S1069"+Replace this use of System.out by a logger.(ªÓ¼áþÿÿÿÿ
 t

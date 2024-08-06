@@ -16,6 +16,7 @@ public class AayInheritance {
 }
 
 class A {
+	int superVar = 90;
 	void a( ) {
 		System.out.println("A");
 	}
@@ -24,6 +25,7 @@ class A {
 class B extends A{ // single level
 	void b( ) {
 		System.out.println("B");
+		System.out.println(superVar);
 	}
 }
 

@@ -36,3 +36,11 @@ Q
 !src/simple/AdxInheritMethods.java,2\e\2ec12644a97b5cc9338bbef23711f9f47d153211
 S
 #src/simple/AdyMemoryManagement.java,4\f\4f40a96b1a4c08ab1b345a185feec22a633538e2
+P
+ src/simple/AglDesignPattern.java,0\b\0b9891e200631f19b5898524bc82bc707e9876ba
+S
+#src/simple/AcoInterfaceMethods.java,e\7\e7a3b0a87da6a37164dac29751af1cd2a0bd86d1
+Q
+!src/simple/AavStaticAndFinal.java,d\9\d9b285688ffe0ff0917dc0afc6cf0afcd42921c7
+Q
+!src/simple/AgwAdaptorDesignP.java,e\5\e5aea8408d0283aec93372062027a28123521071

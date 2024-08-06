@@ -1,5 +1,7 @@
 package simple;
 
+import java.net.URI;
+
 public class AglDesignPattern {
 	
 	public static void main(String[] args) {
@@ -10,6 +12,10 @@ public class AglDesignPattern {
 		 * making it easier to communicate solutions with others. 
 		 * They help improve code readability, reusability, and maintainability
 		 */
+		System.out.println(URI.create("https://youtube.com/shorts/7eNvgk1p2_E?si=pFUK3KNAZbdkWEzR"));
+		System.out.println(URI.create("https://youtu.be/vap9ACtc_tU?si=_BzcQMcbhi9WUtYj"));
+		System.out.println(URI.create("https://www.youtube.com/watch?v=mE3qTp1TEbg&list=PLlsmxlJgn1HJpa28yHzkBmUY-Ty71ZUGc"));
+		System.out.println(URI.create("https://www.sourcecodeexamples.net/p/core.html"));
 		
 		/*
 	*	Creational Patterns:

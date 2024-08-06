@@ -1,18 +1,22 @@
 
-@	java:S106"+Replace this use of System.out by a logger.( „¾·
-@	java:S106"+Replace this use of System.out by a logger.(Ò‚Àï
-E	java:S106 "+Replace this use of System.out by a logger.(çñ¿âûÿÿÿÿ
-@	java:S1064"+Replace this use of System.out by a logger.( „¾·
-@	java:S1065"+Replace this use of System.out by a logger.(Ò‚Àï
-E	java:S1066"+Replace this use of System.out by a logger.(çñ¿âûÿÿÿÿ
-E	java:S106<"+Replace this use of System.out by a logger.(˜ÐÚÿüÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.( „¾·
+@	java:S106 "+Replace this use of System.out by a logger.(Ò‚Àï
+E	java:S106!"+Replace this use of System.out by a logger.(çñ¿âûÿÿÿÿ
+@	java:S1065"+Replace this use of System.out by a logger.( „¾·
+G	java:S1066"+Replace this use of System.out by a logger.(Ò‚Àï8ª¶„ÿ‚2
+L	java:S1067"+Replace this use of System.out by a logger.(çñ¿âûÿÿÿÿ8ª¶„ÿ‚2
+E	java:S106L"+Replace this use of System.out by a logger.(˜ÐÚÿüÿÿÿÿ
 €
-java:S2118E"eMake the "simple.AdkSerializableError$NonSerializableProduct" class "Serializable" or don't write it.(ìê•ºûÿÿÿÿ
-E	java:S106M"+Replace this use of System.out by a logger.(“Øè¶ûÿÿÿÿ
-E	java:S106Q"+Replace this use of System.out by a logger.(éÃ“Àûÿÿÿÿ
-Q	java:S125T"<This block of commented-out lines of code should be removed.(–šÖž
-V	java:S125W"<This block of commented-out lines of code should be removed.(ßùñÿÿÿÿÿ
-E	java:S106e"+Replace this use of System.out by a logger.(“Øè¶ûÿÿÿÿ
-E	java:S106i"+Replace this use of System.out by a logger.(ñûÜîûÿÿÿÿ
-@	java:S106w"+Replace this use of System.out by a logger.(™¹­Ô
-E	java:S106{"+Replace this use of System.out by a logger.(žØ—ˆúÿÿÿÿ
+java:S2118P"eMake the "simple.AdkSerializableError$NonSerializableProduct" class "Serializable" or don't write it.(ìê•ºûÿÿÿÿ
+G	java:S106R"+Replace this use of System.out by a logger.(éÊ½8»¶„ÿ‚2
+G	java:S106T"+Replace this use of System.out by a logger.(Ýü°¶8»¶„ÿ‚2
+”
+java:S1130X"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(ç¾®>8½¶„ÿ‚2
+E	java:S106Y"+Replace this use of System.out by a logger.(éÃ“Àûÿÿÿÿ
+G	java:S106b"+Replace this use of System.out by a logger.(þ˜“ù8Ã¶„ÿ‚2
+@	java:S106e"+Replace this use of System.out by a logger.(Ýü°¶
+š
+java:S1130i"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(ÏìÜ²þÿÿÿÿ8Ì¶„ÿ‚2
+E	java:S106j"+Replace this use of System.out by a logger.(ñûÜîûÿÿÿÿ
+@	java:S106r"+Replace this use of System.out by a logger.(™¹­Ô
+E	java:S106t"+Replace this use of System.out by a logger.(žØ—ˆúÿÿÿÿ
