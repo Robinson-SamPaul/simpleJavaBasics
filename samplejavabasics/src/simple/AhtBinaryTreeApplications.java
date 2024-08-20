@@ -3,7 +3,7 @@ package simple;
 import static simple.AhrBinaryTree.breadthFirst;
 import static simple.AhrBinaryTree.inOrderWithRecursion;
 
-public class AhtBinarySerachTree {
+public class AhtBinaryTreeApplications {
 
 	public static void main(String[] args) {
 		insertTrial();

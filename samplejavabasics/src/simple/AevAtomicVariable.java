@@ -8,6 +8,16 @@ public class AevAtomicVariable {
 	 * shared mutable object during threads
 	 * thread safe 
 	 */
+	
+	/*
+	Atomicity: 
+		Provides atomic operations (e.g., increment, compare-and-set) without the need for explicit synchronization.
+	Performance: 
+		Typically more performant than using synchronized for simple atomic operations 
+		because they use low-level hardware support for atomicity.
+	Visibility: 
+		Guarantees visibility and atomicity of updates, so you don't need additional volatile or synchronized keywords.
+	 */
 
     public static void main(String[] args) {
     	

@@ -11,7 +11,7 @@ public class AeqJoinMethod {
 			thread3.start();
 		}
 		try {
-			thread3.join(); // join will make this thread to join main thread
+			thread3.join(); // join will make this thread to join current (main) thread, if we specify time inside join method to wait to start next line
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

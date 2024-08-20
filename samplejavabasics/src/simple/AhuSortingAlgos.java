@@ -5,23 +5,25 @@ import java.util.Arrays;
 public class AhuSortingAlgos {
 
 	public static void main(String[] args) {
-		 selectionSortTrial();
-		 bubbleSortTrial();
-		 bubbleSortEarlyStopTrial();
-		 insertSortTrial();
-		 insertSortEarlyStopTrial();
-		 shellSortTrial();
-		 shellSortEarlyStopTrial();
-		 mergeSortTrial();
-		 mergeSortEarlyStopTrial();
-		 quickSortTrial();
-		 quickSortEarlyStopTrial();
+		myWaySortTrial(); // swap count is high
+		selectionSortTrial(); // swap count is less
+		bubbleSortTrial();
+		bubbleSortEarlyStopTrial();
+		insertSortTrial();
+		insertSortEarlyStopTrial();
+		shellSortTrial();
+		shellSortEarlyStopTrial();
+		mergeSortTrial();
+		mergeSortEarlyStopTrial();
+		quickSortTrial();
+		quickSortEarlyStopTrial();
 	}
 
 	private static void quickSortTrial() {
 		int unsortedList[] = getArr();
 		System.out.println(Arrays.toString(unsortedList));
 		quickSort(unsortedList);
+		System.out.println("https://youtu.be/h8eyY7dIiN4?si=wNohogDm-SaJr_D_");
 	}
 
 	private static void quickSortEarlyStopTrial() {
@@ -78,6 +80,12 @@ public class AhuSortingAlgos {
 		bubbleSortWithEarlyStop(unsortedList);
 	}
 
+	private static void myWaySortTrial() {
+		int unsortedList[] = getArr();
+		System.out.println(Arrays.toString(unsortedList));
+		myWaySort(unsortedList);
+	}
+
 	private static void selectionSortTrial() {
 		int unsortedList[] = getArr();
 		System.out.println(Arrays.toString(unsortedList));
@@ -115,7 +123,7 @@ public class AhuSortingAlgos {
 	 * Selection Sort can be modified to be stable, though it’s not naturally stable in its basic form. 
 	 * The key to making it stable is to avoid swapping elements in a way that disrupts their relative order.
 	 */
-	public static void selectionSort(int[] listToSort) {
+	public static void myWaySort(int[] listToSort) {
 		int comparingCount = 0;
 		int swappingCount = 0;
 		for (int i = 0; i < listToSort.length; i++) { // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
@@ -129,6 +137,25 @@ public class AhuSortingAlgos {
 					System.out.println(Arrays.toString(listToSort));
 				}
 			}
+		}
+		System.out.format("\nComparing : %d, Swapping %d", comparingCount, swappingCount);
+	}
+	
+	public static void selectionSort(int[] listToSort) {
+		int comparingCount = 0;
+		int swappingCount = 0;
+		for (int i = 0; i < listToSort.length; i++) {
+			System.out.println("\ni = " + i);
+			int minIndex = i;
+			for (int j = i + 1; j < listToSort.length; j++) {
+				comparingCount++;
+				if (listToSort[i] > listToSort[j]) {
+					minIndex =  j;
+				}
+			}
+			swap(listToSort, i, minIndex);
+			System.out.print(++swappingCount + " Swapping: " + i + " and " + minIndex + " ");
+			System.out.println(Arrays.toString(listToSort));
 		}
 		System.out.format("\nComparing : %d, Swapping %d", comparingCount, swappingCount);
 	}
@@ -240,13 +267,17 @@ public class AhuSortingAlgos {
 		}
 	}
 
+	/*
+	 * hybrid sort - 2+ sort alogos in together
+	 */
 	public static void insertionHelperSortForShellSort(int[] listToSort, int increment) {
 		for (int i = 0; i + increment < listToSort.length; i++) {
 			System.out.println("\ni = " + i + " increment = " + increment);
 			for (int j = i + increment; j - increment >= 0; j = j - increment) {
+				System.out.format("Comparing %d and %d", i, j);
 				if (listToSort[j] < listToSort[j - increment]) {
 					swap(listToSort, j, j - increment);
-					System.out.print("Swapping: " + j + " and " + (j - increment) + " ");
+					System.out.print("\nSwapping: " + j + " and " + (j - increment) + " ");
 					System.out.println(Arrays.toString(listToSort));
 				} else {
 					break;
@@ -330,42 +361,28 @@ public class AhuSortingAlgos {
 	
 	public static int partition(int[] listToSort, int lowIndex, int highIndex) {
         int pivot = listToSort[lowIndex];        
-        int l = lowIndex;
-        int h = highIndex;
-        
-        System.out.println("\nPivot = " + pivot + "\nStartIndex = " + l + "\nEndIndex = " + h);
-
-        while (l < h) {
-            
-        	System.out.format("\nFirst comparing %d(%d) and %d\n", l, listToSort[l], pivot);
-            while (listToSort[l] <= pivot && l < h) {
-                l++;
+        int leftPointer = lowIndex;
+        int rightPointer = highIndex;
+        System.out.println("\nPivot = " + pivot + "\tStartIndex = " + leftPointer + "\t\tEndIndex = " + rightPointer);
+        while (leftPointer < rightPointer) {
+            while (listToSort[leftPointer] <= pivot && leftPointer < rightPointer) {
+                leftPointer++;
             }
-
-        	System.out.format("Second comparing %d(%d) and %d\n", h, listToSort[h], pivot);
-            while (listToSort[h] > pivot) {
-                h--;
+            while (listToSort[rightPointer] > pivot) {
+                rightPointer--;
             }
-            
-            if (l < h) {
-                System.out.println("\nBefore swap : " + Arrays.toString(listToSort));
-                swap(listToSort, l, h);
-                System.out.print("Swapping: " + l + "(" + listToSort[l] + ") and " + h + "(" + listToSort[h] + ") ");
-                System.out.println("\nAfter swap : " + Arrays.toString(listToSort));
+            if (leftPointer < rightPointer) {
+                swap(listToSort, leftPointer, rightPointer);
+                System.out.print("\nAfter Swapping values : " + leftPointer + "(" + listToSort[leftPointer] + ") and " + rightPointer + "(" + listToSort[rightPointer] + ") " + Arrays.toString(listToSort));
             }
         }
-
-        if (lowIndex != h) {
-            swap(listToSort, lowIndex, h);
-
-            System.out.print("Swapping: " + lowIndex + "(" + listToSort[lowIndex] + ") and " + h + "(" + listToSort[h] + ") ");
-            System.out.println(Arrays.toString(listToSort));
+        if (lowIndex != rightPointer) {
+            swap(listToSort, lowIndex, rightPointer);
+            System.out.print("\nAfter Swapping pivot  : " + lowIndex + "(" + listToSort[lowIndex] + ") and " + rightPointer + "(" + listToSort[rightPointer] + ") " + Arrays.toString(listToSort) + "\n");
+        } else {
+        	System.out.println("check");
         }
-
-        System.out.println("\nPartitioned: " + Arrays.toString(listToSort) + 
-                " around pivot: " + pivot);
-
-        return h;
+        return rightPointer;
     }
 
     public static void quickSortRecursive(int[] listToSort, int low, int high) {

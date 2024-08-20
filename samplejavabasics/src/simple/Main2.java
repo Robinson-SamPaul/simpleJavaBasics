@@ -1,81 +1,20 @@
 package simple;
 
-import java.util.Arrays;
-
 public class Main2 {
-	
-    public static void swap(String[] list, int iIndex, int jIndex) {
-        
-        String temp = list[iIndex];
 
-        list[iIndex] = list[jIndex];
-        list[jIndex] = temp;
+    public static void main(String[] args) throws Exception {
+        
+    	System.out.println(fn_toLong(""));
     }
-
-    public static int partition(String[] listToSort, int low, int high) {
-        
-        String pivot = listToSort[low];
-        
-        int l = low;
-        int h = high;
-        
-        System.out.println("\nPivot = " + pivot);
-
-        while (l < h) {
-            
-            while (listToSort[l].compareTo(pivot) <= 0 && l < h) {
-                l++;
-            }
-
-            while (listToSort[h].compareTo(pivot) > 0) {
-                h--;
-            }
-            
-            if (l < h) {
-                swap(listToSort, l, h);
-
-                System.out.print("Swapping: " + l + " and " + h + " ");
-                System.out.println(Arrays.toString(listToSort));
-            }
-        }
-
-        if (low != h) {
-            swap(listToSort, low, h);
-
-            System.out.print("Swapping: " + low + " and " + h + " ");
-            System.out.println(Arrays.toString(listToSort));
-        }
-
-        System.out.println("\nPartitioned: " + Arrays.toString(listToSort) + 
-                " around pivot: " + pivot);
-
-        return h;
-    }
-
-    public static void quickSort(String[] listToSort, int low, int high) {
-        if (low >= high) {
-            return;
-        }
-
-        int pivotIndex = partition(listToSort, low, high);
-        
-        quickSort(listToSort, low, pivotIndex - 1);
-        quickSort(listToSort, pivotIndex + 1, high);
-    }
-
-    public static void main(String[] args) {
-        
-        String unsortedList[] = new String[] {"Fiona", "Dora", 
-                "Alex", "Jeff", 
-                "Elise", "Irene", 
-                "Gerald", "Ben", 
-                "Harry", "Carl"};
-
-        System.out.println(Arrays.toString(unsortedList));
     
-        quickSort(unsortedList, 0, unsortedList.length - 1);
-
-        System.out.println("\n" + Arrays.toString(unsortedList));
+    public static Long fn_toLong(Object o1) throws Exception {
+        if (o1 == null) return null;
+        String value = String.valueOf(o1).trim().toLowerCase();
+        System.out.println("Value = " + value + ".");
+        if (!(value.isEmpty()) && !("null".equals(value))) {
+                    return Long.parseLong(value);
+            }
+            return null;
     }
 
 }

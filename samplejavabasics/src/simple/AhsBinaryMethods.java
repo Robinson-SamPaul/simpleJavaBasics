@@ -36,7 +36,7 @@ public class AhsBinaryMethods {
 			return 0;
 		}
 		int maxDepthLeft = maxDepth(root.getLeftChild());
-		int maxDepthRight = maxDepth(root.getLeftChild());
+		int maxDepthRight = maxDepth(root.getRightChild());
 		int maxDepth = 1 + maxDepthLeft + maxDepthRight;
 
 		System.out.println(root + "" + " left max depth " + maxDepthLeft + " left max depth " + maxDepthRight

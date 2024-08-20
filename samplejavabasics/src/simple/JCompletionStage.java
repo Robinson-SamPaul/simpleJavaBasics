@@ -4,7 +4,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
 
-public class Main {
+public class JCompletionStage {
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		// Create a CompletableFuture that runs a task asynchronously
@@ -15,10 +15,10 @@ public class Main {
 		 */
 		CompletableFuture<String> future = asyncMethod();
 		
-		System.out.println("Future : " + future);
-		System.out.println("CompletableFuture : " + future.toCompletableFuture());
-		System.out.println("Get : " + future.toCompletableFuture().get());
-		System.out.println("Get : " + future.toCompletableFuture().get()); // can call many times
+		System.out.println("1Future : " + future);
+		System.out.println("1CompletableFuture : " + future.toCompletableFuture());
+		System.out.println("1Get : " + future.toCompletableFuture().get());
+		System.out.println("1Get : " + future.toCompletableFuture().get()); // can call many times
 		System.out.println();
 
 		/*
@@ -27,13 +27,16 @@ public class Main {
 		 * It takes a Consumer as an argument, which consumes the result of the
 		 * computation when it completes.
 		 */
-		future.thenAccept(result -> {
+		CompletableFuture<Void> accept = future.thenAccept(result -> {
 			System.out.println(result + "Sam");
 		});
 
-		System.out.println("Future : " + future);
-		System.out.println("CompletableFuture : " + future.toCompletableFuture());
-		System.out.println("Get : " + future.toCompletableFuture().get());
+		System.out.println("2Future : " + future);
+		System.out.println("2CompletableFuture : " + future.toCompletableFuture());
+		System.out.println("2Get : " + future.toCompletableFuture().get());
+		System.out.println("3Future : " + accept);
+		System.out.println("3CompletableFuture : " + accept.toCompletableFuture());
+		System.out.println("3Get : " + accept.toCompletableFuture().get()); // no returning value
 		System.out.println();
 		
 		/*
@@ -46,9 +49,9 @@ public class Main {
 		    return result.length(); // Transforming the result into its length
 		});
 
-		System.out.println("Future : " + length);
-		System.out.println("CompletableFuture : " + length.toCompletableFuture());
-		System.out.println("Get : " + length.toCompletableFuture().get());
+		System.out.println("4Future : " + length);
+		System.out.println("4CompletableFuture : " + length.toCompletableFuture());
+		System.out.println("4Get : " + length.toCompletableFuture().get());
 		System.out.println();
 
 		/*
