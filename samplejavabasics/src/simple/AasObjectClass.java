@@ -43,6 +43,7 @@ class Student {
 
 	@Override
 	public String toString() {
+		System.out.println("toString() method is called");
 		return "Student [rollNo=" + rollNo + ", name=" + name + "]";
 	}
 }

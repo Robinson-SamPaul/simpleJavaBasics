@@ -6,8 +6,8 @@ import java.lang.reflect.InvocationTargetException;
 public class AczPrivateAccess {
 
 	public static void main(String[] args) throws ClassNotFoundException, 
-	InstantiationException, IllegalAccessException, IllegalArgumentException, 
-	InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException {
+		InstantiationException, IllegalAccessException, IllegalArgumentException, 
+		InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException {
 
 		Class<?> clazz = Class.forName("simple.PrivateFields");
 		PrivateFields obj = (PrivateFields) clazz.getConstructor().newInstance();

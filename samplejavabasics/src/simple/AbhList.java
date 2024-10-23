@@ -65,6 +65,25 @@ public class AbhList {
 			}
 		};
 		System.out.println(integers);
+		System.out.println();
+		
+		// instantiation initializer
+		Student student = new Student(0, null) { // anonymous inner class can also be used with class, not only interface
+			@Override
+			public String getName() {
+				System.out.println(this);
+				System.out.println(this.getRollNo());
+				return "Sam";
+			}
+			@Override
+			public int getRollNo() {
+				return 264;
+			}
+			{ // this is just like instance block in normal class, here used in anonymous inner class
+				System.out.println(getRollNo()); // inside class, we can call method without object no? same thing here
+			}
+		};
+		System.out.println(student.getName());
 	}
 
 }

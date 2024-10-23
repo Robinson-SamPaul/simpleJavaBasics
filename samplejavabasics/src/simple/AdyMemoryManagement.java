@@ -66,10 +66,15 @@ public class AdyMemoryManagement {
 		Integer f = new Integer(10);
 		
 		System.out.println();
+		System.out.println("*********************Integer********************");
 		System.out.println(c.hashCode());
 		System.out.println(d.hashCode());
-		System.out.println(e.hashCode());
-		System.out.println(f.hashCode());
+		System.out.println(e.hashCode()); // hashcode is same for integer
+		System.out.println(f.hashCode()); // hashcode is same for integer
+		System.out.println(System.identityHashCode(c));
+		System.out.println(System.identityHashCode(d));
+		System.out.println(System.identityHashCode(e)); // identityhashcode is different for objects
+		System.out.println(System.identityHashCode(f)); // identityhashcode is different for all objects
 		System.out.println();
 		
 		System.out.println(a == b);
@@ -87,6 +92,7 @@ public class AdyMemoryManagement {
 		trial1++;
 		System.out.println(trial1.hashCode());
 		System.out.println(trial1 == trial2);
+		System.out.println("*********************Integer********************");
 	}
 
 	private static void stringMemory() {

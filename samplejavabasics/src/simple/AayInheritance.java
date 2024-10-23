@@ -2,6 +2,8 @@ package simple;
 
 public class AayInheritance {
 
+	// Interfaces don’t declare toString(), 
+	// but the compiler knows that any implementing class will inherit toString() from Object.
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		D d = new D();

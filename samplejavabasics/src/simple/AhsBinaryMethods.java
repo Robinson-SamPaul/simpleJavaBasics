@@ -5,6 +5,29 @@ import java.util.Map;
 
 public class AhsBinaryMethods {
 
+	/*
+	Binary Tree:
+		Structure: 
+			A binary tree is a hierarchical structure where each node has at most two children, 
+			referred to as the left child and the right child.
+		No Specific Order: 
+			The nodes in a binary tree do not follow any specific order. 
+			The left or right child of a node can have any value, regardless of the parent node's value.
+		Usage: 
+			Binary trees are more general and can be used in various contexts like 
+			representing hierarchical data, expressions in computation, and more.
+	Binary Search Tree (BST):	
+		Structure: 
+			A BST is a special type of binary tree where the nodes are organized in a specific order: 
+			for any given node, all values in the left subtree are less than the node's value, 
+			and all values in the right subtree are greater.
+		Ordered: 
+			The ordered structure allows for efficient searching, insertion, and deletion operations. 
+			In a balanced BST, these operations can be performed in O(log n) time.
+		Usage: 
+			BSTs are often used in applications where quick search, insertion, and deletion of data are required, 
+			such as in databases, dictionaries, and phonebooks.
+	 */
 	public static void main(String[] args) {
 		countNodes(null);
 		maxDepth(null);

@@ -5,6 +5,7 @@ public class AcbClassLoader {
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		// TODO Auto-generated method stub
 		Class.forName("simple.Loader");
+		new Loader();
 	}
 
 }
