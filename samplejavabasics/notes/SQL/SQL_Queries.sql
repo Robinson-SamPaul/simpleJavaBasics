@@ -23,16 +23,37 @@ VALUES (2, 'jane_smith', 'jane.smith@example.com');
 SELECT * FROM users; -- * is wildcard for ALL, use attributes to find specific fields
 SELECT id, username, email FROM users;
 
--- DESCRIBE or SHOW CREATE TABLE to get information about a table's structure or 
--- the create statement used to create the table
+-- DESCRIBE to get information about a table's structure 
+-- SHOW CREATE TABLE to get create statement used to create the table
+-- The output includes columns such as:
+-- 		Field: Column name.
+-- 		Type: Data type of the column.
+-- 		Null: Whether the column can contain NULL values.
+-- 		Key: Indicates if the column is part of a primary or foreign key.
+-- 		Default: Default value for the column.
+-- 		Extra: Additional information (e.g., auto_increment).
 DESCRIBE users;
 SHOW CREATE TABLE users;
+
+-- This provides information about how MySQL would execute a query on the table.
+-- The output focuses on execution plans for queries, including:
+-- 		id: The query's unique identifier.
+-- 		select_type: The type of query (e.g., SIMPLE, PRIMARY, SUBQUERY).
+-- 		table: The table being queried.
+-- 		type: The join type or access method (e.g., ALL, INDEX).
+-- 		key: The index used (if any).
+-- 		rows: Estimated rows to be scanned.
+-- 		Extra: Additional information about the execution.
+DESCRIBE TABLE users;
+EXPLAIN SELECT * FROM users;
+EXPLAIN TABLE users;
 
 -- deleting/removing
 TRUNCATE TABLE users;
 DROP TABLE users;
 
 -- primary key is unique and only 1 key for 1 table
+-- composite key is When the primary key consists of two or more columns, it is referred to as a composite primary key.
 -- candidate key is unique and many keys for 1 table(eID, phone, mail)
 -- super key is unique and combination of(primary + other column<extra column for more particular>) for 1 table
 
@@ -123,8 +144,9 @@ SELECT id, username, email FROM users
 WHERE id BETWEEN 10 AND 20;
 
 SELECT curdate();
+SELECT curtime();
 ALTER TABLE users ADD dates DATE;
-INSERT INTO users VALUES (2, 'jane_smith', 'jane.smith@example.com', '2024-06-26');
+INSERT INTO users VALUES (20, 'jane_smith', 'jane.smith@example.com', '2024-06-26');
 SELECT * FROM users where dates = '2024-06-26';
 
 SELECT * FROM users
@@ -205,6 +227,7 @@ FROM students s1
 JOIN students s2 ON s1.StudentID = s2.StudentID; --  joining same table with it based on student ID
 
 DROP DATABASE database_name;
+DROP TABLE users;
 CREATE TABLE users(user_id INT,
                    first_name VARCHAR(255)NOT NULL,
                    last_name VARCHAR(255),

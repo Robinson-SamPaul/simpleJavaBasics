@@ -60,21 +60,36 @@ public class AdyMemoryManagement {
 	private static void primitiveMemory() {
 		int a = 10;
 		int b = 10;
+		// https://youtu.be/ibaxjvViZJE?si=nvDC8Qy3MC0h2Mdt
 		Integer c = 10;
 		Integer d = 10;
 		Integer e = new Integer(10);
 		Integer f = new Integer(10);
+		Integer g = 128;
+		Integer h = 128;
+		Integer i = new Integer(128);
+		Integer j = new Integer(128);
 		
 		System.out.println();
 		System.out.println("*********************Integer********************");
 		System.out.println(c.hashCode());
 		System.out.println(d.hashCode());
-		System.out.println(e.hashCode()); // hashcode is same for integer
-		System.out.println(f.hashCode()); // hashcode is same for integer
+		System.out.println(e.hashCode()); // hashcode is same for integer as the value
+		System.out.println(f.hashCode()); 
+		System.out.println(g.hashCode()); 
+		System.out.println(h.hashCode()); 
+		System.out.println(i.hashCode()); 
+		System.out.println(j.hashCode()); 
+		System.out.println(System.identityHashCode(a));
+		System.out.println(System.identityHashCode(b));
 		System.out.println(System.identityHashCode(c));
-		System.out.println(System.identityHashCode(d));
-		System.out.println(System.identityHashCode(e)); // identityhashcode is different for objects
-		System.out.println(System.identityHashCode(f)); // identityhashcode is different for all objects
+		System.out.println(System.identityHashCode(d)); // identityHashCode is same for int from -128 to 127, e.g. above 4 lines
+		System.out.println(System.identityHashCode(e)); 
+		System.out.println(System.identityHashCode(f)); 
+		System.out.println(System.identityHashCode(g));
+		System.out.println(System.identityHashCode(h));
+		System.out.println(System.identityHashCode(i));
+		System.out.println(System.identityHashCode(j));
 		System.out.println();
 		
 		System.out.println(a == b);
