@@ -1,6 +1,7 @@
 package simple;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
@@ -39,15 +40,40 @@ public class AefFuncIntrfsAndCmpring {
 
 		System.out.println("sorted with name using Method reference = ");
 		/*
-		 * We have learnt method reference
-		 * It is alternate for lambda expression
-		 * Instead lambda;
-		 * 		we can use Static Method Reference of static methods
-		 * 		we can use Instance Method Reference of non-static methods
-		 * 		we can use Constructor Method Reference 
-		 * Other thing is, we can use Static method reference, even if it's not static method
-		 * How? If the expected return type is Function, eg: comparing(), map(), etc
-		 * We can use it
+		 * 1, Reference to a Static Method
+		 * 2, Reference to an Instance Method
+		 * 3, Reference to a Constructor
+		 * 4, Reference to an Instance Method of an Arbitrary Object of a Particular Type"
+		 * 
+		 * You have a Person class with a non-static method getName().
+		 * You define a functional interface MyNameFetcher with a method:
+		 * 		String fetch(Person p);
+		 * You assign:
+		 *		MyNameFetcher ref = Person::getName;
+		 * Java sees:
+		 * 		Person::getName is a non-static method.
+		 * 		fetch(Person p) expects a Person object.
+		 * 		So it rewrites it internally as:
+		 * 			MyNameFetcher ref = (Person p) -> p.getName();
+		 * Then when you call:
+		 * 		ref.fetch(p1);
+		 * It becomes:
+		 * 		p1.getName(); // "John"
+		 * 
+		 * above is imaginary example, now for below;
+		 * 
+		 * You have a class Member with a non-static method getName().
+		 * You use the built-in Function<T, R>:
+		 * 		Function<Member, String> functionObj = Member::getName;
+		 * Java understands:
+		 * 		Function<T, R> has method: R apply(T t);
+		 * So it needs a method that takes Member and returns String.
+		 * Member::getName is non-static, so Java rewrites:
+		 * 		Function<Member, String> functionObj = (Member m) -> m.getName();
+		 * Then when you call:
+		 * 		functionObj.apply(m1);
+		 * It becomes:
+		 * 		m1.getName(); // "Alice"
 		 */
 		Function<Member, String> functionObj = Member::getName;
 		members.stream().sorted(Comparator.comparing(functionObj))
@@ -70,5 +96,7 @@ public class AefFuncIntrfsAndCmpring {
 		System.out.println();	
 		
 		System.out.println("\nFunction Object with constructor reference : " + functionObj);
+		
+		Collections.sort(members, Comparator.comparing(Member::getId));
 	}
 }

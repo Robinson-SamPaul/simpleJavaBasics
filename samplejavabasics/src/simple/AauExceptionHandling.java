@@ -54,3 +54,28 @@ class InsufficientFundException extends Exception {
 		super(s);
 	}
 }
+
+/*
+Throwable
+├── Error                ← Serious system-level issues (unchecked)
+│   ├── OutOfMemoryError
+│   ├── StackOverflowError
+│   └── ...
+
+├── Exception            ← Can be checked or unchecked
+    ├── Checked Exception (compile-time)
+    │   ├── IOException
+    │   ├── FileNotFoundException
+    │   ├── SQLException
+    │   ├── InterruptedException
+    │   └── Must be handled or declared (compiler checks)
+    │
+    └── Unchecked Exception (runtime)
+        ├── RuntimeException
+        │   ├── NullPointerException
+        │   ├── ArrayIndexOutOfBoundsException
+        │   ├── ArithmeticException
+        │   ├── IllegalArgumentException
+        │   └── NumberFormatException
+        └── No need to handle or declare (compiler doesn't check)
+*/

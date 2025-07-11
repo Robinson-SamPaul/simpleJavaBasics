@@ -16,6 +16,11 @@ import java.util.List;
 
 public class AgkExternalizable {
 
+	/*
+	 * Externalizable is an interface in the java.io package that allows full control over 
+	 * how an object is serialized and deserialized.
+	 * It extends the Serializable interface but requires you to manually write/read the object’s state.
+	 */
 	public static void main(String[] args) {
 		
 		write();

@@ -1,5 +1,6 @@
 package simple;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -14,9 +15,12 @@ public class AcqEntryMap {
 		map.put(2, "Two");
 		map.put(3, "Three");
 		System.out.println(map);
-		
-		Set<Entry<Integer, String>> entryMap = map.entrySet();
-		System.out.println(entryMap);
+		Set<Integer> allKey = map.keySet();
+		Collection<String> values = map.values();
+		System.out.println(allKey + " " + values);
+
+		Set<Entry<Integer, String>> entryMapSet = map.entrySet();
+		System.out.println(entryMapSet);
 		for(Entry<Integer, String> entry : map.entrySet()) {
 			System.out.print(entry.getKey() + " " + entry.getValue() + "\n");
 		}

@@ -141,8 +141,19 @@ public class AatCloneAndFinalize {
 		 *
 		 * new Stud(); // if we create this
 		 * 
-		 * protected void finalize() { Syso("hi""); } // it'll be executed only when
-		 * unused object is to be deleted, cuz jvm will call finalize only on this
+		 * protected void finalize() { Syso("hi""); } // it'll be executed only before
+		 * System.gc(); is executed
+		 * 
+		 * System.gc(); // Suggest JVM to run GC
+		 * This does not guarantee that garbage collection will happen.
+		 * JVM is free to ignore this call.
+		 * It just requests GC to run.
+		 * 
+		 * finalize() is deprecated since Java 9 and removed in Java 18, because it was:
+				unreliable
+				unpredictable
+				slow
+				and often misused.
 		 */
 	}
 	

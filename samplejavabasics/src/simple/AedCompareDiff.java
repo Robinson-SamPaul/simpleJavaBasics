@@ -23,7 +23,7 @@ public class AedCompareDiff {
 		beanWithComparablesSort(); // right way
 		/*
 		 * Comparator from util package
-		 * Comparator object must be created and passed to sort method
+		 * Comparator object must be created and passed to sort method or Collection constructor
 		 * Comparator will have compare method
 		 * We can create n no.of sorting calls by passing different comparator implementations
 		 */

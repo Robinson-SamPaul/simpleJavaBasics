@@ -60,7 +60,7 @@ class ObjectInstanceExample {
 }
 
 class ThisKeywordExample {
-    public synchronized void synchronizedMethod() {
+    public void synchronizedMethod() {
         synchronized(this) {
             System.out.println(Thread.currentThread().getName() + 
             		" - Inside ThisKeywordExample synchronizedMethod");
@@ -75,7 +75,7 @@ class ThisKeywordExample {
 
 class ClassLevelExample {
 
-    public synchronized void staticSynchronizedMethod() {
+    public void staticSynchronizedMethod() {
         synchronized(ClassLevelExample.class) {
             System.out.println(Thread.currentThread().getName() + 
             		" - Inside ClassLevelExample synchronizedMethod");

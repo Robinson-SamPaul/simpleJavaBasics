@@ -15,6 +15,16 @@ public class AchStreamMap {
 		List<Integer> ls = Arrays.asList(2,3,4,5,6,7);
 		Stream<Integer> s1 = ls.stream();
 		
+		/*
+		Function<Integer, String> sample = new Function<Integer, String>() {
+
+            @Override
+            public String apply(Integer t) {
+                // This is also will work
+                return t.toString();
+            }
+        };
+        */
 		Function<Integer, Integer> fn = new Function<Integer, Integer>() {
 
 			@Override

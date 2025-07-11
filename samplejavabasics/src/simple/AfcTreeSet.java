@@ -75,7 +75,7 @@ public class AfcTreeSet {
 					}
 				);
 		treeSetValues.add(new TreeSetValue(1, "Sam"));
-		treeSetValues.add(new TreeSetValue(1, "Sam"));
+		treeSetValues.add(new TreeSetValue(4, "Sam"));
 		treeSetValues.add(new TreeSetValue(2, "Rob"));
 		treeSetValues.add(new TreeSetValue(3, "Paul"));
 		System.out.println(treeSetValues);
@@ -113,7 +113,7 @@ class TreeSetValue {
 
 /*
  * HashSet:
- * 		Implements the Set interface and uses a hash table for storage.
+ * 		Implements the Set interface and uses a hash map for storage.
  * 		Does not guarantee the order of elements.
  * 		Allows null elements.
  * 		Offers constant-time performance for basic operations (add, remove, contains) on average.

@@ -9,8 +9,8 @@ public class AdyMemoryManagement {
 		
 		/*
 		 * The memory for static variables is allocated in a special area of the JVM memory 
-		 * called the "method area" (or "class area"). T
-		 * his is distinct from the heap where instance variables are stored.
+		 * called the "method area" (or "class area"). 
+		 * This is distinct from the heap where instance variables are stored.
 		 */
 		
 		/*
@@ -41,7 +41,7 @@ public class AdyMemoryManagement {
 		for(int i : directArr1) {
 			addArr[i-1] = i;
 		}
-		System.out.println();
+		System.out.println("-----------ARRAY-------------");
 		System.out.println(Arrays.toString(directArr1));
 		System.out.println(directArr1.hashCode());
 		System.out.println(Arrays.toString(directArr2));
@@ -60,7 +60,7 @@ public class AdyMemoryManagement {
 	private static void primitiveMemory() {
 		int a = 10;
 		int b = 10;
-		// https://youtu.be/ibaxjvViZJE?si=nvDC8Qy3MC0h2Mdt
+		// Integer caching - https://youtu.be/ibaxjvViZJE?si=nvDC8Qy3MC0h2Mdt
 		Integer c = 10;
 		Integer d = 10;
 		Integer e = new Integer(10);
@@ -97,19 +97,27 @@ public class AdyMemoryManagement {
 		System.out.println(c.equals(d));
 		System.out.println(e == f);
 		System.out.println(e.equals(f));
+		System.out.println(g == h);
+		System.out.println(g.equals(h));
 
 		Integer trial1 = 4;
 		Integer trial2 = 4;
 		System.out.println();
 		System.out.println(trial1.hashCode());
 		System.out.println(trial2.hashCode());
+		System.out.println(System.identityHashCode(trial1));
+		System.out.println(System.identityHashCode(trial2));
 		System.out.println(trial1 == trial2);
 		trial1++;
 		System.out.println(trial1.hashCode());
+		System.out.println(System.identityHashCode(trial1)); // not updates in same address, creates new value in new address
+		System.out.println(System.identityHashCode(trial2));
+		
 		System.out.println(trial1 == trial2);
 		System.out.println("*********************Integer********************");
 	}
 
+	@SuppressWarnings("null")
 	private static void stringMemory() {
 		String emptyLiteral = "";
 		String nullLietral = null;
@@ -122,8 +130,12 @@ public class AdyMemoryManagement {
 
 		System.out.print(emptyLiteral + " = ");
 		System.out.println(emptyLiteral.hashCode());
-		System.out.print(nullLietral + " = \n");
-//		System.out.println(nullLietral.hashCode()); //RTError
+		System.out.print(nullLietral + " = ");
+		try {
+			System.out.println(nullLietral.hashCode()); //RTError
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+		}
 		System.out.print(testLiteral + " = ");
 		System.out.println(testLiteral.hashCode());
 		System.out.print(emptyString1 + " = ");
@@ -203,11 +215,11 @@ public class AdyMemoryManagement {
 		 */
 
 		Memory1 withHash5 = withHash1;
-		System.out.println(withHash1 + "\t" + withHash1.hashCode() + "\t" + System.identityHashCode(withHash1));
-		System.out.println(withHash2 + "\t" + withHash2.hashCode() + "\t" + System.identityHashCode(withHash2));
+		System.out.println(withHash1 + "\t" + withHash1.hashCode() + "\t\t" + System.identityHashCode(withHash1));
+		System.out.println(withHash2 + "\t" + withHash2.hashCode() + "\t\t" + System.identityHashCode(withHash2));
 		System.out.println(withoutHash1 + "\t" + withoutHash1.hashCode() + "\t" + System.identityHashCode(withoutHash1));
 		System.out.println(withoutHash2 + "\t" + withoutHash2.hashCode() + "\t" + System.identityHashCode(withoutHash2));
-		System.out.println(withHash5 + "\t" + withHash5.hashCode() + "\t" + System.identityHashCode(withHash5));
+		System.out.println(withHash5 + "\t" + withHash5.hashCode() + "\t\t" + System.identityHashCode(withHash5));
 		withHash1.name = "Prajwal";
 		withHash2.name = "Prajwal";
 		System.out.println(withHash1 + "\t" + withHash1.hashCode() + "\t" + System.identityHashCode(withHash1));
@@ -293,6 +305,50 @@ class Memory2 {
 }
 
 /*
+1
+Stack (Java Stack / Thread Stack)
+	Local variables
+	Method call frames (also called Stack Frames)
+	References to objects in heap
+	Return addresses
+Who manages it:
+	Each thread gets its own separate stack
+	Automatically cleaned up when methods return
+	
+2
+Heap (Runtime Data Area)
+	All objects (instances of classes)
+	Instance variables of objects
+	Arrays
+Who manages it:
+	Shared by all threads
+	Managed by the Garbage Collector
+
+3
+Method Area (a.k.a. MetaSpace in Java 8+)
+	Class-level information:
+	Class name, superclass name
+	Method names and signatures
+	Static variables
+	Constant pool (literals, references)
+	Byte-code of methods
+Who manages it:
+	Shared across all threads
+
+4
+Program Counter (PC) Register
+	Each thread in the JVM has its own PC register.
+What it stores:
+	The address (instruction pointer) of the currently executing instruction of the thread.
+In simpler words:
+	It tells the JVM "which byte-code instruction to execute next" for each thread.
+	Acts like a line marker in the byte-code stream.
+
+5
+Native Method Stack (You are also correct)
+	Used to execute native (non-Java) methods.
+	For example: if your Java code calls a method implemented in C or C++ via JNI (Java Native Interface).
+	Each thread also gets a native method stack (if needed).
 
 Young Generation:
 	The young generation in Java's memory management consists of two parts: 
@@ -371,4 +427,24 @@ add()
 102(b)
 val =10
 
+
+One more example
+
+class Demo {
+    static int s = 10;
+    final int f = 20;
+    int x = 30;
+
+    void method() {
+        int y = 40;
+        Integer z = new Integer(50);
+    }
+}
+
+Memory Map:
+	s → Method Area
+	f, x → Heap (inside object)
+	y → Stack
+	z (reference) → Stack
+	new Integer(50) → Heap
 */

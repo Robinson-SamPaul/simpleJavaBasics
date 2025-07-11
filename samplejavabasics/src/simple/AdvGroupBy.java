@@ -14,13 +14,22 @@ public class AdvGroupBy {
 				new GroupBy("Rob", 100),
 				new GroupBy("Paul", 93));
 		
-		Map<Object, List<GroupBy>> groupedByMarks = groupBies.stream().collect(Collectors.groupingBy(grpBy -> grpBy.marks));
+		Map<Object, List<GroupBy>> groupedByMarks = groupBies.stream().collect(
+				Collectors.groupingBy(grpBy -> grpBy.marks));
 		System.out.println(groupedByMarks);
 
 		List<GroupBy> centumGuys = groupedByMarks.get(100);
 		System.out.println(centumGuys);
 		List<GroupBy> otherGuys = groupedByMarks.get(93);
 		System.out.println(otherGuys);
+		
+		List<String> list = List.of("one", "two", "three", "four");
+
+		Map<Integer, List<String>> grouped = list.stream()
+		    .collect(Collectors.groupingBy(String::length));
+
+		System.out.println(grouped);
+
 	}
 }
 

@@ -2,6 +2,11 @@ package simple;
 
 public class AegMarkerInterface {
 
+	/*
+	 * A marker interface is an interface without any methods or fields. 
+	 * It’s used to "mark" or tag a class so that the 
+	 * JVM or framework can recognize that the class has a special property.
+	 */
 	public static void main(String[] args) {
 		
 		Me me = new Me();

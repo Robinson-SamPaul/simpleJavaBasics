@@ -2,6 +2,18 @@ package simple;
 
 public class AetWaitNotify {
     
+	/*
+	 * wait()
+		Pauses the thread and releases the lock (monitor)
+		Must be called inside a synchronized block on the object you're waiting on
+		Can be woken up by notify() or notifyAll()
+		Used in inter-thread communication
+	 * sleep()
+		Pauses the thread for a specific time (e.g., 1000 ms)
+		Does not release any lock
+		Can be used anywhere, no synchronized needed
+		Often used to simulate delay or polling
+	 */
 	public static void main(String[] args) {
 
 		StringBuilder message = new StringBuilder(); // Shared message object

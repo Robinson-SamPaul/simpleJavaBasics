@@ -29,7 +29,7 @@ public class AecFunctionalInterface {
 			 
 		};
 		
-		System.out.println(obj);
+		System.out.println(obj.toString());
 	}
 
 }
@@ -53,10 +53,14 @@ interface FunInterface {
 	}
 	
 	default void print2() {
-		System.out.println("world!");
+		print4();
 	}
 	
 	static void print3() {
 		System.out.println("AbvLambdaExpression");
+	}
+	
+	private void print4() {
+		System.out.println("world!");
 	}
 }

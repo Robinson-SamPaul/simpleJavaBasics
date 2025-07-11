@@ -81,11 +81,11 @@ record Record2 (int id, String name) implements Serializable { // can implement 
 		this.name = name;
 	}*/
 	// Instead of doing above we can simply do below, as rest will be taking care internally
-	public Record2 { // param mentions also not needed
-		if (name != null && name.length() < 1) 
-			throw new IllegalArgumentException();
-		// below initialization explicit mention is not needed
-	}
+//	public Record2 { // param mentions also not needed
+//		if (name != null && name.length() < 1) 
+//			throw new IllegalArgumentException();
+//		// below initialization explicit mention is not needed
+//	}
 }
 
 record Record3 () {}

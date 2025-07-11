@@ -39,8 +39,9 @@ public class AehFailSafe {
 			if (iterator.next() == 4) {
 				/*
 				 * we can remove iterator object, but not list object for example;
-				 * iterator.remove(); can be done integers.add(2); can't, even though we're
-				 * using inside iterator
+				 * iterator.remove(); can be done 
+				 * integers.add(2); can't, 
+				 * even though we're using inside iterator
 				 * 
 				 * And even though we have try catch block for concurrentModificationException
 				 * still it'll throw error
@@ -63,6 +64,7 @@ public class AehFailSafe {
 			while (itr.hasNext()) {
 				if (itr.next().equals("Paul")) {
 					try {
+//						itr.remove(); // this will work
 						students.remove("Amara");
 					} catch (Exception e) {
 						// this is not being executed, as exception thrown at iterator, not remove() method
@@ -110,7 +112,7 @@ public class AehFailSafe {
 
 	private static void checkCheckedException(List<Integer> integers) {
 		/**
-		 * here compile time, exception, so it goes to 1st catch itself as lambda can
+		 * here checked time, exception, so it goes to 1st catch itself as lambda can
 		 * handle it
 		 */
 		try {

@@ -39,7 +39,7 @@ class PrivateMethod {
 	
 	public PrivateMethod() {}
 	
-	public void printStr(String val) {
+	private void printStr(String val) {
 		System.out.println(val);
 	}
 	

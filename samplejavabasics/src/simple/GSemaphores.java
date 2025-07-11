@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.Semaphore;
 
+/*
+ * A critical resource (also called shared resource) is 
+ * any data or object that is accessed and modified by multiple threads, 
+ * where concurrent access may lead to inconsistency, data corruption, or race conditions.
+ */
 public class GSemaphores implements Runnable {
 
 	ArrayList<Integer> sr;
@@ -23,6 +28,8 @@ public class GSemaphores implements Runnable {
 			sem.acquire();
 			//sem.acquire(2); // we can also specify permit count here
 			System.out.println(threadName + " has ACQUIRED the semaphore! ");
+			sr.add((int) (Math.random() * 100)); // <-- critical section
+			System.out.println(threadName + " final value " + sr);
 			Thread.sleep((long) (Math.random() * 1000) * 5);
 			sem.release();
 			System.out.println(threadName + " has RELEASED the semaphore. ");

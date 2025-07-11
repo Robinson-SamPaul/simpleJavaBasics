@@ -9,7 +9,7 @@ import java.sql.Statement;
  * 1. Import --> Java.sql
  * 2. Load and register the driver --> com.mysql.cj.jdbc.driver
  * 3. Create a connection
- * 4. Crate a statement
+ * 4. Create a statement
  * 5. Execute the query
  * 6. Process the result
  * 7. Close the connection

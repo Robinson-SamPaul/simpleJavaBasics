@@ -2,6 +2,7 @@ package simple;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 
 public class AebMethodReference {
 	
@@ -29,13 +30,15 @@ public class AebMethodReference {
 		MethRefInt methRefInt3 = MethodRef::print2;
 		methRefInt3.printFromInterface("Sam");
 		
-		MethRefInt methRefInt4 = new MethodRef()::print1;
+		MethRefInt methRefInt4 = new MethodRef()::print1; // The method reference is being used in a context that expects void, so the return value of print1() is simply ignored.
 		methRefInt4.printFromInterface("Sam");
 		System.out.println();
 
-		ConstRefInt constRefInt1 = () -> new ConstRefCls();
-		constRefInt1.method();
-		ConstRefInt constRefInt2 = ConstRefCls::new; // constructor reference
+		ConstRefCls obj = new ConstRefCls();
+		ConstRefInt constRefInt1 = () -> obj;
+		ConstRefCls obj2 = constRefInt1.method();
+		System.out.println(obj.hashCode() + "=" + obj2.hashCode());
+		ConstRefInt constRefInt2 = ConstRefCls::new; // constructor reference must match or cast-able to the return type
 		constRefInt2.method();
 		ConstRefInt constRefInt3 = () -> new ConstRefCls(7); // parameterized constructor
 		constRefInt3.method();
@@ -46,12 +49,25 @@ public class AebMethodReference {
 		MethodRefArr arrayCreator1 = (length) -> new int[length];
 		MethodRefArr arrayCreator2 = int[]::new;
         System.out.println(arrayCreator1 + "\n" + arrayCreator2);
+        
+        /*
+         * Even though toUpperCase() is a non-static method, 
+         * we can use String::toUpperCase 
+         * because Function<T,R> provides the instance (String) as the argument.
+         * 
+         * Reference to a non-static method; instance passed as 1st arg implicitly
+         */
+        Function<String, String> f = String::toUpperCase;
+        System.out.println(f.apply("hello")); // Output: HELLO
+        
+        Function<MethodRef, String> fObj = MethodRef::methRef;
+        System.out.println(fObj.apply(new MethodRef()));
 	}
 }
 
 class MethodRef {
 	
-	// for Method Reference => method param should be same. Method name & return type doesn't matter
+	// for Method Reference => method param should be same. Method name & return type doesn't matter only if its void
 	public int print1(String str) { 
 		System.out.println("Hello " + str);
 		return 0;
@@ -59,6 +75,10 @@ class MethodRef {
 	
 	public static void print2(String str) {
 		System.out.println("Hey " + str);
+	}
+	
+	public String methRef() {
+		return this.toString();
 	}
 }
 

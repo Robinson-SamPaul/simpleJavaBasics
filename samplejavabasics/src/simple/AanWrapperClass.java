@@ -7,9 +7,10 @@ public class AanWrapperClass {
 		int a = 5;
 		@SuppressWarnings("removal")
 		Integer b = new Integer(a); // boxing
-		int c = b.intValue(); // unboxing
-		Integer d = c; // autoboxing
-		int e = d; // autounboxing
+		b = Integer.valueOf(a); // boxing
+		int c = b.intValue(); // un-boxing
+		Integer d = c; // auto-boxing
+		int e = d; // auto-unboxing
 		System.out.println(e);
 		
 		int primitiveVal = Integer.parseInt("12");

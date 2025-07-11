@@ -5,6 +5,11 @@ import java.util.List;
 
 public class AdxInheritMethods {
     
+	/*
+	 * Unlike methods, fields (variables) in Java are not overridden, they are hidden.
+	 * Fields are resolved at compile time using the reference type. - org.example.test.FieldOverriding
+	 * Methods are resolved at runtime using the actual object type.	 * 
+	 */
 	public static void main(String[] args) {
 		
 		Super superObj = new Super();
@@ -43,7 +48,7 @@ public class AdxInheritMethods {
 
 class Super {
     void bothClassMethod() {
-        System.out.println("Method is present in both class");
+        System.out.println("Method is present in both class (parent)");
     }
     void superClassMethod() {
     	System.out.println("Method is present in super class");
@@ -52,7 +57,7 @@ class Super {
 
 class Sub extends Super {
     void bothClassMethod() {
-    	System.out.println("Method is present in both class");
+    	System.out.println("Method is present in both class (child)");
     }
     void subClassMethod() {
     	System.out.println("Method is present in sub class");

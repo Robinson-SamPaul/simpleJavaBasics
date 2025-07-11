@@ -19,6 +19,14 @@ public class AamScannerAndSwitch {
         System.out.println("Enter a string : ");
         String strVal = bufferedReader.readLine();
         System.out.println("String : " + strVal);
+        /*
+        new BufferedReader(new InputStreamReader(System.in));
+        	- faster
+        	- need manual parsing
+        new Scanner(System.in);
+        	- slower
+        	- built-in parsing (nextInt(), etc.)
+        */
 		
 		System.out.println("Enter a char : ");
 		int charVal = inObj.read();

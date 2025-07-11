@@ -35,6 +35,6 @@ class Guys implements Comparable<Guys>{
 
 	@Override
 	public int compareTo(Guys that) {
-		return (this.rollno > that.rollno) ? 1 : -1;
+		return (this.rollno > that.rollno) ? 1 : -1; // +1 means swap
 	}
 }

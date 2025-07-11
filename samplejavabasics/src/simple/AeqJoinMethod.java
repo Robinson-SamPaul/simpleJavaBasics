@@ -3,6 +3,8 @@ package simple;
 public class AeqJoinMethod {
 
 	public static void main(String[] args) {
+
+		System.out.println(AbyRunnable.class);
 		
 		StartOrRun thread3 = null;
 		System.out.println("----------Start");
@@ -11,14 +13,17 @@ public class AeqJoinMethod {
 			thread3.start();
 		}
 		try {
-			thread3.join(); // join will make this thread to join current (main) thread, if we specify time inside join method to wait to start next line
+			/*
+			 * thread.join(5000);
+			 * You're telling the current thread (e.g., main) to wait 
+			 * up to 5000 ms for the thread to finish its execution.
+			 * If thread finishes before 5 seconds → the current thread resumes immediately.
+			 * If thread doesn't finish within 5 seconds → the current thread resumes after waiting 5 seconds.
+			 */
+			thread3.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		System.out.println("----------End\n"); // join will make this line be executed at end
-		
-		/* Refer for interface */
-		AbyRunnable runnableInterface = new AbyRunnable();
-		System.out.println(runnableInterface);
 	}
 }

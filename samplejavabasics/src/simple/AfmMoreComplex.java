@@ -12,7 +12,7 @@ public class AfmMoreComplex {
 
 		/*
 		 * Exponential Time Complexity
-		 * Order of N - O(2^N)
+		 * Order of N - O(N!)
 		 */
 		getFactorial(5);
 	}
@@ -21,7 +21,7 @@ public class AfmMoreComplex {
 		int num = factorial(n);
 		for(int i=0; i<num; i++) {
 			if(i == num-1) {
-				System.err.println("O(2N!) = " + (i + 1));
+				System.err.println("O(N!) = " + (i + 1));
 			}
 		}		
 	}

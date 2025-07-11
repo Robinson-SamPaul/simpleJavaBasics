@@ -68,6 +68,8 @@ public class AfgCollectors {
 		/*Counts the number of elements in the stream*/
 		long count = getStream().collect(Collectors.counting());
 		System.out.println(count);
+		count = getStream().count();
+		System.out.println(count);
 	}
 
 	private static Stream<String> getStream() {

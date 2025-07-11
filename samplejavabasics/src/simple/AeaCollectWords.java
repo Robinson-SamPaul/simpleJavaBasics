@@ -11,6 +11,38 @@ import java.util.stream.Collectors;
 
 public class AeaCollectWords {
 
+	/*
+	Collection (Interface)	
+	    Part of the java.util package	
+	    Root interface for List, Set, Queue, etc.	
+	    Represents a group of objects	
+	    Example: Collection<String> list = new ArrayList<>();	
+	Collections (Utility Class)
+	    Also part of java.util
+	    Final utility class with static methods
+	    Contains helper methods (like sort(), reverse(), shuffle(), unmodifiableList() etc.)
+	    Example: Collections.sort(list);
+
+	Collector<T, A, R> (Interface)	
+	    Interface that defines how to collect data from a Stream	
+	    Used with Stream.collect() method	
+	    Rarely implemented manually	
+	Collectors (Utility Class)
+	    Utility class with predefined collectors
+	    Provides static methods like toList(), groupingBy(), joining()
+	    Almost always used via Collectors class
+
+	Array (Built-in Language Feature)	    
+	    Native fixed-size data structure	    
+	    Syntax: int[] arr = new int[10];	    
+	    No methods except indexing and length	
+	    Can't be dynamically resized	        
+	Arrays (Utility Class)
+	    Utility class in java.util package
+	    Syntax: Arrays.sort(arr);
+	    Has useful static methods: sort(), binarySearch(), equals(), fill(), asList() etc.
+	    Just helps manipulate existing arrays
+	*/
 	public static void main(String[] args) {
 		
 		/*

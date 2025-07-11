@@ -26,10 +26,11 @@ public class AceForEachMethod {
 	}
 }
 /*
-Comparator: Passed to sort methods.
-Consumer: Passed to forEach methods.
-Predicate: Passed to methods like filter and removeIf.
-Function: Passed to methods like map and computeIfAbsent.
-Supplier: Passed to methods like orElseGet and generate.
+Comparator: Passed to sort methods. compare()
+Consumer: Passed to forEach methods. accept()
+Predicate: Passed to methods like filter and removeIf. test()
+Function: Passed to methods like map and computeIfAbsent. apply()
+Supplier: Passed to methods like orElseGet and generate. get()
 BiFunction: Passed to methods like merge.
+BinaryOperator: Passed to method like reduce. apply()
 */

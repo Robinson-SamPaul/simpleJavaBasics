@@ -8,6 +8,17 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class AarTimeApi {
+	
+	/*
+		Immutable: Thread-safe and safer for concurrent use.
+		Clear separation of concerns:
+			LocalDate: Date only (no time)
+			LocalTime: Time only (no date)
+			LocalDateTime: Both date and time (no timezone)
+			ZonedDateTime: Date, time and timezone
+		Better API design: Chainable and intuitive methods.
+		Formatting/Parsing via DateTimeFormatter (immutable and thread-safe).
+	 */
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

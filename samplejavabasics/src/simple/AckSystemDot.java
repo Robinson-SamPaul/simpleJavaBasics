@@ -8,8 +8,8 @@ public class AckSystemDot {
 		String s = "!";
 		char c = 'd';
 		float f = 0.7f;
-		System.out.format("Hello Worl%c%s %d + %f", c, s, i, f); // decimal - f, normal - d
-		/* can also use String.format(s, args) */
+		System.out.format("Hello Worl%c%s %d + %f\n", c, s, i, f); // decimal - f, normal - d
+		System.out.println(String.format("Hello Worl%c%s %d + %f", c, s, i, f)); 
 	}
 
 }

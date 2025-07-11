@@ -21,5 +21,4 @@ public class AdzCollect {
 		evenNumbers2.add(77);
 		System.out.println(evenNumbers2);
 	}
-
 }

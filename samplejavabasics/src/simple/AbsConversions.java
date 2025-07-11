@@ -25,7 +25,7 @@ public class AbsConversions {
 		String strChar = "t";
 		char normChar3 = strChar.charAt(0);
 		
-//		System.out.println(normChar1 + normChar2 + normChar3); // Plus promotes char to int
+		System.out.println(normChar1 + normChar2 + normChar3); // Plus promotes char to int
 		System.out.println("" + normChar1 + normChar2 + normChar3);
 		
 //		To String
@@ -40,5 +40,12 @@ public class AbsConversions {
 		String normStr4 = sbfStr.toString();
 		
 		System.out.println(normStr1 + normStr2 + normStr3 + normStr4);
+		
+		System.out.println("_____________");
+		char c = '0';
+        int i = c-48;
+        System.out.println(i);
+        char j = (char) (i+48);
+        System.out.println(j);
 	}
 }

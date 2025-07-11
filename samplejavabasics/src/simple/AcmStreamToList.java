@@ -13,14 +13,15 @@ public class AcmStreamToList {
 		Map<Integer, String> m = new HashMap<>();
 		m.put(1, "Sam");
 		m.put(2, "Paul");
-		m.put(1, "Rob"); // map won't allow duplicate keys
 		m.put(3, "Rob");
+		System.out.println(m);
+		m.put(1, "Rob"); // map won't allow duplicate keys, instead it will update the existing one
 		System.out.println(m);
 		System.out.println(m.entrySet());
 		System.out.println(m.values());
 		
 		Collection<String> c = m.values();
-		List<String> ls = c.stream().collect(Collectors.toList());
+		List<String> ls = c.stream().collect(Collectors.toList()); // c.stream().toList(); // will work too 
 		ls.forEach(n -> System.out.println(n));		
 	}
 

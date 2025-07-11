@@ -10,11 +10,13 @@ public class AaoBufferAndBuilder {
 		System.out.println(s.hashCode());
 		System.out.println(t.hashCode());
 		
+		// thread safe, slower, mutable
 		StringBuffer sbf = new StringBuffer(s); // thread safe
 		System.out.println(sbf.hashCode());
 		sbf.append(" world");
 		System.out.println(sbf.hashCode());
 		
+		// faster, mutable
 		StringBuilder sbl = new StringBuilder(s);
 		System.out.println(sbl.hashCode());
 		sbl.append(" world");

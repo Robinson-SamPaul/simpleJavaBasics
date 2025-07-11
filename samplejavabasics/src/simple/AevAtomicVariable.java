@@ -19,8 +19,29 @@ public class AevAtomicVariable {
 		Guarantees visibility and atomicity of updates, so you don't need additional volatile or synchronized keywords.
 	 */
 
+	static int intValue = 0;
+	/*
+	 * The JVM acquires a monitor lock on the object (or class, if static).
+	 * Only one thread can enter this block at a time.
+	 * It guarantees mutual exclusion, but:
+	 * 		Context switching
+	 * 		Lock acquisition and release
+	 * 		Thread contention
+	 */
+	static volatile int volValue = 0;
     public static void main(String[] args) {
     	
+    	/*
+    	 * Internally uses:
+    	 * 	Compare-And-Swap (CAS):
+    	 * 		if currentValue == expectedValue, then set newValue
+    	 * 		All done in a single atomic CPU instruction (like LOCK CMPXCHG on x86)
+    	 * 	Benefits:
+    	 * 		No threads are blocked
+    	 * 		No context switching
+    	 * 		Much faster under high contention
+    	 * 		Still guarantees atomicity
+    	 */
     	AtomicInteger counter = new AtomicInteger(0);
 
         // Creating multiple threads to increment the counter concurrently
@@ -29,6 +50,8 @@ public class AevAtomicVariable {
             threads[i] = new Thread(() -> {
                 for (int j = 0; j < 1000; j++) {
                     counter.incrementAndGet(); // Increment the counter using atomic operation
+                    intValue++;
+                    increment();
                 }
             });
             threads[i].start(); // Start each thread
@@ -45,5 +68,11 @@ public class AevAtomicVariable {
 
         // Print the final value of the counter
         System.out.println("Final counter value with AtomicInteger: " + counter);
+        System.out.println("Final counter value without AtomicInteger: " + intValue);
+        System.out.println("Final counter value with Volatile & synchronised Integer: " + volValue);
+    }
+    
+    public synchronized static void increment() {
+    	volValue++;
     }
 }

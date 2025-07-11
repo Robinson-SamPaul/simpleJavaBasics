@@ -25,7 +25,7 @@ public class AekDifferentLists {
 		 * Manipulation = LinkedList
 		 */
 		start = Instant.now();
-		add50000Values(arrayList); // O(n) operation (linear time complexity) 
+		add50000Values(arrayList); // O(1) (most of the time), Occasionally O(n) when resizing occurs operation (constant time complexity) 
 		end = Instant.now();
 		System.err.println("Array List manipluation = " + Duration.between(start, end));
 		

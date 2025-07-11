@@ -20,6 +20,8 @@ public class AcnMethodRefernce implements MetRef {
 		MetRef m = mr::show; // instead of implementing lambda function for functional interface, mr can be used to refer the method which is already implemented
 		String str = m.show();
 		System.out.println(str);
+		
+		System.out.println(AebMethodReference.class);
  	}
 
 }

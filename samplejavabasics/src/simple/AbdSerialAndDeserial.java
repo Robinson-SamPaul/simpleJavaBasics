@@ -9,6 +9,10 @@ import java.io.Serializable;
 
 public class AbdSerialAndDeserial {
 
+	/*
+	 * Serialization = converting a Java object into a byte stream
+	 * De-serialization = converting the byte stream back into the original object
+	 */
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		// TODO Auto-generated method stub
 		Demo obj1 = new Demo(7, "Sam");
@@ -24,7 +28,6 @@ public class AbdSerialAndDeserial {
 		ois.close();
 		System.out.println(d.a + " " + d.b);
 	}
-
 }
 
 @SuppressWarnings("serial")

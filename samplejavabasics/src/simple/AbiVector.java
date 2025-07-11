@@ -13,10 +13,11 @@ public class AbiVector {
 		val.add(67);
 		System.out.println(val);
 		val.remove(0);
-		System.out.println(val.capacity()); // default size is 10 {, 20, 30, etc} and it'll extend
+		System.out.println(val.capacity()); // default size is 10 {, 20, 40, etc} and it'll extend by 100% of cur size
 		for(int i : val) {
 			System.out.println(i);
 		}
+		System.out.println(AelVector.class);
 	}
 
 }

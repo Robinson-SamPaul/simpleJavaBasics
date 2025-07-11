@@ -45,8 +45,8 @@ class FirstTask implements Runnable {
 				rOne.myVar++;
 				Thread.sleep(1000);
 				System.out.println("After sleep 1st"
-						+ "\n one" + rOne
-						+ "\n Two" + rTwo);
+						+ "\n one" + rOne.myVar
+						+ "\n Two" + rTwo.myVar);
 
 				synchronized (rTwo) {
 					System.out.println("Lock acquired on ResourceTwo by " + Thread.currentThread().getName());
@@ -87,8 +87,8 @@ class SecondTask implements Runnable {
 				rTwo.myVar++;
 				Thread.sleep(1000);
 				System.out.println("After sleep 2nd"
-						+ "\n one" + rOne
-						+ "\n Two" + rTwo);
+						+ "\n one" + rOne.myVar
+						+ "\n Two" + rTwo.myVar);
 
 				synchronized (rOne) {
 					System.out.println("Lock acquired on ResourceOne by " + Thread.currentThread().getName());

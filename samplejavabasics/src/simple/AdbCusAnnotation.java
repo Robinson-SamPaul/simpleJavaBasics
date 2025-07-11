@@ -22,24 +22,46 @@ public class AdbCusAnnotation {
 		
 		DummyForAnnotaion obj = new DummyForAnnotaion(10);
 		test(annotaion);
+		System.out.println("\n****************\n");
 		test(obj);
-		test(new DummyForAnnotaion(700));
+		System.out.println("\n****************\n");
+		test(new DummyForAnnotaion(100));
 	}
 	
 	private static void test(DummyForAnnotaion obj) {
 
 		if (obj.getClass().isAnnotationPresent(AnnotationSample.class)) {
-			System.out.println("Annotation is having retentionPolicy as 'runtime', hence accessible");
-			AnnotationSample annotaionObj = obj.getClass().getAnnotation(AnnotationSample.class);
-			if(annotaionObj.maxValue() == 1000 && annotaionObj.minValue() == 100) {
-				System.out.println("Properly used");
+			System.out.println("Annotation is present on class");
+			AnnotationSample annotationObj = obj.getClass().getAnnotation(AnnotationSample.class);
+			System.out.println("Class - max: " + annotationObj.maxValue() + ", min: " + annotationObj.minValue());
+			if (annotationObj.maxValue() == 1000 && annotationObj.minValue() == 100) {
+				System.out.println("Class annotation properly used");
 			} else {
-				System.out.println("Not used properly");
+				System.out.println("Class annotation not used properly");
 			}
 		} else {
-			System.err.println("Annotation is not having retentionPolicy as 'runtime', hence not accessible");
+			System.err.println("Annotation not present on class");
+		}
+
+		try {
+			AnnotationSample fieldAnnotation = obj.getClass().getDeclaredField("val").getAnnotation(AnnotationSample.class);
+			if (fieldAnnotation != null) {
+				System.out.println("Field - max: " + fieldAnnotation.maxValue() + ", min: " + fieldAnnotation.minValue());
+			}
+		} catch (Exception e) {
+			System.err.println("Field annotation not found");
+		}
+
+		try {
+			AnnotationSample methodAnnotation = obj.getClass().getDeclaredMethod("getVal").getAnnotation(AnnotationSample.class);
+			if (methodAnnotation != null) {
+				System.out.println("Method - max: " + methodAnnotation.maxValue() + ", min: " + methodAnnotation.minValue());
+			}
+		} catch (Exception e) {
+			System.err.println("Method annotation not found");
 		}
 	}
+
 }
 
 /*
@@ -58,7 +80,7 @@ public class AdbCusAnnotation {
 	double minValue();
 }
 
-@AnnotationSample(maxValue = 100, minValue = 1000)
+@AnnotationSample(maxValue = 1000, minValue = 100)
 class DummyForAnnotaion {
 	
 	@AnnotationSample(maxValue = 100, minValue = 1000)

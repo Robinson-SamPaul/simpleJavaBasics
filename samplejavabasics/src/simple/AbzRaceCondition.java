@@ -8,7 +8,7 @@ public class AbzRaceCondition {
 
 		Runnable obj1 = () -> {
 
-			for(int i=0; i<1000; i++) {
+			for(int i=0; i<100000; i++) {
 
 				c.increment();
 			}
@@ -16,7 +16,7 @@ public class AbzRaceCondition {
 		
 		Runnable obj2 = () -> {
 
-			for(int i=0; i<1000; i++) {
+			for(int i=0; i<100000; i++) {
 
 				c.increment();
 			}
@@ -39,8 +39,8 @@ class Counter {
 	
 	int count;
 	
-	public void increment() {
-//	public synchronized void increment() { // only one thread can execute this method at a time.
+//	public void increment() {
+	public synchronized void increment() { // only one thread can execute this method at a time.
 		
 		++count;
 	}

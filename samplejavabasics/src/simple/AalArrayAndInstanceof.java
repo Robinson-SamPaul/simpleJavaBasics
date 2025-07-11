@@ -8,6 +8,9 @@ public class AalArrayAndInstanceof {
 		// TODO Auto-generated method stub
 		String s = new String("ghh");
 		System.out.println(s instanceof String);
+
+		// Declaring + Initializing				int[] a = {1, 2, 3};
+		// Assigning later + re-initializing	a = new int[] {1, 2, 3};
 		
 		int a[] = {0, 1, 2, 3, 4},i;
 		int b[] = new int[5];

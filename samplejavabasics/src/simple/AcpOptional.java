@@ -4,6 +4,13 @@ import java.util.Optional;
 
 public class AcpOptional {
 
+	/*
+	Optional.of(name);
+		Throws NullPointerException if the value is null.
+	Optional.ofNullable(name);
+		If value is null → returns Optional.empty()
+		If value is not null → wraps it like Optional.of(value)
+	 */
 	public static void main(String args[]) {
 		
 		String s1 = value(-2);
@@ -26,9 +33,9 @@ public class AcpOptional {
 
 		System.out.println();
 		
-		System.out.println(Optional.ofNullable(""));
-		System.out.println(Optional.ofNullable("test"));
-		System.out.println(Optional.ofNullable(null));
+		System.out.println("With empty string " + Optional.ofNullable(""));
+		System.out.println("With string value " + Optional.ofNullable("test"));
+		System.out.println("With null value" + Optional.ofNullable(null));
 
 		System.out.println();
 		

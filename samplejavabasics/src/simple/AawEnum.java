@@ -2,7 +2,7 @@ package simple;
 
 enum Mobile {
 	// enum constants should be uppercase, but I did like this
-	RedMi(15000), RealMe, Samsung(21000); // when these are defined, constructor will be called internally.
+	RedMi(15000), RealMe(), Samsung(21000); // when these are defined, constructor will be called internally.
 	
 	private int price;
 	
@@ -42,13 +42,16 @@ public class AawEnum {
 		 * To ensure the loggers print messages, you need to access the enum constants in the main method. 
 		 * This will trigger the initialization of the enum constants, thereby calling the constructors.
 		 */
-		Class.forName("simple.Mobile"); // now both constructor is getting called
+//		Class.forName("simple.Mobile"); // now both constructor is getting called, for the first time when the class loads all constructor will be called
 		
+		System.out.println("----------");
 		System.out.println(Mobile.values());
-		System.out.println(Mobile.RedMi);
+		System.out.println(Mobile.RealMe);
+		System.out.println("----------");
 		Mobile m = Mobile.RealMe;
 		System.out.println(m);
 		System.out.println(Mobile.RealMe.getPrice());
+		System.out.println("----------");
 		Mobile v[] = Mobile.values();
 		for(Mobile vs : v) {
 			System.out.println(vs + " = $" + vs.getPrice() + " " + vs.ordinal());

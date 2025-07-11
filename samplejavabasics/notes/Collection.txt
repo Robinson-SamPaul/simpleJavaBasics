@@ -1,0 +1,261 @@
+ArrayList <- AbstractList, RandomAccess <- List <- Collection
+    Backed by a resizable array (Object[]).
+    Initially has a default capacity (typically 10).
+    Increasing capacity by ~50% (e.g., newCapacity = oldCapacity + oldCapacity / 2).
+    Not thread-safe, must be externally synchronized if used by multiple threads 
+    (e.g., via Collections.synchronizedList(new ArrayList<>()) or using CopyOnWriteArrayList for concurrent scenarios).
+
+    | Operation       | Average Time   | Worst Time           | Explanation                              |
+    | --------------- | -------------- | -------------------- | ---------------------------------------- |
+    | `add(E)` at end | O(1) amortized | O(n) (during resize) | Usually constant, but resizing is costly |
+    | `add(index, E)` | O(n)           | O(n)                 | May require shifting elements            |
+    | `get(index)`    | O(1)           | O(1)                 | Direct array access                      |
+    | `set(index, E)` | O(1)           | O(1)                 | Direct array access                      |
+    | `remove(index)` | O(n)           | O(n)                 | Elements are shifted                     |
+    | `contains(E)`   | O(n)           | O(n)                 | Linear search                            |
+    | `size()`        | O(1)           | O(1)                 | Tracked internally                       |
+    | `iterator()`    | O(n)           | O(n)                 | Returns iterator over the array          |
+
+******************************************************************************************************************************************
+LinkedList <- AbstractSequentialList, Deque <- AbstractList <- List <- Collection
+    LinkedList is a doubly-linked list implementation of the List and Deque interfaces (meaning it supports queue/stack behavior too).
+    Internally, it consists of nodes, each containing:
+        A data element
+        A reference to the previous node
+        A reference to the next node
+    Not thread-safe, use Collections.synchronizedList(new LinkedList<>()) or a concurrent-safe queue (like ConcurrentLinkedQueue) in multithreaded scenarios.
+
+    | Operation       | Average Time | Worst Time | Explanation                                                   |
+    | --------------- | ------------ | ---------- | ------------------------------------------------------------- |
+    | `add(E)` (end)  | O(1)         | O(1)       | Adds at tail                                                  |
+    | `add(index, E)` | O(n)         | O(n)       | Needs to traverse                                             |
+    | `get(index)`    | O(n)         | O(n)       | Linear search, chooses shortest direction (from head or tail) |
+    | `set(index, E)` | O(n)         | O(n)       | Needs to find the node first                                  |
+    | `remove(index)` | O(n)         | O(n)       | Must traverse to node                                         |
+    | `removeFirst()` | O(1)         | O(1)       | Instant unlink                                                |
+    | `removeLast()`  | O(1)         | O(1)       | Instant unlink                                                |
+    | `contains(E)`   | O(n)         | O(n)       | Linear search                                                 |
+    | `iterator()`    | O(n)         | O(n)       | Sequential traversal                                          |
+
+******************************************************************************************************************************************
+Vector <- AbstractList, RandomAccess <- List <- Collection
+    Vector is a resizable array just like ArrayList, but it’s synchronized.
+    Part of legacy collections (before Java 1.2), but still exists for backward compatibility.
+    Increasing capacity by ~100% (e.g., newCapacity = oldCapacity * 2).
+    All methods like add, get, remove, etc. are synchronized for thread safety.
+
+    | Operation       | Average Time   | Worst Time           | Explanation        |
+    | --------------- | -------------- | -------------------- | ------------------ |
+    | `add(E)`        | O(1) amortized | O(n) (during resize) | Appends to end     |
+    | `add(index, E)` | O(n)           | O(n)                 | May shift elements |
+    | `get(index)`    | O(1)           | O(1)                 | Direct access      |
+    | `set(index, E)` | O(1)           | O(1)                 | Direct access      |
+    | `remove(index)` | O(n)           | O(n)                 | Shift required     |
+    | `contains(E)`   | O(n)           | O(n)                 | Linear scan        |
+    | `size()`        | O(1)           | O(1)                 | Tracked field      |
+
+******************************************************************************************************************************************
+Stack <- Vector <- AbstractList, RandomAccess <- List <- Collection
+    Stack is a legacy class in Java that extends Vector and models the LIFO (Last-In, First-Out) stack data structure.
+    Part of java.util and introduced before Java Collections Framework.
+    Internally, it uses a synchronized dynamic array (because it extends Vector).
+
+    | Operation  | Time Complexity | Explanation                  |
+    | ---------- | --------------- | ---------------------------- |
+    | `push()`   | O(1) amortized  | Add at end of internal array |
+    | `pop()`    | O(1)            | Remove last element          |
+    | `peek()`   | O(1)            | Access last element          |
+    | `search()` | O(n)            | Linear scan to find element  |
+
+******************************************************************************************************************************************
+Queue <- Collection
+    Represents a First-In-First-Out (FIFO) structure.
+    Does not allow random access like lists.
+    Provides methods like:
+        offer(E) – insert element (returns false if full)
+        poll() – retrieve and remove head (returns null if empty)
+        peek() – retrieve but don’t remove head
+        add(E), remove(), element() – like above but throw exceptions if fails
+
+    | Operation  | Typical Time Complexity |
+    | ---------- | ----------------------- |
+    | `offer(E)` | O(1)                    |
+    | `poll()`   | O(1)                    |
+    | `peek()`   | O(1)                    |
+    | `remove()` | O(1)                    |
+
+******************************************************************************************************************************************
+CopyOnWriteArrayList <- AbstractList, RandomAccess <- List <- Collection
+    Part of java.util.concurrent package.
+    Implements the List interface.
+    Backed by a copy-on-write strategy:
+    On every modification, a new copy of the entire underlying array is created.
+    Excellent for read-heavy, write-light concurrent use cases.
+
+    | Operation       | Time Complexity | Notes                      |
+    | --------------- | --------------- | -------------------------- |
+    | `get(index)`    | O(1)            | Fast random access         |
+    | `add(E)`        | O(n)            | Copies entire array        |
+    | `remove(E)`     | O(n)            | Copies entire array        |
+    | `set(index, E)` | O(n)            | Also copies array          |
+    | `contains(E)`   | O(n)            | Linear scan                |
+    | `iterator()`    | O(1)            | Returns immutable snapshot |
+
+******************************************************************************************************************************************
+HashSet <- AbstractSet <- Set <- Collection
+    Implements the Set interface — stores unique elements only.
+    Backed internally by a HashMap.
+    Does not maintain insertion order.
+    Each element is stored as a key in the map, and a constant dummy value (PRESENT) is used for the value.
+    Not thread-safe
+        Can be made thread-safe using Collections.synchronizedSet(new HashSet<>());
+        For concurrent applications, use ConcurrentHashMap.newKeySet().
+
+    | Operation     | Average Time | Worst Time (due to hash collisions) |
+    | ------------- | ------------ | ----------------------------------- |
+    | `add(E)`      | O(1)         | O(n)                                |
+    | `remove(E)`   | O(1)         | O(n)                                |
+    | `contains(E)` | O(1)         | O(n)                                |
+    | `iterator()`  | O(n)         | O(n)                                |
+    | `size()`      | O(1)         | O(1)                                |
+
+******************************************************************************************************************************************
+LinkedHashSet <- HashSet <- AbstractSet <- Set <- Collection
+    Maintains insertion order — unlike HashSet.
+    Internally backed by a LinkedHashMap.
+    Stores unique elements only, just like HashSet.
+    Not thread-safe
+        Can be made thread-safe using Collections.synchronizedSet(new LinkedHashSet<>());
+        For concurrent use, prefer ConcurrentSkipListSet (for sorted) or ConcurrentHashMap.newKeySet() (for unordered).
+
+    | Operation     | Average Time | Worst Time | Notes                                      |
+    | ------------- | ------------ | ---------- | ------------------------------------------ |
+    | `add(E)`      | O(1)         | O(n)       | Same as `HashSet`, but with order tracking |
+    | `remove(E)`   | O(1)         | O(n)       |                                            |
+    | `contains(E)` | O(1)         | O(n)       |                                            |
+    | `iterator()`  | O(n)         | O(n)       | Iterates in insertion order                |
+
+******************************************************************************************************************************************
+TreeSet <- NavigableSet, AbstractSet <- SortedSet <- Set <- Collection
+    Stores unique elements in sorted (natural or custom) order.
+    Internally backed by a TreeMap (which uses a Red-Black Tree — a self-balancing binary search tree).
+    Not thread-safe
+        Can use Collections.synchronizedSortedSet(new TreeSet<>()) for basic sync
+        For concurrent, sorted sets: use ConcurrentSkipListSet
+
+    | Operation          | Time     | Explanation                 |
+    | ------------------ | -------- | --------------------------- |
+    | `add(E)`           | O(log n) | Red-black tree insertion    |
+    | `remove(E)`        | O(log n) | Tree deletion               |
+    | `contains(E)`      | O(log n) | Tree search                 |
+    | `iterator()`       | O(n)     | In-order traversal          |
+    | `first()`/`last()` | O(log n) | Extremes via tree traversal |
+
+******************************************************************************************************************************************
+CopyOnWriteArraySet <- AbstractSet <- AbstractCollection <- Set <- Collection
+    Internally backed by a CopyOnWriteArrayList.
+    Maintains insertion order, and ensures uniqueness.
+    On every modification (like add, remove), it creates a new copy of the internal array.
+
+    | Operation     | Time | Notes                                |
+    | ------------- | ---- | ------------------------------------ |
+    | `add(E)`      | O(n) | Must check `contains()` + copy array |
+    | `remove(E)`   | O(n) | Copy-on-remove                       |
+    | `contains(E)` | O(n) | Linear scan                          |
+    | `iterator()`  | O(1) | Snapshot iterator                    |
+    | `size()`      | O(1) | Constant-time                        |
+
+******************************************************************************************************************************************
+Hashtable <- Dictionary, Map 
+    Stores key-value pairs like HashMap
+    Thread-safe — uses synchronized methods
+    Maintains no order
+    Considered legacy — largely replaced by ConcurrentHashMap in modern applicatio
+
+    | Operation       | Time Complexity | Notes                      |
+    | --------------- | --------------- | -------------------------- |
+    | `put(K, V)`     | O(1) avg        | O(n) worst with collisions |
+    | `get(K)`        | O(1) avg        |                            |
+    | `remove(K)`     | O(1) avg        |                            |
+    | `containsKey()` | O(1) avg        |                            |
+    | `iteration`     | O(n)            |                            |
+
+
+******************************************************************************************************************************************
+HashMap <- AbstractMap <- Map
+    Stores key-value pairs
+    Allows one null key and multiple null values
+    Does not maintain order (keys are unordered)
+    Backed by an array of buckets, using hashing for key lookup
+    Not thread-safe
+        Concurrent access can cause race conditions or even infinite loops (in old JDKs)
+        Use ConcurrentHashMap or Collections.synchronizedMap(new HashMap<>()) for multithreading
+
+    | Operation     | Average Time | Worst Case (many collisions) |
+    | ------------- | ------------ | ---------------------------- |
+    | `put(K, V)`   | O(1)         | O(log n) (if tree) / O(n)    |
+    | `get(K)`      | O(1)         | O(log n) / O(n)              |
+    | `remove(K)`   | O(1)         | O(log n) / O(n)              |
+    | `containsKey` | O(1)         | O(log n) / O(n)              |
+    | `keySet()`    | O(n)         | O(n)                         |
+    | `values()`    | O(n)         | O(n)                         |
+    | `entrySet()`  | O(n)         | O(n)                         |
+
+******************************************************************************************************************************************
+LinkedHashMap <- HashMap <- AbstractMap <- Map
+    Maintains insertion order or access order
+    Stores key-value pairs like HashMap
+    Allows 1 null key and multiple null values
+    Uses a doubly linked list in addition to the hash table
+
+    | Operation     | Time Complexity |
+    | ------------- | --------------- |
+    | `put(K, V)`   | O(1)            |
+    | `get(K)`      | O(1)            |
+    | `remove(K)`   | O(1)            |
+    | `containsKey` | O(1)            |
+    | `keySet()`    | O(n)            |
+    | Iteration     | O(n) (in order) |
+
+******************************************************************************************************************************************
+TreeMap <- NavigableMap, AbstractMap <- SortedMap <- Map
+    Stores key-value pairs in sorted (ascending) order
+    Internally backed by a Red-Black Tree (a type of self-balancing binary search tree)
+    Each key is stored in a Red-Black Tree node, sorted either by:
+        Natural ordering (Comparable<K>)
+        A custom Comparator<K> passed to the constructor
+    Not thread-safe
+        Use Collections.synchronizedSortedMap(new TreeMap<>());
+        No concurrent TreeMap in Java's standard library — prefer ConcurrentSkipListMap for thread-safe sorted map
+
+    | Operation                | Time     | Notes                |
+    | ------------------------ | -------- | -------------------- |
+    | `put(K, V)`              | O(log n) | Tree insertion       |
+    | `get(K)`                 | O(log n) | Tree search          |
+    | `remove(K)`              | O(log n) | Tree deletion        |
+    | `firstKey()`/`lastKey()` | O(log n) | Find min/max in tree |
+    | `iterator()`             | O(n)     | In-order traversal   |
+
+******************************************************************************************************************************************
+ConcurrentHashMap <- AbstractMap, ConcurrentMap <- SortedMap <- Map
+    A high-performance, thread-safe alternative to HashMap
+    Allows concurrent reads and safe concurrent writes
+    Introduced in Java 5, heavily optimized in Java 8
+    Backed by an array of buckets (Node[]) like HashMap
+    Divides the map into segments (not literal segments in Java 8, but logically)
+    Uses bucket-level locking or CAS (Compare-And-Swap) to avoid full-map locking
+    Reads are lock-free
+    Writes are synchronized at bucket level
+
+    | Operation        | Time Complexity | Notes                            |
+    | ---------------- | --------------- | -------------------------------- |
+    | `put(K, V)`      | O(1) avg        | Concurrent, may resize if needed |
+    | `get(K)`         | O(1) avg        | Lock-free read                   |
+    | `remove(K)`      | O(1) avg        | Fine-grained lock or CAS         |
+    | `containsKey(K)` | O(1) avg        | Lock-free                        |
+    | `iteration`      | O(n)            | Weakly consistent, thread-safe   |
+
+******************************************************************************************************************************************
+
+
+

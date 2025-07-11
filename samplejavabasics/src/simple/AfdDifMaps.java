@@ -20,7 +20,7 @@ public class AfdDifMaps {
 		 * 		Implements the Map interface and uses a hash table for storage.
 		 * 		Provides fast retrieval and insertion of key-value pairs. 
 		 * 		Does not guarantee the order of keys and values. 
-		 * 		Allows null keys and values (but only one null key). 
+		 * 		Allows null key and values (but only one null key). 
 		 */
 		Map<Integer, String> hashMap = new HashMap<>();
 		hashMap.put(1, "Sam");

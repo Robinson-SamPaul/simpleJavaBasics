@@ -11,6 +11,10 @@ public class AapThisAndSuper {
 	}
 }
 
+/*
+ * this() is not added automatically by the compiler.
+ * super() is added by the compiler automatically if you don’t add anything as the first line of your constructor.
+ */
 class First {
 	String str1;
 	First() {

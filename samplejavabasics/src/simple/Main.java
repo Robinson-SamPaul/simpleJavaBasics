@@ -16,7 +16,7 @@ public class Main {
     	A_Class.method1();
     	B_Class.method1();
 
-    	obj.method1();
+    	obj.method1(); // method hiding
     	obj.method2();
     	
     	displayItemList();

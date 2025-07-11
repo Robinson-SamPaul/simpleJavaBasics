@@ -1,5 +1,9 @@
 package simple;
 
+/*
+ * A daemon thread is a background thread that runs in the background and 
+ * automatically dies when all normal (non-daemon) threads finish.
+ */
 public class CDaemonThread {
 	public static void main(String[] args) {
 		daemonThread();

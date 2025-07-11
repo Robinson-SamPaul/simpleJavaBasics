@@ -40,6 +40,7 @@ public class AbqMap {
 		val5.put(1, "One");
 		val5.put(2, "Two");
 		val5.put(3, "Three");
+//		val5.put(4, null); // no null values too
 		System.out.println(val5);
 		
 		Set<Entry<Object, String>> entries = val1.entrySet();

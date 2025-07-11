@@ -14,6 +14,7 @@ public class AcoInterfaceMethods {
 			System.out.println("Param value " + b);
 			System.out.println("Interface field " + InterfaceFields.a);
 		};
+		System.out.println(InterfaceFields.a);
 		fields.display(7);
 		fields.show1();
 		InterfaceFields.show2();
@@ -25,13 +26,18 @@ interface InterfaceMethods {
 	void show();
 	
 	default void display() {
-		System.out.print(" World");
+		view();
+		System.out.print("World");
 	}
 	
 	static void scene() {
 		System.out.print("!");
 	}
-//	static void equals(Object o) { // interface methods can't override Object class methods
+	private void view() { // from JDK 9+ possible
+		System.out.print(" ");
+		
+	}
+//	void equals(Object o) { // interface methods can't override Object class methods
 //		System.out.println(o.toString());
 //	}
 }

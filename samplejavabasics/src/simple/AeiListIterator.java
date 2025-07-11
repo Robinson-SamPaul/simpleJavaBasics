@@ -32,12 +32,15 @@ public class AeiListIterator {
 		}
 		System.out.println("[]");
 		
-		/* To iterate in reverse */
+		/* 
+		 * ListIterator works with both direction
+		 * here we initialize the listIterator with list size, meaning it will start from last index 
+		 */
 		ListIterator<Integer> iterator2 = integers.listIterator(integers.size());
 		
 		System.out.println("\nThird time");
 		while (iterator2.hasNext()) {
-			System.out.print(iterator2.next());  // It prints nothing, got to go backwards
+			System.out.print(iterator2.next());  // It prints nothing, as no elements after last index
 		}
 		System.out.println("[]");
 		

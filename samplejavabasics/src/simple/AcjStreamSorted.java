@@ -11,15 +11,24 @@ public class AcjStreamSorted {
 	public static void main(String[] args) {
 		System.out.println(AccComparator.class);
 		
+		List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+		// Sequential
+		list.stream().forEach(System.out::print);
+		System.out.println();
+		// Parallel
+		list.parallelStream().forEach(System.out::print);
+		System.out.println(); // You may see different order in the output of .parallelStream() due to concurrent execution.
+		
 		List<Integer> ls = Arrays.asList(2,3,5,4,6,7);
 		Stream<Integer> s1 = ls
 				.parallelStream() // helps to run on multiple threads
 				.filter(n -> n>0)
-				.sorted(); // gives sorted values, while sorting parallelstream doesn't make any sense
+				.sorted(); // gives sorted values, while sorting parallel-stream doesn't make any sense
+
 
 		Stream<Integer> s2 = ls.stream().sorted(Comparator.reverseOrder());
 		
-		ls.stream().sorted((a, b) -> a-b).forEach(n -> System.out.print(n)); // a-b will return -/+. + swap & - won't
+		ls.stream().sorted((a, b) -> a-b).forEach(n -> System.out.print(n)); // a-b will return -/+. + swap & -/0 won't
 		System.out.println();
 		s1.forEach(n -> System.out.print(n));
 		System.out.println();
@@ -28,6 +37,7 @@ public class AcjStreamSorted {
 		System.out.println();
 		System.out.println(ls);
 		Collections.sort(ls);
+//		Collections.sort(ls, Comparator.reverseOrder()); // will work
 		System.out.println(ls);
 		Collections.reverse(ls);
 		System.out.println(ls);

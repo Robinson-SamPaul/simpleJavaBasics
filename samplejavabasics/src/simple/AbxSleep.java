@@ -16,7 +16,7 @@ public class AbxSleep {
 }
 
 class A1 extends Thread{
-	public void run() { // only works with try?/ catch
+	public void run() { // if parent method doesn't throws exception, child can't throw either, so I used try catch block
 		for(int i=0; i<100; i++) {
 			System.out.print("A");
 			try {

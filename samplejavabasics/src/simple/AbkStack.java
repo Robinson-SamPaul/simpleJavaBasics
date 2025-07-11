@@ -14,5 +14,4 @@ public class AbkStack {
 			System.out.println(i);
 		}
 	}
-
 }

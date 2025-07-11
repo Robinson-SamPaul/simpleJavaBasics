@@ -5,6 +5,15 @@ public class AavStaticAndFinal {
 	int a = 10;
 	static int b = 100; 
 	
+	/*
+	 * Static Variables
+	 * 		Initialized when the class is loaded
+	 * compil-time constants
+	 * 		Must be static and final.
+	 * 		Must be assigned a literal or constant expression. (String literal, primitive, or wrapper classes types (without new keyword)) 
+	 * 		Known at compile time, so the compiler in-lines it into byte-code.
+	 * 		Does not require class loading to get the value in other classes.
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Pupil p1 = new Pupil(1, "Sam");
@@ -74,7 +83,7 @@ class Pupil {
 	static { // used to initialize static variables, can be reassigned
 		college = "Standsford";
 	}
-	
+
 	final int fees = 25000;
 	
 	@Override

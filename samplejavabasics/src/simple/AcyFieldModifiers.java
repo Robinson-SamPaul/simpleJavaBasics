@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class AcyFieldModifiers {
 
-	public static void main(String[] args) throws ClassNotFoundException {
+	public static void main(String[] args) throws ClassNotFoundException, IllegalArgumentException, IllegalAccessException {
 		// TODO Auto-generated method stub
 
 		Class<?> clazz = Class.forName("simple.CusModifier");
@@ -18,6 +18,10 @@ public class AcyFieldModifiers {
 		System.out.println(Arrays.toString(fields2));
 		System.out.println(Modifier.toString(fields2[4].getModifiers())); // to get modifier of field
 		System.out.println(fields1[0].getType());
+		fields2[4].setAccessible(true);
+		CusModifier modifier = new CusModifier();
+		fields2[4].setInt(modifier, 0);
+		System.out.println(fields2[4].getInt(modifier));
  	}
 
 }

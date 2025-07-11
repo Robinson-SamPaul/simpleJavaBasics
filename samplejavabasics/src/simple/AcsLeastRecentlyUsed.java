@@ -13,6 +13,7 @@ public class AcsLeastRecentlyUsed {
 		map.put(3, "CCC");
 		map.put(4, "DDD");
 		map.put(5, "EEE");
+		map.put(1, "EEE");
 		System.out.println(map);
 		
 		map.put(6, "FFF");
@@ -55,7 +56,7 @@ class LRUCache<K, V> extends LinkedHashMap<K, V> {
 	}
 
 	@Override
-    protected boolean removeEldestEntry(Map.Entry<K,V> eldest) {
+    protected boolean removeEldestEntry(Map.Entry<K,V> eldest) { // is automatically called after every put() operation in LinkedHashMap.
         return size() > MAX_ENTRIES;
     }
 }

@@ -39,7 +39,35 @@ public class AibSwitchStatement {
 	}
 	
 	private static void otherNewchanges() {
-		checkHashcode("test");
+		/*
+		 * https://openjdk.org/projects/jdk/
+		 * Java 5	-	generics, varargs, enhanced for-loop, annotations, autoboxing
+		 * Java 6	-	scripting, performance, JDBC 4.0, compiler APIs
+		 * Java 7	-	try-with-resources, diamond operator, switch on String, NIO.2
+		 * Java 8L	-	Lambda Expressions, Functional Interfaces, Method References, 
+		 * 				Default & static Methods in Interfaces, Streams API, Optional<T>, ForEach in Iterable,
+		 * 				Date and Time API, Map API Enhancements -
+		 * 					(compute(), computeIfAbsent(), computeIfPresent(), 
+		 * 					merge(), getOrDefault(), forEach(), replaceAll()),
+		 * 				CompletableFuture
+		 * Java 9	-	Project Jigsaw – Java Platform Module System (JPMS) -> module-info.java, JShell,  Interface Private Methods,
+		 * Java 10	-	Local Variable Type Inference (var)
+		 * Java 11L	-	HttpClient API (Standardized), Quarkus, Launch Single-File Programs Without Compilation (java HelloWorld.java)
+		 * Java 12	-	Switch Expressions (Preview Feature)
+		 * Java 13	-	Switch Expressions (Second Preview) - yield,  Text Blocks (Preview Feature)
+		 * Java 14	-	Records (Preview Feature), Pattern Matching for instance of (Preview),  Text Blocks (Second Preview)
+		 * Java 15	-	Records (Standardized), Text Blocks (Standardized), Sealed Classes (Preview), 
+		 * Java 16	-	Pattern Matching for instanceof (Finalized), Records (Finalized), Sealed Classes (Second Preview)
+		 * Java 17L	-	Sealed Classes (Finalized), Pattern Matching for switch (Preview), New File I/O Methods
+		 * Java 18 	-	
+		 * Java 19	-	
+		 * Java 20	-	
+		 * Java 21L	-	Virtual Threads (Final – JEP 444), Pattern Matching for switch,
+		 * Java 22	-	Unnamed Variable (_) unused variable can be underscore,
+		 * Java 23	-	Flexible Constructor Bodies - Allows statements before this() or super() in constructors
+		 * Java 24
+		 * Java 25	-	Scoped Values, Compact Source Files & Instance Main void main() { IO.println("Hi!"); }
+		 */
 		unnamedVariableJDK22(2, 0);
         unnamedVariableJDK22(6, 3);
         patternMatchingJdk16(3);
@@ -65,8 +93,8 @@ public class AibSwitchStatement {
 		
 		// Text Blocks (Java 15+)
 		result = String.format("""
-			    My name is %s
-			    and I am %d years old.
+				My name is %s
+				  and I am %d years old.
 			    """, name, age);
 		System.out.println(result);
 		
@@ -74,7 +102,7 @@ public class AibSwitchStatement {
 		sb.append("My name is ").append("Robinson").append(" and I am ").append(27).append(" years old.");
 		System.out.println(sb.toString());
 		
-//        System.out.println(STR."hi \{name}");
+//        System.out.println(STR."hi \{name}"); // removed in recent version
 	}
 
 	private static void unnamedVariableJDK22(int a, int b) {
@@ -95,20 +123,20 @@ public class AibSwitchStatement {
     }
 
     public static void patternMatchingJdk16(Object a) {
-        if (a instanceof String s) {
+    	if (a instanceof String s) {
         	System.out.println(s);
         } else {
             String s = a.toString();
             System.out.println(s);
         }
-    }
-
-    public static void checkHashcode(Object a) {
-        String s1 = (String) a;
-        String s2 = a.toString();
-        System.out.println(a.hashCode());
-        System.out.println(s2.hashCode());
-        System.out.println(s1.hashCode());
+    	/*
+    	if (a instanceof int s) { // can work from JDK 22+
+        	System.out.println(s);
+        } else {
+            String s = a.toString();
+            System.out.println(s);
+        }
+        */
     }
 
     public static void textBlocksJdk15() {

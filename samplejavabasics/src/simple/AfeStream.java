@@ -65,7 +65,7 @@ public class AfeStream {
 			.forEach(a -> System.out.print(a+", "));
 		System.out.println();
 		
-		double max =collection.stream()
+		int max =collection.stream()
 			.filter(num -> num%2==0)
 			.mapToInt(p -> p)
 			.max()

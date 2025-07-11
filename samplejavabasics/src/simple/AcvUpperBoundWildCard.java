@@ -64,5 +64,18 @@ class MathCalc {
 	public <T> void listCheck1(List<T> list) {
 		System.out.println("It works");
 	}
+	
+	// super bounded type won't work, super works only for wildCards
+	public <T extends Number> void printDoubleBoundedType(T value) {
+	    System.out.println(value.doubleValue());
+	}
+	
+	// below won't work, wildcards won't work for generic method or class definitions, only work for already defined Generics
+	/*
+	public <? extends Number> void printDoubleBywildCard(? value) {
+	    System.out.println(value.doubleValue());
+	}
+	*/
+
 }
 

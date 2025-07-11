@@ -3,9 +3,9 @@ package simple;
 public class BMUltiThreading {
 
 	/*
-	Multithreading
+	Multi-threading
 		Definition: 
-			Multithreading involves running multiple threads within a single process. 
+			Multi-threading involves running multiple threads within a single process. 
 			Threads share the same memory space but have their own execution path.
 		Resource Sharing: 
 			Since threads share the same process memory, they can access shared resources more easily. 
@@ -15,7 +15,7 @@ public class BMUltiThreading {
 			Threads are lighter weight compared to processes. 
 			Creating and managing threads generally requires less overhead since they share resources like memory.
 		Usage: 
-			Multithreading is suitable for tasks that are part of the same application and require shared memory or resources. 
+			Multi-threading is suitable for tasks that are part of the same application and require shared memory or resources. 
 			Examples include handling multiple requests in a web server or parallelizing tasks within a single application.
 	Multiprocessing
 		Definition: 
@@ -61,6 +61,15 @@ public class BMUltiThreading {
 		Definition: 
 			A semaphore is a synchronization primitive that controls access to a shared resource by multiple threads. 
 			It maintains a set of permits, and threads must acquire a permit before accessing the resource and release it when they are done.
+		Simple terms:
+			A semaphore is like a gate-keeper that lets only a limited number of threads use something at the same time.
+			Each thread must ask for permission (a permit) before using the resource, and must give it back when done.
+	 */
+	
+	/*
+	Context switching 
+		It is the process where the CPU switches from one thread/process to another, 
+		saving the current thread's state and loading the state of the next one to run.
 	 */
 	
 	/*
@@ -93,5 +102,12 @@ public class BMUltiThreading {
 			Instead, threads or processes must release resources voluntarily.
 			Example: If a thread is holding a lock and needs additional resources, it must wait until it can acquire them or release the lock it currently holds. 
 			The system does not forcibly take the lock from the thread.
+			
+			Mutual Exclusion	Resource can't be shared — only one thread can use it at a time.
+			Hold and Wait		Thread holds some resources and waits for more.
+			No Preemption		Resources can't be taken; must be released voluntarily.
+			Circular Wait		Threads form a loop, each waiting for a resource the next holds.
+	
+			All four must occur simultaneously for a deadlock to happen.
 	 */
 }

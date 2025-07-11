@@ -49,7 +49,7 @@ public class StringIndexer {
     }
 
     public static void main(String[] args) {
-        System.out.println(getIndex("abb"));
+        System.out.println(getIndex("aiz") + " " + getIndex("afa"));
         // printStringsUpTo("ael");
     }
 }
