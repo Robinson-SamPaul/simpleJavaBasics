@@ -1,0 +1,399 @@
+Candidate Key:
+	In our employees table, the combination of employee_id and email could be a candidate key because each employee has a unique employee_id and email combination.
+	Another candidate key could be ssn (Social Security Number), assuming each employee has a unique Social Security Number.
+	CREATE TABLE employees (
+		employee_id INT PRIMARY KEY,
+		email VARCHAR(100) UNIQUE,
+		ssn VARCHAR(11) UNIQUE,
+		-- Other columns
+	);
+******************************************************************************************************************************************************
+Super Key:
+	A super key in our employees table could be a combination of employee_id, email, and phone_number, where employee_id and email are already a candidate key, but we include phone_number as well.
+	CREATE TABLE employees (
+		employee_id INT,
+		email VARCHAR(100),
+		phone_number VARCHAR(15),
+		-- Other columns
+		PRIMARY KEY (employee_id),
+		UNIQUE (email),
+		UNIQUE (phone_number),
+		-- Other constraints
+	);
+******************************************************************************************************************************************************
+Primary Key:
+	In the same employees table, employee_id could be chosen as the primary key because it uniquely identifies each employee, and it's a candidate key.
+	CREATE TABLE employees (
+		employee_id INT PRIMARY KEY,
+		email VARCHAR(100),
+		-- Other columns
+	);
+******************************************************************************************************************************************************
+Foreign Key (FK):
+	A foreign key is a column or a set of columns in one table that refers to the primary key or a unique key in another table.
+	It establishes a relationship between two tables, enforcing referential integrity.
+	Example: department_id in an employees table referencing the department_id in a departments table.
+	CREATE TABLE employees (
+		employee_id INT PRIMARY KEY,
+		department_id INT,
+		FOREIGN KEY (department_id) REFERENCES departments(department_id)
+	);
+******************************************************************************************************************************************************
+Composite Key:
+	A composite key is a key that consists of multiple columns, used together to uniquely identify rows in a table.
+	It's similar to a candidate key but involves more than one column.
+	Example: A combination of product_id and store_id in a sales table to uniquely identify sales records for specific products in specific stores.
+	CREATE TABLE sales (
+		product_id INT,
+		store_id INT,
+		sale_date DATE,
+		quantity INT,
+		PRIMARY KEY (product_id, store_id)
+	);
+******************************************************************************************************************************************************
+Alternate Key:
+	An alternate key is a candidate key that is not chosen as the primary key.
+	It's still unique but is not the main identifier for the table.
+	Example: If email is a candidate key in a table but username is chosen as the primary key, then email becomes an alternate key.
+	CREATE TABLE users (
+		username VARCHAR(50) PRIMARY KEY,
+		email VARCHAR(100) UNIQUE,
+		-- Other columns
+	);
+******************************************************************************************************************************************************
+Unique Key Constraint:
+	A unique key constraint ensures that all values in a column or a set of columns are unique, similar to a unique index.
+	It can enforce uniqueness without being designated as the primary key.
+	Example: Creating a unique constraint on the email column to ensure no duplicate emails in a users table.
+	CREATE TABLE users (
+		user_id INT PRIMARY KEY,
+		email VARCHAR(100) UNIQUE,
+		-- Other columns
+	);
+******************************************************************************************************************************************************
+Check Constraint:
+	A check constraint ensures that values in a column meet certain conditions or criteria.
+	It can be used to enforce business rules or data validation.
+	Example: Ensuring that the age column in an employees table is always greater than or equal to 18.
+	CREATE TABLE employees (
+		employee_id INT PRIMARY KEY,
+		age INT CHECK (age >= 18),
+		-- Other columns
+	);
+******************************************************************************************************************************************************
+Generalization (Inheritance):
+	Generalization is the process of combining multiple tables that share common attributes into a single, more generalized table.
+	It's like creating a parent table that contains attributes common to several child tables.
+	This is often used in inheritance modeling, where a parent class has common attributes and behaviors that are inherited by child classes.
+	Example:
+	Suppose we have two tables, employees and contractors, both of which have common attributes like id, name, and email. We can generalize them into a single table called workers.
+	CREATE TABLE workers (
+		id INT PRIMARY KEY,
+		name VARCHAR(100),
+		email VARCHAR(100),
+		type ENUM('Employee', 'Contractor') -- Indicator for type of worker
+		-- Other common columns
+	);
+******************************************************************************************************************************************************
+Specialization (Subtypes):
+	Specialization is the process of creating separate tables for subsets of entities that have unique attributes not shared by other entities in the generalization hierarchy.
+	It's like creating child tables that have additional specific attributes beyond what's in the generalized parent table.
+	Each specialized table represents a subtype of the generalized entity.
+	Example:
+	Continuing with the workers example, we can create specialized tables employees and contractors for the specific attributes unique to each type.
+	CREATE TABLE employees (
+		id INT PRIMARY KEY,
+		salary DECIMAL(10,2),
+		hire_date DATE,
+		-- Other employee-specific columns
+		FOREIGN KEY (id) REFERENCES workers(id)
+	);
+	CREATE TABLE contractors (
+		id INT PRIMARY KEY,
+		hourly_rate DECIMAL(10,2),
+		contract_end_date DATE,
+		-- Other contractor-specific columns
+		FOREIGN KEY (id) REFERENCES workers(id)
+	);
+******************************************************************************************************************************************************
+ACID
+Atomicity:
+	Atomicity ensures that a transaction is treated as a single unit of work. Either all the operations within the transaction are completed successfully, or none of them are.
+	If any part of the transaction fails, the entire transaction is rolled back to its initial state, ensuring data integrity.
+	Example: Consider a money transfer transaction where funds are debited from one account and credited to another. Atomicity ensures that if the debit operation succeeds but the credit operation fails, the entire transaction is rolled back to maintain consistency.
+Consistency:
+	Consistency ensures that a transaction brings the database from one valid state to another valid state.
+	It enforces data integrity and business rules, ensuring that constraints, relationships, and conditions are maintained before and after the transaction.
+	Example: If a database enforces a rule that every employee must belong to a department, a transaction that attempts to add an employee without specifying a department will fail to maintain consistency.
+Isolation:
+	Isolation ensures that multiple transactions can execute concurrently without affecting each other.
+	Each transaction should operate as if it is the only transaction in the system, preventing interference from other concurrent transactions.
+	Isolation levels such as Read Uncommitted, Read Committed, Repeatable Read, and Serializable determine the level of isolation and concurrency control.
+	Example: Two transactions updating the same bank account balance should not interfere with each other. Isolation ensures that one transaction's changes are not visible to the other until it commits.
+Durability:
+	Durability guarantees that once a transaction is committed, its changes are permanently saved in the database and survive system failures like crashes or power outages.
+	Committed transactions should persist even if the system restarts or encounters unexpected errors.
+	Example: After a customer makes an online purchase and the payment is processed (transaction committed), the system ensures that the purchase record is permanently saved and can be retrieved even after a system restart.
+******************************************************************************************************************************************************
+Search Without Index (Normal Search):
+	Without an index on the department column, a normal search would typically involve scanning the entire table to find employees in a specific department. Here's an example query without an index:
+	SELECT *
+	FROM employees
+	WHERE department = 'IT';
+	In this case, the database would scan through all rows in the employees table to find those where the department column matches 'IT'. This scan can be slow, especially for large tables.
+
+Search by Index:
+	Let's create an index on the department column first:code
+	-- Create an index on department
+	CREATE INDEX idx_department ON employees(department);
+	Now, with the index in place, a search using the index would be much faster. Here's an example query using the index:
+	-- Search using index
+	SELECT *
+	FROM employees
+	WHERE department = 'IT';
+	The database engine uses the idx_department index to quickly locate and retrieve the rows where the department column is 'IT'. This search is much faster and more efficient compared to the normal search without an index, especially for tables with a large number of rows.
+******************************************************************************************************************************************************
+Add a Column:
+	ALTER TABLE employees
+	ADD email VARCHAR(255);
+	This adds a new column named email of type VARCHAR with a length of 255 characters to the employees table.
+Drop a Column:
+	ALTER TABLE employees
+	DROP COLUMN email;
+	This removes the email column from the employees table.
+Modify a Column (Change Data Type):
+	ALTER TABLE employees
+	MODIFY email VARCHAR(100);
+	This changes the data type of the email column to VARCHAR with a length of 100 characters in the employees table.
+Rename a Column:
+	ALTER TABLE employees
+	CHANGE old_column_name new_column_name VARCHAR(255);
+	This renames the old_column_name to new_column_name and changes its data type to VARCHAR with a length of 255 characters in the employees table.
+Add or Modify a Constraint:
+	ALTER TABLE employees
+	ADD CONSTRAINT pk_employee_id PRIMARY KEY (employee_id);
+	This adds a primary key constraint named pk_employee_id to the employee_id column in the employees table.
+Drop a Constraint:
+	ALTER TABLE employees
+	DROP CONSTRAINT pk_employee_id;
+	This drops the primary key constraint named pk_employee_id from the employees table.
+Add an Index:
+	ALTER TABLE employees
+	ADD INDEX idx_department (department);
+	This adds an index named idx_department to the department column in the employees table.
+Drop an Index:
+	ALTER TABLE employees
+	DROP INDEX idx_department;
+	This drops the index named idx_department from the employees table.
+******************************************************************************************************************************************************
+Normalization in SQL is a process used to organize a database to reduce redundancy and improve data integrity. This process involves dividing a database into two or more tables and defining relationships between the tables. The goal is to isolate data so that additions, deletions, and modifications can be made in just one table and then propagated through the rest of the database using the defined relationships.
+******************************************************************************************************************************************************
+First Normal Form (1NF)
+Eliminate duplicate columns from the same table: Each column must contain atomic (indivisible) values, meaning each column must contain only one value per row.
+Create separate tables for each group of related data: Ensure that each table has a primary key that uniquely identifies each row.
+Identify each set of related data with a primary key: Ensure that there are no repeating groups of columns.
+******************************************************************************************************************************************************
+| OrderID | CustomerName | Item1 | Item2 | Item3 |
+|---------|--------------|-------|-------|-------|
+| 1       | Alice        | Apple |       |       |
+| 2       | Bob          | Banana| Orange|       |
+| 3       | Carol        | Cherry| Grape | Kiwi  |
+******************************************************************************************************************************************************
+| OrderID | CustomerName | Item   |
+|---------|--------------|--------|
+| 1       | Alice        | Apple  |
+| 2       | Bob          | Banana |
+| 2       | Bob          | Orange |
+| 3       | Carol        | Cherry |
+| 3       | Carol        | Grape  |
+| 3       | Carol        | Kiwi   |
+******************************************************************************************************************************************************
+Second Normal Form (2NF)
+Meet all the requirements of the first normal form.
+Remove subsets of data that apply to multiple rows of a table and place them in separate tables.
+Create relationships between these new tables and their predecessors through the use of foreign keys: Ensure that non-key columns are fully dependent on the entire primary key.
+******************************************************************************************************************************************************
+| OrderID | CustomerID | CustomerName |
+|---------|------------|--------------|
+| 1       | 1001       | Alice        |
+| 2       | 1002       | Bob          |
+| 3       | 1003       | Carol        |
+******************************************************************************************************************************************************
+| CustomerID | CustomerName |		| OrderID | CustomerID |
+|------------|--------------|		|---------|------------|
+| 1001       | Alice        |		| 1       | 1001       |
+| 1002       | Bob          |		| 2       | 1002       |
+| 1003       | Carol        |		| 3       | 1003       |
+******************************************************************************************************************************************************
+Third Normal Form (3NF)
+Meet all the requirements of the second normal form.
+Remove columns that are not dependent upon the primary key: Ensure that all columns are only dependent on the primary key.
+******************************************************************************************************************************************************
+| OrderID | CustomerID | CustomerName | CustomerAddress |
+|---------|------------|--------------|-----------------|
+| 1       | 1001       | Alice        | 123 Apple St.   |
+| 2       | 1002       | Bob          | 456 Banana Ave. |
+| 3       | 1003       | Carol        | 789 Cherry Blvd.|
+******************************************************************************************************************************************************
+| CustomerID | CustomerName | CustomerAddress  |		| OrderID | CustomerID |
+|------------|--------------|------------------|		|---------|------------|
+| 1001       | Alice        | 123 Apple St.    |		| 1       | 1001       |
+| 1002       | Bob          | 456 Banana Ave.  |		| 2       | 1002       |
+| 1003       | Carol        | 789 Cherry Blvd. |		| 3       | 1003       |
+******************************************************************************************************************************************************
+Boyce-Codd Normal Form (BCNF)
+Definition: A table is in BCNF if it is in 3NF and every determinant is a candidate key. A determinant is an attribute or a set of attributes on which some other attribute is fully functionally dependent.
+******************************************************************************************************************************************************
+| StudentID | CourseID | Instructor |
+|-----------|----------|------------|
+| 1         | 101      | Prof. A    |
+| 2         | 101      | Prof. A    |
+| 3         | 102      | Prof. B    |
+******************************************************************************************************************************************************
+| StudentID | CourseID |		| CourseID | Instructor |
+|-----------|----------|		|----------|------------|
+| 1         | 101      |		| 101      | Prof. A    |
+| 2         | 101      |		| 102      | Prof. B    |
+| 3         | 102      |
+******************************************************************************************************************************************************
+Fourth Normal Form (4NF)
+Definition: A table is in 4NF if it is in BCNF and contains no multi-valued dependencies. A multi-valued dependency occurs when one attribute in a table uniquely determines another attribute, but both attributes are independent of all other attributes.
+******************************************************************************************************************************************************
+| StudentID | Skill   | Hobby     |
+|-----------|---------|-----------|
+| 1         | Math    | Painting  |
+| 1         | Math    | Chess     |
+| 1         | Science | Painting  |
+| 1         | Science | Chess     |
+******************************************************************************************************************************************************
+| StudentID | Skill   |		| StudentID | Hobby   |
+|-----------|---------|		|-----------|---------|
+| 1         | Math    |		| 1         | Painting|
+| 1         | Science |		| 1         | Chess   |
+******************************************************************************************************************************************************
+Fifth Normal Form (5NF)
+Definition: A table is in 5NF if it is in 4NF and cannot be decomposed into any number of smaller tables without losing data or introducing redundancy. This normal form deals with join dependencies, ensuring that all possible decompositions are lossless.
+******************************************************************************************************************************************************
+| SupplierID | PartID | ProjectID |
+|------------|--------|-----------|
+| 1          | 100    | 1000      |
+| 1          | 100    | 1001      |
+| 1          | 101    | 1000      |
+| 2          | 100    | 1000      |
+******************************************************************************************************************************************************
+| SupplierID | PartID |		| PartID | ProjectID |
+|------------|--------|		|--------|-----------|
+| 1          | 100    |		| 100    | 1000      |
+| 1          | 101    |		| 100    | 1001      |
+| 2          | 100    |		| 101    | 1000      |
+******************************************************************************************************************************************************
+Definition: Sixth Normal Form (6NF) is primarily concerned with temporal databases and further decomposing tables to ensure that they represent atomic, indivisible facts. It is often used in databases that need to track changes over time or handle interval-based data. In 6NF, each table is broken down to the point where it represents the smallest possible piece of information, often involving just one fact per table.
+Key Characteristics:
+Atomic Facts: Each table should represent a single, atomic fact without any redundancies.
+Temporal Data: It often involves handling temporal data, meaning data that changes over time.
+Interval Data: It focuses on managing interval data where changes occur at specific times or periods.
+******************************************************************************************************************************************************
+| EmployeeID | Salary   | StartDate | EndDate   |
+|------------|----------|-----------|-----------|
+| 1          | 50000    | 2023-01-01| 2023-06-30|
+| 1          | 55000    | 2023-07-01| 2023-12-31|
+******************************************************************************************************************************************************
+| EmployeeID | Salary   |		| EmployeeID | StartDate   |		| EmployeeID | EndDate     |
+|------------|----------|		|------------|-------------|		|------------|-------------|
+| 1          | 50000    |		| 1          | 2023-01-01  |		| 1          | 2023-06-30  |
+| 1          | 55000    |		| 1          | 2023-07-01  |		| 1          | 2023-12-31  |
+******************************************************************************************************************************************************
+Why Use 6NF?
+Temporal Consistency: In databases that need to maintain historical accuracy and manage changes over time, 6NF ensures that each piece of data is tracked precisely.
+Minimal Redundancy: By decomposing tables to the most atomic level, 6NF reduces redundancy and minimizes anomalies during data operations.
+Precision in Data Management: For applications where precise control over data intervals and temporal changes are crucial, 6NF provides a framework for detailed and accurate data management.
+******************************************************************************************************************************************************
+Practical Use:
+6NF is often used in specialized databases, such as:
+Financial systems: Where precise tracking of transactions over time is critical.
+Healthcare systems: Where patient data and treatment records change frequently and need precise historical tracking.
+Logistics and Inventory systems: Where stock levels, movements, and other changes over time are tracked meticulously.
+******************************************************************************************************************************************************
+MySQL and MongoDB are two popular database management systems, but they differ significantly in terms of their structure, data models, use cases, and performance characteristics. Here is a comparison to help you understand their differences and use cases:
+
+MySQL
+Type: Relational Database Management System (RDBMS)
+
+Data Model:
+
+MySQL uses a structured schema with tables, rows, and columns.
+It supports SQL (Structured Query Language) for querying and managing data.
+Each table is defined with a strict schema, meaning the structure of the data is predefined.
+Key Features:
+
+ACID Compliance: MySQL ensures ACID (Atomicity, Consistency, Isolation, Durability) properties, making it suitable for transactional applications.
+Foreign Keys and Joins: Supports foreign keys and joins, enabling complex queries and data integrity.
+Data Integrity: Strong enforcement of data integrity with constraints and validations.
+Indexing: Extensive indexing options for performance optimization.
+Replications and Clustering: Supports replication (master-slave, master-master) and clustering for high availability and scalability.
+Storage Engines: Multiple storage engines (e.g., InnoDB, MyISAM) for different use cases.
+Use Cases:
+
+Applications requiring complex transactions and queries, such as e-commerce platforms, banking systems, and CRM systems.
+Scenarios needing strong data integrity and consistency.
+Legacy applications and systems built around the relational model.
+Example Query in MySQL:
+sql
+Copy code
+SELECT Customers.name, Orders.order_date
+FROM Customers
+JOIN Orders ON Customers.customer_id = Orders.customer_id
+WHERE Orders.order_date > '2023-01-01';
+MongoDB
+Type: NoSQL Document-Oriented Database
+
+Data Model:
+
+MongoDB uses a flexible, schema-less structure with collections and documents (JSON-like BSON format).
+It does not require a predefined schema, allowing for dynamic and nested data structures.
+Documents within a collection can have varying fields and data types.
+Key Features:
+
+Schema Flexibility: Allows for evolving data models and accommodating changes without schema migrations.
+Scalability: Designed for horizontal scaling with built-in sharding for distributing data across multiple servers.
+Performance: Optimized for read and write operations, especially with large volumes of data.
+Replication and High Availability: Supports replica sets for data redundancy and automatic failover.
+Aggregation Framework: Powerful tools for data aggregation and analysis.
+Indexing and Searching: Rich indexing options and text search capabilities.
+Use Cases:
+
+Applications with unstructured or semi-structured data, such as content management systems, real-time analytics, and IoT applications.
+Scenarios requiring high scalability and flexibility in data modeling.
+Projects that benefit from rapid development cycles and schema evolution.
+Example Document and Query in MongoDB:
+Document:
+
+json
+Copy code
+{
+  "customer_id": "1001",
+  "name": "Alice",
+  "orders": [
+    { "order_id": "5001", "order_date": "2023-01-10", "items": ["Apple", "Banana"] },
+    { "order_id": "5002", "order_date": "2023-02-15", "items": ["Orange"] }
+  ]
+}
+Query:
+
+javascript
+Copy code
+db.customers.find({ "orders.order_date": { $gt: "2023-01-01" } })
+Summary
+MySQL is a good choice for applications requiring complex transactions, strong data integrity, and a structured schema. It is ideal for traditional enterprise applications with relational data.
+MongoDB is suited for applications needing high flexibility, scalability, and handling of unstructured or semi-structured data. It excels in environments with rapidly changing requirements and large volumes of data.
+Choosing between MySQL and MongoDB depends on your specific use case, data requirements, and performance needs.
+******************************************************************************************************************************************************
+START TRANSACTION
+This command begins a new transaction. Any SQL statements executed after this command will be part of the transaction until a COMMIT or ROLLBACK is issued.
+COMMIT
+This command ends the current transaction and makes all changes made during the transaction permanent.
+ROLLBACK
+This command ends the current transaction and undoes all changes made during the transaction.
+
+
+
