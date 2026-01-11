@@ -23,6 +23,10 @@ public class AciStreamReduce {
 		Integer total = ls.stream().reduce(0, (c, e) -> c+e); // stream can be used like this. c = carry, e = element, 0 = initial value
 		System.out.println(total);
 
+		/*
+		 * reduce(0, Integer::sum)       → int					-	works even for empty stream and return 0
+		 * reduce(Integer::sum)          → Optional<Integer>	-	will return Optional.empty() for empty stream
+		 */
 
 //		String totalVal = ls.stream().reduce("", (c, e) -> c+e); // this won't work
 		String totalVal = ls.stream().map(a -> a.toString()).reduce("", (c, e) -> c+e);

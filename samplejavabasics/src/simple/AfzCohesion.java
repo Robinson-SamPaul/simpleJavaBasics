@@ -38,7 +38,7 @@ class ListProcess { // class list process has list process data, DB stuff, mail 
     }
 
     public void sendEmail() {
-        // Send an email with the report attached
+        // Send an email with the report attached	
     }
 
     public void updateDatabase() {

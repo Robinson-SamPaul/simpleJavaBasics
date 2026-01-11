@@ -38,10 +38,10 @@ public class AcvUpperBoundWildCard {
 	 * WE CAN CREATE CLASS, INTERFACE WITH GENERICS(type parameter or a type variable), BUT CAN'T WITH WILDCARDS
 	 */
 	/*
-	 * T is Type parameter 
-	 * T extends/super Class Bounded Type Parameter 
-	 * T extends Class Upper Bounded Type Parameter 
-	 * T super Class Lower Bounded Type Parameter
+	 * <T> 									is Type parameter 
+	 * <T extends / ? super Class> 			is Bounded Type Parameter 
+	 * <T extends Class / ? extends class> 	is Upper Bounded Type Parameter 
+	 * <? super Class> 						is Lower Bounded Type Parameter
 	 */
 }
 

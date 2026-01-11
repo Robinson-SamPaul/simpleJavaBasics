@@ -44,6 +44,10 @@ where one loader delegates the request to its parent before attempting to load t
 | **Custom ClassLoader**          | Wherever you configure it (file system, DB, URL, memory) | User-defined or plugin classes at runtime       |
 
 Bootstrap 	→ Startup essentials (core Java)
-Platform 	→ Platform APIs (some javax, jdk.* modules)
+Platform 	→ Platform APIs (some javax, jdk.* modules) - (Extension ClassLoader before Java 9)
 Application → Your code and libraries
+
+Core Java runtime classes are loaded by the Bootstrap ClassLoader.
+JDK platform modules (non-core but still part of Java SE) are loaded by the Platform ClassLoader.
+Everything on the classpath (application + Maven dependencies) is loaded by the Application ClassLoader.
 */

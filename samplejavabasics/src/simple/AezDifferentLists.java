@@ -18,7 +18,7 @@ public class AezDifferentLists {
 		 * Allows fast random access to elements. 
 		 * Resizes dynamically as elements are added or removed. 
 		 * Suitable for scenarios where random access and iteration are common
-		 * but insertions and deletions at arbitrary positions are less frequent.
+		 * but insertions and deletions at arbitrary(random) positions are less frequent.
 		 */
 		List<Integer> integers1 = new ArrayList<>();
 		integers1.add(4);

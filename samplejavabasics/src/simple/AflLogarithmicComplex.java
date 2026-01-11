@@ -15,7 +15,7 @@ public class AflLogarithmicComplex {
 		 * 
 		 * 1 = N/2^k
 		 * 2^k = N
-		 * log2 N = K
+		 * k = log₂ N
 		 * 
 		 * binary search algorithm is example
 		 */

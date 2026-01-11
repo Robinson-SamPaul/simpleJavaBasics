@@ -12,7 +12,7 @@ public class AelVector {
 		Vector<String> strings = new Vector<>();
 		
 		System.out.println(strings.size());
-		System.out.println(strings.capacity()); // capacity goes 10,20, 40, 80
+		System.out.println(strings.capacity()); // capacity goes 10, 20, 40, 80
 		
 		strings.addAll(Arrays.asList(
 				"Sam", "Paul", "Rob", 

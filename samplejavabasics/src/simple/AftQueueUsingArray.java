@@ -65,7 +65,7 @@ class QueueUsingArray<T> {
 		return sb.toString();
 	}
 
-	public void enqueue(T data) throws QueueOverflowException {
+	public void enqueue(T data) throws QueueOverflowException { // offer()
 		if (isFull()) {
 			throw new QueueOverflowException("Queue is full, cannot add elements");
 		}
@@ -104,7 +104,7 @@ class QueueUsingArray<T> {
 	}
 
 	
-	public T dequeue() throws QueueUnderflowException {
+	public T dequeue() throws QueueUnderflowException { // poll()
 		
 		if (isEmpty()) {
 			throw new QueueUnderflowException("Queue is empty, elements cannot be dequeued");

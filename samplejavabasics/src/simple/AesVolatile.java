@@ -5,7 +5,7 @@ public class AesVolatile {
      * whatever values we create it can be stored in stack/heap
      * but it is likely to be stored in cache by thread too
      * it'll in CPU chip
-     * each thread may have different cache
+     * each thread may have different cache (each thread runs in diff CPU core and each core has its won cache)
      * it's access/manipulation is faster
      * 
      * for 1 thread, it is fine
@@ -21,7 +21,9 @@ public class AesVolatile {
      * so, each thread will have different values
      * to avoid that, we can use volatile
      * 
-     * it ensures that value being accessed from main memory
+     * The volatile keyword in Java is used to ensure that 
+     * a variable's changes are immediately visible to all threads and 
+     * to prevent compiler reordering of memory operations involving that variable. 
      * 
      * The volatile keyword in Java does not prevent a variable 
      * from being cached in CPU caches. Instead, 
@@ -36,7 +38,7 @@ public class AesVolatile {
      * 		ensuring that it sees the most up-to-date value.) 
      */
 	private volatile boolean flag = false;
-	/* private boolean flag = false; */
+//	private boolean flag = false;
 
     public static void main(String[] args) {
     	System.out.println("https://www.youtube.com/shorts/TFxKKtaxOKs");

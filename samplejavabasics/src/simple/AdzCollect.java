@@ -15,7 +15,7 @@ public class AdzCollect {
 			evenNumbers1.add(77);
 		} catch (Exception e) {
 			System.out.println(e);
-			System.getProperties();
+			// System.getProperties(); // no idea, why I wrote this
 		}
 		System.out.println(evenNumbers1);
 		evenNumbers2.add(77);

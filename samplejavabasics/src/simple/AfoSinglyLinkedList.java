@@ -21,7 +21,7 @@ public class AfoSinglyLinkedList {
 	}
 }
 
-class SinglyNode<T extends Comparable<T>> {
+class SinglyNode<T extends Comparable<T>> { // how to create subclass? - class SubClass<T extends Comparable<T>> extends SinglyNode<T> {}
 
 	private T data;
 	private SinglyNode<T> next;

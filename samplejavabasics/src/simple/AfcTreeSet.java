@@ -2,6 +2,7 @@ package simple;
 
 import java.util.Comparator;
 import java.util.NavigableSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -69,6 +70,7 @@ public class AfcTreeSet {
 		integerSet.add(18);
 		System.out.println(integerSet);
 		
+		// as comparable is not there, comparator is must
 		Set<TreeSetValue> treeSetValues = new TreeSet<>(
 					(obj1, obj2) -> {
 						return obj1.id - obj2.id;
@@ -78,6 +80,7 @@ public class AfcTreeSet {
 		treeSetValues.add(new TreeSetValue(4, "Sam"));
 		treeSetValues.add(new TreeSetValue(2, "Rob"));
 		treeSetValues.add(new TreeSetValue(3, "Paul"));
+		treeSetValues.add(new TreeSetValue(3, "ddscc"));
 		System.out.println(treeSetValues);
 	}
 
@@ -98,16 +101,33 @@ class TreeSetValue {
 		return "{id=" + id + ", name=" + name + "}";
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TreeSetValue other = (TreeSetValue) obj;
+		return id == other.id && Objects.equals(name, other.name);
+	}
+
 	/*
 	 * compareTo itself will decide duplicates, no need hashcode & equals contract
-	 */
-	/*
-	 * @Override public int hashCode() { return Objects.hash(id, name); }
+	 * even if we do override and still its of no help
 	 * 
-	 * @Override public boolean equals(Object obj) { if (this == obj) return true;
-	 * if (obj == null) return false; if (getClass() != obj.getClass()) return
-	 * false; TreeSetValue other = (TreeSetValue) obj; return id == other.id &&
-	 * Objects.equals(name, other.name); }
+	 * only thing we can do is, we need to implement a proper comparator or comparable
+	 * 
+	 * like
+	 * 		TreeSet<Employee> set = new TreeSet<>(Comparator
+	 * 			.comparingInt(Employee::getId)
+	 * 			.thenComparing(Employee::getName));
 	 */
 }
 

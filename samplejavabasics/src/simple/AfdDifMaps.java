@@ -48,7 +48,9 @@ public class AfdDifMaps {
 		}
 		System.out.println();
 		
-		/* Difference in speed is as same as hashSet and LinkedHAshSet, refer previous */
+		/* Difference in speed is as same as hashSet and LinkedHAshSet, refer previous 
+		 * only difference is accessing via key speed is same for both
+		 */
 		/* 
 		 * LinkedHashMap: 
 		 * 		Extends HashMap and maintains a doubly linked list alongside the hash table. 
@@ -89,6 +91,8 @@ public class AfdDifMaps {
 		 */
 		Map<Integer, String> identityMap = new IdentityHashMap<>();
 		identityMap.put(1, "SAM");
+		identityMap.put(129, null);
+		identityMap.put(129, null);
 		System.out.println(identityMap);
 		System.out.println();
 		

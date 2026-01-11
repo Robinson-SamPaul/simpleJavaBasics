@@ -39,7 +39,7 @@ Instantiation:
 	Abstract class: Cannot be instantiated directly. 
 		Super obj = new Super() is not possible, even if u have constructor
 		must be Super obj = new Sub(); "inside Sub() {super()}"
-	Interface: Cannot be instantiated at all.
+	Interface: Cannot be instantiated at all. Except Anonymous class (Anonymous Inner class)
 Multiple Inheritance:
 	Abstract class: A class can extend only one abstract class.
 	Interface: A class can implement multiple interfaces.
@@ -52,4 +52,7 @@ Fields:
 Constructors:
 	Abstract class: Can have constructors.
 	Interface: Cannot have constructors.
+	
+Abstract classes do NOT allow multiple inheritance.
+Interfaces allow multiple inheritance but PREVENT the diamond problem by forcing explicit resolution (compile time error).
 */

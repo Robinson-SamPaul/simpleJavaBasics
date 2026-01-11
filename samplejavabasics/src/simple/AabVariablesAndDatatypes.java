@@ -13,6 +13,7 @@ public class AabVariablesAndDatatypes {
 	// var value = 9; // var as instance variable is not allowed
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+//		00000000 00000000 00000000 00001001  → 9 (4 bytes) each byte with 8 bits 
 		//1byte = 8bits -> 2⁸ values = 256 = -128 to 127
 		boolean a = true;	//1 byte	true or false only
 		byte b = -128;		//1 byte	–128 to 127
@@ -49,6 +50,8 @@ public class AabVariablesAndDatatypes {
 		 * This is because var is not a type itself 
 		 * but a way to let the compiler infer the type based on the value assigned to it. 
 		 * Without an initial value, the compiler has no way to determine what type the variable should be.
+		 * 
+		 * var can be infered at compile time. but interface can't, it'll be inferred at runtime only (runtime polymorphism)
 		 * 
 		 * After the type is inferred, it is locked in for that variable. You cannot assign a value of a different type later.
 		 */

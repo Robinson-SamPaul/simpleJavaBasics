@@ -14,7 +14,7 @@ public class AebMethodReference {
 		integers.forEach(System.out :: print);
 		System.out.println("\n");
 		
-//		Anonymous inner class
+//		Anonymous inner class or Anonymous class
 		MethRefInt methRefInt1 = new MethRefInt() {
 			@Override
 			public void printFromInterface(String str) {

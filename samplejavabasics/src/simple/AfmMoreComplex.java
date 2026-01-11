@@ -11,7 +11,7 @@ public class AfmMoreComplex {
 		getExponential(5);
 
 		/*
-		 * Exponential Time Complexity
+		 * Factorial Time Complexity
 		 * Order of N - O(N!)
 		 */
 		getFactorial(5);

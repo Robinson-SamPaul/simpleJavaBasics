@@ -26,6 +26,8 @@ public class AamScannerAndSwitch {
         new Scanner(System.in);
         	- slower
         	- built-in parsing (nextInt(), etc.)
+        	
+        Like JdbcTGemplate vs JPA - faster but require manual parsing/mapping
         */
 		
 		System.out.println("Enter a char : ");

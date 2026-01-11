@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class AghSerialVersionID {
 	
 	public static void main(String[] args) throws Exception {
-		String f = "C:\\Users\\robinson.e\\Github\\Java\\simpleJavaBasics\\samplejavabasics\\src\\simple\\SerialVersion.txt";
+		String f = "D:\\codebase\\simpleJavaBasics\\samplejavabasics\\src\\simple\\SerialVersion.txt";
 		System.out.println(AbdSerialAndDeserial.class);
 		System.out.println(AdkSerializableError.class);
 		
@@ -75,7 +75,7 @@ class SerialVersion implements Serializable {
 	 * 		having a serialVersionUID ensures that the custom
 	 * 		serialization code is compatible across different versions of the class.
 	 */
-	private static final long serialVersionUID = 2L;
+	private static final long serialVersionUID = 1L;
 	private int rollNo;
 	private String name;
 	/*

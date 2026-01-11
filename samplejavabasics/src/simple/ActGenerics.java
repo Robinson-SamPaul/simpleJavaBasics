@@ -3,12 +3,15 @@ package simple;
 public class ActGenerics {
 
 	/*
+	 * Generics = Type parameter and Wildcards
+	 * 
 	 * What my basic understanding is.
-	 * 	Generic:
+	 * 	Type parameter:
 	 * 		can be used for instance variables of Generic class
 	 * 		can be used for creating generic class
 	 * 		can be used for define generic method
-	 * 		can also be used with parameterized types like List<T>
+	 * 		can also be used with diamond operator types like List<T>
+	 * 		can be used for common specification of types for multi-param - <T extends Number> void method(T a, T, b, T c, T d)
 	 
 	 *  public <T extends Number> void processNumbers(List<T> numbers) {
 		    for (Number n : numbers) {
@@ -18,11 +21,11 @@ public class ActGenerics {
 		
 	 *	public static <T extends Number> void process1(List<T> list1, List<T> list2) {
 	        // Can accept either List<Integer> or List<Double> or other Numbers
-	        // or else, we need to give N number of generics like T, U, V for each
+	        // or else, we need to give N number of TPs like T, U, V for each
 	    }
 
 	 * WildCard:
-	 * 		can only be used with parameterized types like List<?>
+	 * 		can only be used with diamond operator like List<?> that to not as instance variable, but only as method type param, return type param, and local type variable
 	 * 		can do super/lower bound types
 	 * 		syntax is much simpler and shorter (I don't think so)
 	 

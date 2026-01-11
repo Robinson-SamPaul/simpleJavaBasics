@@ -22,6 +22,7 @@ public class AcwReflection2 {
 		System.out.println(Arrays.toString(constructor));
 		
 		int val = e.getClass().getModifiers();
+		System.out.println("Value -> " +  val);
 		System.out.println(Modifier.isPublic(val));
 		System.out.println(Modifier.isPrivate(val));
 		System.out.println(Modifier.isProtected(val));

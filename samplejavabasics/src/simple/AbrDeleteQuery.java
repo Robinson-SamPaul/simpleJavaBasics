@@ -19,7 +19,7 @@ public class AbrDeleteQuery {
 	
     static final String DB_URL = "jdbc:mysql://localhost:3306/aliens";
     static final String USER_NAME = "root";
-    static final String PASSWORD = "Paulsam@264";
+    static final String PASSWORD = "Root@2024";
     
     public static void main(String[] args){
         try(Connection conn = DriverManager.getConnection(DB_URL,USER_NAME,PASSWORD); 

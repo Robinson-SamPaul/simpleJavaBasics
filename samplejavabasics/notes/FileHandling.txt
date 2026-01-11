@@ -1,0 +1,132 @@
+1. File / Path / Files (File system access)
+	File
+		What: Represents a file or directory path (metadata only).
+		When to use: Checking existence, permissions, size.
+		Type: File system abstraction (legacy IO).
+	
+	Path
+		What: Modern, immutable representation of a file path.
+		When to use: Preferred way to represent paths (NIO).
+		Type: NIO file system API.
+	
+	Files
+		What: Utility class to read/write files easily.
+		When to use: Most production file operations.
+		Type: NIO helper (high-level API).
+_______________________________________________________________________________
+
+2. Byte-Oriented Streams (Binary data)
+	InputStream
+		What: Base class to read raw bytes.
+		When to use: Reading any binary data.
+		Type: Byte stream (blocking IO).
+	
+	OutputStream
+		What: Base class to write raw bytes.
+		When to use: Writing any binary data.
+		Type: Byte stream (blocking IO).
+	
+	FileInputStream
+		What: Reads bytes directly from a file.
+		When to use: Images, PDFs, ZIPs, serialized objects.
+		Type: Byte stream (file-based).
+	
+	FileOutputStream
+		What: Writes bytes directly to a file.
+		When to use: Binary file writing.
+		Type: Byte stream (file-based).
+	
+	BufferedInputStream
+		What: Adds buffering to any InputStream.
+		When to use: Improve read performance.
+		Type: Byte stream (buffered).
+	
+	BufferedOutputStream
+		What: Adds buffering to any OutputStream.
+		When to use: Improve write performance.
+		Type: Byte stream (buffered).
+_______________________________________________________________________________
+
+3. Character-Oriented Streams (Text data)
+	Reader
+		What: Base class for reading characters.
+		When to use: Text data.
+		Type: Character stream.
+	
+	Writer
+		What: Base class for writing characters.
+		When to use: Text output.
+		Type: Character stream.
+	
+	FileReader
+		What: Reads characters from a file using default charset.
+		When to use: Simple text files (not recommended for prod).
+		Type: Character stream (file-based).
+	
+	FileWriter
+		What: Writes characters to a file using default charset.
+		When to use: Simple text output.
+		Type: Character stream (file-based).
+	
+	BufferedReader
+		What: Adds buffering + readLine() support.
+		When to use: Efficient text reading.
+		Type: Character stream (buffered).
+	
+	BufferedWriter
+		What: Adds buffering to character writing.
+		When to use: Efficient text writing.
+		Type: Character stream (buffered).
+_______________________________________________________________________________
+
+4. Byte ↔ Character Bridge (Encoding control)
+	InputStreamReader
+		What: Converts bytes → characters using charset.
+		When to use: Reading text with known encoding.
+		Type: Bridge (byte → char).
+	
+	OutputStreamWriter
+		What: Converts characters → bytes using charset.
+		When to use: Writing text with known encoding.
+		Type: Bridge (char → byte).
+_______________________________________________________________________________
+
+5. Data Streams (Primitive types)
+	DataInputStream
+		What: Reads Java primitives from byte stream.
+		When to use: Reading structured binary data.
+		Type: Byte stream (data).
+	
+	DataOutputStream
+		What: Writes Java primitives to byte stream.
+		When to use: Writing structured binary data.
+		Type: Byte stream (data).
+_______________________________________________________________________________
+
+6. Object Streams (Serialization)
+	ObjectInputStream
+		What: Reads Java objects from byte stream.
+		When to use: Deserialization.
+		Type: Byte stream (object).
+	
+	ObjectOutputStream
+		What: Writes Java objects to byte stream.
+		When to use: Serialization.
+		Type: Byte stream (object).
+_______________________________________________________________________________
+
+7. NIO (Modern IO)
+	Channel
+		What: Bidirectional data pipe.
+		When to use: High-performance IO.
+		Type: NIO.
+	
+	ByteBuffer
+		What: Container for bytes in NIO.
+		When to use: Channel-based IO.
+		Type: NIO buffer.
+	
+	Selector
+		What: Manages multiple channels.
+		When to use: Non-blocking IO.
+		Type: NIO multiplexing.

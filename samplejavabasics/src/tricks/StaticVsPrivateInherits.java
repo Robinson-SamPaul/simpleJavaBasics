@@ -5,6 +5,10 @@ public class StaticVsPrivateInherits {
 	public static void main(String[] args) {
 		System.out.println("We can't have private/static class unless it's inner class");
 	}
+
+	@SuppressWarnings("unused")
+	private class PrivateClass{}
+	static class StaticClass{}
 }
 
 //static class TestForInherit {

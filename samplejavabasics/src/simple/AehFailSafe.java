@@ -58,6 +58,14 @@ public class AehFailSafe {
 		students.add("Elanie");
 		students.add("Amara");
 
+		/*
+		 * Structural modification is allowed ONLY via Iterator.remove() during iteration.
+		 * Fail-Fast means:
+		 * 		Iterator throws exception if collection is structurally modified outside the iterator
+		 * This does not make it fail-safe.
+		 * 
+		 * Even though below works, its still not considered as fail safe
+		 */
 		Iterator<String> itr = students.iterator();
 
 		try {

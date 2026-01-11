@@ -20,7 +20,7 @@ public class AbnHashSet {
 }
 
 /*
- * HashMap 
+ * HashMap (initial size is 16, if 12 values entered which is 75%, then size will be increased to 100% which is 32.)
  * 		Default initial capacity: 16
  * 		Default load factor: 0.75
  * 			Map<String, String> map = new HashMap<>(50);

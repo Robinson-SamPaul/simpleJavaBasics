@@ -1,7 +1,7 @@
 package simple;
 
 enum Mobile {
-	// enum constants should be uppercase, but I did like this
+	// enum constants should be upper-case, but I did like this
 	RedMi(15000), RealMe(), Samsung(21000); // when these are defined, constructor will be called internally.
 	
 	private int price;

@@ -22,11 +22,6 @@ public class AecFunctionalInterface {
 			public void print1() {
 				System.out.println("Hello wow");
 			}
-			
-			
-			// Not allowed
-			// @Override public void print3() { System.out.println("Hello wow"); }
-			 
 		};
 		
 		System.out.println(obj.toString());

@@ -40,6 +40,8 @@ public class AefFuncIntrfsAndCmpring {
 
 		System.out.println("sorted with name using Method reference = ");
 		/*
+		 * not sure below, refer - \codePractise\src\main\java\org\example\test\MethodReference.java 
+		 *
 		 * 1, Reference to a Static Method
 		 * 2, Reference to an Instance Method
 		 * 3, Reference to a Constructor

@@ -21,3 +21,24 @@ public class AbiVector {
 	}
 
 }
+
+/*
+ * Vector: 
+ * 		Entire data structure is locked
+ * Collections.synchronizedList()
+ * 		Entire data structure is locked, wraps the existing list into sync list
+ * CopyOnWriteArrayList:
+ * 		Write operations are synchronized, reads are non locked
+ * 
+ * HashTable: 
+ * 		Entire data structure is locked
+ * Collections.synchronizedMap()
+ * 		Entire data structure is locked, wraps the existing map into sync map
+ * ConcurrentHashMap:
+ * 		Write operations are synchronized for each bucket, reads are non locked, and other buckets also non locked
+ * 
+ * Collections.synchronizedSet()
+ * 		Entire data structure is locked, wraps the existing set into sync set
+ * CopyOnWriteArraySet:
+ * 		Write operations are synchronized, reads are non locked
+ */

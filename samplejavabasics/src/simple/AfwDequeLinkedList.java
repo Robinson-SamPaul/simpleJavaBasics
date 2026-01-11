@@ -6,7 +6,7 @@ public class AfwDequeLinkedList {
 		// TODO Auto-generated method stub
 		/*
 		 * Dequeue = removing first element
-		 * Deque(Deck) = Data Structure which can do FIFI as well as LILO
+		 * Deque(Deck) = Data Structure which can do FIFO as well as LILO
 		 */
 
 	}
@@ -24,11 +24,12 @@ class DequeLinkedList<T> extends QueueUsingLinkedList<T> {
 
 	public T removeFirst() throws QueueUnderflowException {
 		// same as dequeue, from super class, method name should be removeFirst only
-		return null;
+		return dequeue();
 	}
 	
 	public void addLast(T data) {	
 		// same as enqueue, from super class,  method name should be addLast only
+		enqueue(data);
 	}
 	
 	public void addFirst(T data) {

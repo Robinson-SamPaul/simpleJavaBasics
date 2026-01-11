@@ -57,25 +57,29 @@ class InsufficientFundException extends Exception {
 
 /*
 Throwable
-├── Error                ← Serious system-level issues (unchecked)
-│   ├── OutOfMemoryError
-│   ├── StackOverflowError
-│   └── ...
-
-├── Exception            ← Can be checked or unchecked
-    ├── Checked Exception (compile-time)
+├── Error               
+│   ├────Runtime Errors	 ← Serious system-level issues (unchecked), can handle this with catch block, but mostly won't make sense as the errors are from JVM or system, it's hard to trace it
+│	-		├── OutOfMemoryError 
+│   │		├── StackOverflowError
+│   │		└── ...
+│	└────Compile Time Errors = can't be handled, have to fix it.
+│			├── Syntax Errors
+│			└── ...
+│
+└── Exception            ← Can be checked or unchecked, and both can be handled
+    ├── Checked Exception (compile-time) ← must be handled
     │   ├── IOException
     │   ├── FileNotFoundException
     │   ├── SQLException
     │   ├── InterruptedException
     │   └── Must be handled or declared (compiler checks)
     │
-    └── Unchecked Exception (runtime)
-        ├── RuntimeException
-        │   ├── NullPointerException
-        │   ├── ArrayIndexOutOfBoundsException
-        │   ├── ArithmeticException
-        │   ├── IllegalArgumentException
-        │   └── NumberFormatException
-        └── No need to handle or declare (compiler doesn't check)
+    └── Unchecked Exception (runtime) ← can be handled
+        └── RuntimeException
+            ├── NullPointerException
+            ├── ArrayIndexOutOfBoundsException
+            ├── ArithmeticException
+            ├── IllegalArgumentException
+            ├── NumberFormatException
+        	└── Not mandatory to handle or declare (compiler doesn't check)
 */

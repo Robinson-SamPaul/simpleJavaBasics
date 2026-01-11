@@ -20,13 +20,13 @@ public class AewAtmoicInteger {
     		counterAtomic.getAndIncrement();
     		try {
 				/*
-				 * compile time exceptions need to be fixed, not handled Inside lambda, 
+				 * compile time errors need to be fixed, not handled Inside lambda, 
 				 * we can't modify local variables 
 				 * In Java, local variables used in lambda expressions
 				 * must be effectively final or effectively immutable
 				 */
-//	    		counterPrimitive++;
-//	    		counterWrapper++;
+	    		//counterPrimitive++;
+	    		//counterWrapper++;
     		} catch (Exception e) {
     			System.err.println(e.getMessage());
     		}

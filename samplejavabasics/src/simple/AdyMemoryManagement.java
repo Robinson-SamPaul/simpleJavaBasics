@@ -20,6 +20,14 @@ public class AdyMemoryManagement {
 		 * In the thread stack, thread cache will be there
 		 * where each cache may have different values by visibility if v don't use volatile
 		 * 
+		 * thread cache means CPU cache, where each thread will be run on each CPU core and each core has its own cache.
+		 * 
+		 * CPUs do have cache coherence protocols (MESI, MOESI, etc.). (for syncing all cores' caches)
+		 * However:
+		 * 	Coherence guarantees eventual consistency
+		 * 	It does not guarantee when other cores see the update
+		 * 	Java cannot depend on cache coherence timing for correctness.
+		 * 
 		 * stack follows LIFO, unused stacks will be deleted, main stack frame will be deleted last (LIFO)
 		 * stack overflow error(stack full), stores as key-value pairs
 		 * 
@@ -60,7 +68,7 @@ public class AdyMemoryManagement {
 	private static void primitiveMemory() {
 		int a = 10;
 		int b = 10;
-		// Integer caching - https://youtu.be/ibaxjvViZJE?si=nvDC8Qy3MC0h2Mdt
+		// Integer caching - https://youtu.be/ibaxjvViZJE?si=nvDC8Qy3MC0h2Mdt (-128 to 127)
 		Integer c = 10;
 		Integer d = 10;
 		Integer e = new Integer(10);

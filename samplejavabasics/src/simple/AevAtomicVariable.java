@@ -17,6 +17,30 @@ public class AevAtomicVariable {
 		because they use low-level hardware support for atomicity.
 	Visibility: 
 		Guarantees visibility and atomicity of updates, so you don't need additional volatile or synchronized keywords.
+		
+	CAS concept - “Update the value only if it has not changed since I last saw it.”
+		When we create multiple threads, it will the read the value and store it in 'expected value'
+		Once threads start the processing, it will compare the expected value with main memory value.
+		If both are same, then it proceeds with the process.
+		Or else, it will know some other thread is doing some thing,
+		So, it will simply retry until comparison passes (not waiting, but retrying continuously, this process is called starvation)
+		This internally uses 'volatile' hence the expected value will be updated and main memory too,
+		As 'volatile' provides visibility guarantee.
+		
+	Example
+		AtomicInteger starts with value 3		
+		Thread A reads the value using get() and stores 3 as its expected value
+		CAS compares expected (3) with current value (3) → success		
+		Thread A updates the value to 4
+		Because the atomic field is volatile, the updated value 4 is immediately visible to other threads		
+		Thread B attempts CAS with an old expected value (3) → fails
+		Thread B re-reads the current value (4), which becomes its new expected value
+		Thread B retries CAS using the new expected value
+		During retries, Thread B is running, not waiting
+		If retries continue for a long time due to contention, this situation is called starvation
+
+	Atomic variables give atomicity without blocking
+	Synchronized gives atomicity by blocking
 	 */
 
 	static int intValue = 0;

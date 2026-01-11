@@ -2,6 +2,10 @@ package simple;
 
 public class AbzRaceCondition {
 
+	/*
+	 * A race condition is a concurrency bug that occurs when multiple threads access and modify shared data at the same time, 
+	 * and the final result depends on the timing (race) of thread execution rather than the program’s logic.
+	 */
 	public static void main(String[] args) throws InterruptedException {
 
 		Counter c = new Counter();

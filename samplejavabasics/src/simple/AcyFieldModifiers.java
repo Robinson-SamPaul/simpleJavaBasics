@@ -11,7 +11,9 @@ public class AcyFieldModifiers {
 
 		Class<?> clazz = Class.forName("simple.CusModifier");
 		Field[] fields1 = clazz.getFields(); // only public variables/fields
+		System.out.println("Fields " + Arrays.toString(fields1));
 		Field[] fields2 = clazz.getDeclaredFields(); // all modifiers
+		System.out.println("DeclaredFields " + Arrays.toString(fields2));
 		System.out.println(clazz);
 		System.out.println(CusModifier.class);
 		System.out.println(Arrays.deepToString(fields1)); // can be used to represent multidimensional arrays

@@ -139,3 +139,14 @@ class BankAccountDetails implements Externalizable {
     }
 }
 
+/*
+ * We can implement serilizable and write those 2 methods on our won and do the same, then why externalizable?
+
+| Aspect          | Serializable                                      | Externalizable                                                                   |
+| --------------- | ------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Interface type  | Marker                                            | Has two methods to override                                                      |
+| Control         | Optional `writeObject/readObject`                 | Mandatory `writeExternal/readExternal`                                           |
+| Object creation | JVM creates object without calling constructor    | JVM calls **no-arg constructor** to create object                                |
+| Flexibility     | Only serializes what JVM wants, unless overridden | You control **everything** — no field is serialized unless you write it yourself |
+| Use case        | Default or lightly customized serialization       | Performance critical / custom format / strict control                            |
+*/

@@ -43,9 +43,22 @@ public class AeyGarbageCollection {
 	/*
 	 * Can't be private, as JVM can't access
 	 * Not good practice to declare public
+	 * Each object has its own finalize method, but its protected, so can't call unless we override it
 	 * 
-	 * When GC is invoked, finalize method is called
+	 * finalize()
+	 * 	A method defined in java.lang.Object
+	 * 	Called by the Garbage Collector before reclaiming an object’s memory
+	 * 
+	 * Calling System.gc() does not guarantee that finalize() will run
+	 * 	finalize() is considered only if all of the following are true:
+			The object is eligible for GC (no reachable references)
+			GC actually runs
+			The object overrides finalize()
+			finalize() has not already been called on that object
+			The JVM decides to enqueue it for finalization
+		
 	 */
+	@Override
 	protected void finalize() {
 		System.out.println("Hi fro GC");
 	}

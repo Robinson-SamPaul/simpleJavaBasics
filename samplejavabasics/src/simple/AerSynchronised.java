@@ -42,6 +42,7 @@ public class AerSynchronised {
     }
 }
 
+// Threads cannot enter this synchronized block at the same time if they are trying to lock the same lock object.
 class ObjectInstanceExample {
     private Object lock = new Object();
 
@@ -59,6 +60,7 @@ class ObjectInstanceExample {
     }
 }
 
+// Threads cannot enter this synchronized block at the same time for the same object instance.
 class ThisKeywordExample {
     public void synchronizedMethod() {
         synchronized(this) {
@@ -73,6 +75,7 @@ class ThisKeywordExample {
     }
 }
 
+// No thread in the entire JVM can enter this synchronized block at the same time for this class, regardless of how many instances exist.
 class ClassLevelExample {
 
     public void staticSynchronizedMethod() {

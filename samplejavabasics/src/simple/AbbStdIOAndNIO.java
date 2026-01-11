@@ -60,6 +60,44 @@ class NIOWriteFileExample {
     
 }
 
+/*
+java.io
+  - Stream-based
+  - Blocking
+  - Simple
+  - One thread per I/O
+ 
+java.nio
+  - Buffer-based
+  - Non-blocking
+  - Selector-driven
+  - High scalability
+
+java.nio.2
+  - Asynchronous
+  - Modern file system API
+ */
+
+
+
+
+
+/*
+ * Binary data → InputStream / OutputStream
+ * Text data → Reader / Writer
+ * Need performance → Buffered*
+ * Need encoding control → InputStreamReader / OutputStreamWriter
+ * Modern Java → Files + Path
+ */
+
+
+
+
+// Check the text file in notes - /simple/notes/FileHandling.txt
+
+
+
+
 
 
 /*

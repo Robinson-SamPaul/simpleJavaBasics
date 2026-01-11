@@ -16,7 +16,7 @@ public class AbxSleep {
 }
 
 class A1 extends Thread{
-	public void run() { // if parent method doesn't throws exception, child can't throw either, so I used try catch block
+	public void run() { // check inheritance covariant - src/main/java/org/example/test/Covariant.java
 		for(int i=0; i<100; i++) {
 			System.out.print("A");
 			try {

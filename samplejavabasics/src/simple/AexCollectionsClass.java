@@ -26,7 +26,7 @@ public class AexCollectionsClass {
     	Collections.reverse(list);
     	System.out.println("coll rev " + list);
     	
-    	list.sort(null);
+    	list.sort(null); // It exists mainly for backward compatibility and API convenience.
     	System.out.println("list sort " + list);
     	
     	Collections.shuffle(list);

@@ -16,7 +16,7 @@ public class AbhList {
 //		Collection<Integer> val = new ArrayList<Integer>();
 //		val.add(89);
 //		val.remove(89);
-		List<Integer> val = new ArrayList<>(); // default size is 10 {, 15, 20, etc} and it'll extend
+		List<Integer> val = new ArrayList<>(); // default size is 10 {, 15, 22, 33, etc} and it'll extend
 		val.add(6);
 		val.add(7);
 		val.add(1);

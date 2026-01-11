@@ -55,7 +55,7 @@ class Light1 {
 }
 
 class Switch1 {
-    private Light1 light;
+    private Light1 light; // semi-tight coupling (even tight coupling also under this principle)
 
     public Switch1(Light1 light) {
         this.light = light;

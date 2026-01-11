@@ -35,6 +35,10 @@ public class AakMutableAndImmutable {
 		System.out.print(System.identityHashCode(a) + "\n" + System.identityHashCode(b));
 		System.out.println("\n\n" + System.identityHashCode(c) + "\n" + System.identityHashCode(d) + "\n" + System.identityHashCode(e) + "\n" + System.identityHashCode(f) + "\n" + System.identityHashCode(g) + "\n" + System.identityHashCode(h));
 		
+		/*
+		 * Java caches only finite, small, discrete-value wrappers:
+			Byte, Short, Integer, Long, Character <0 to 127 (\u0000–\u007F)>
+		 */
 		// Integer caching
         Integer cache1 = 127;
         Integer cache2 = 127;

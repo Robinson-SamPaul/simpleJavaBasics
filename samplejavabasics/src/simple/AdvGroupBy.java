@@ -3,6 +3,7 @@ package simple;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class AdvGroupBy {
@@ -13,6 +14,18 @@ public class AdvGroupBy {
 				new GroupBy("Sam", 100),
 				new GroupBy("Rob", 100),
 				new GroupBy("Paul", 93));
+		
+		Function<GroupBy, Integer> classifier = new Function<GroupBy, Integer>() {
+			
+			@Override
+			public Integer apply(GroupBy t) {
+				return t.marks;
+			}
+		};
+		
+		Map<Object, List<GroupBy>> groupBy = groupBies.stream().collect(
+				Collectors.groupingBy(classifier));
+		System.out.println(groupBy);
 		
 		Map<Object, List<GroupBy>> groupedByMarks = groupBies.stream().collect(
 				Collectors.groupingBy(grpBy -> grpBy.marks));
