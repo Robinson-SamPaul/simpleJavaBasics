@@ -1,77 +1,63 @@
 package simple;
 
+/*
+ * Factory Method 	→ 	used to create one object
+ * Abstract Factory → 	used to create a combination (family) of related objects
+ */
 public class AgtAbstractFactoryDP {
-	public static void main(String[] args) {
-		GUIFactory factory = new DarkThemeFactory();
-		Button button = factory.createButton();
-		TextBox textBox = factory.createTextBox();
+    public static void main(String[] args) {
+        ShapeAbstractFactory factory = new CircleFactory2();
+        Border border = factory.createBorder();
+        Shape shape = factory.createShape();
 
-		button.click();
-		textBox.type();
+        border.drawBorder();
+        shape.draw();
 
-		factory = new LightThemeFactory();
-		button = factory.createButton();
-		textBox = factory.createTextBox();
+        System.out.println();
+        factory = new TriangleFactory2();
+        border = factory.createBorder();
+        shape = factory.createShape();
 
-		button.click();
-		textBox.type();
-	}
+        border.drawBorder();
+        shape.draw();
+    }
 }
 /***********************************************************************************************************************/
-interface Button {
-	void click();
+interface Border {
+    void drawBorder();
 }
-class DarkButton implements Button {
-	@Override
-	public void click() {
-		System.out.println("Dark themed button clicked!");
-	}
+class CircleBorder implements Border {
+    public void drawBorder() {
+        System.out.println("Drawing Circle Border");
+    }
 }
-class LightButton implements Button {
-	@Override
-	public void click() {
-		System.out.println("Light themed button clicked!");
-	}
+class TriangleBorder implements Border {
+    public void drawBorder() {
+        System.out.println("Drawing Triangle Border");
+    }
 }
 /***********************************************************************************************************************/
-interface TextBox {
-	void type();
+interface ShapeAbstractFactory {
+    Shape createShape();
+    Border createBorder();
 }
-class DarkTextBox implements TextBox {
-	@Override
-	public void type() {
-		System.out.println("Typing in dark themed text box.");
-	}
+class CircleFactory2 implements ShapeAbstractFactory {
+    @Override
+    public Shape createShape() {
+        return new Circle();
+    }
+    @Override
+    public Border createBorder() {
+        return new CircleBorder();
+    }
 }
-class LightTextBox implements TextBox {
-	@Override
-	public void type() {
-		System.out.println("Typing in light themed text box.");
-	}
-}
-/***********************************************************************************************************************/
-interface GUIFactory {
-	Button createButton();
-	TextBox createTextBox();
-}
-class DarkThemeFactory implements GUIFactory {
-	@Override
-	public Button createButton() {
-		return new DarkButton();
-	}
-	@Override
-	public TextBox createTextBox() {
-		return new DarkTextBox();
-	}
-}
-class LightThemeFactory implements GUIFactory {
-	@Override
-	public Button createButton() {
-		return new LightButton();
-	}
-
-	@Override
-	public TextBox createTextBox() {
-		return new LightTextBox();
-	}
+class TriangleFactory2 implements ShapeAbstractFactory {
+    @Override
+    public Shape createShape() {
+        return new Triangle();
+    }
+    @Override
+    public Border createBorder() {
+        return new TriangleBorder();
+    }
 }

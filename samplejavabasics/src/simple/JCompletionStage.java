@@ -13,6 +13,10 @@ public class JCompletionStage {
 		 * asynchronous programming. It is part of the java.util.concurrent package
 		 * introduced in Java 8
 		 */
+		
+		CompletableFuture<Void> voidVal = asyncVoidMethod();
+		System.out.println(voidVal.get());
+		
 		CompletableFuture<String> future = asyncMethod();
 		
 		System.out.println("1Future : " + future);
@@ -27,7 +31,7 @@ public class JCompletionStage {
 		 * It takes a Consumer as an argument, which consumes the result of the
 		 * computation when it completes.
 		 */
-		CompletableFuture<Void> accept = future.thenAccept(result -> {
+		CompletableFuture<Void> accept = future.thenAccept(result -> { // thenAccept is sync, thenAcceptAsync is Async
 			System.out.println(result + "Sam");
 		});
 
@@ -45,7 +49,7 @@ public class JCompletionStage {
 		 * takes a Function as an argument, which processes the result of the
 		 * computation and returns a new value.
 		 */
-		CompletableFuture<Integer> length = future.thenApply(result -> {
+		CompletableFuture<Integer> length = future.thenApply(result -> { // thenApply is sync, thenApplyAsync is Async
 		    return result.length(); // Transforming the result into its length
 		});
 
@@ -85,4 +89,15 @@ public class JCompletionStage {
 			return "Value = ";
 		});
 	}
+	
+	private static CompletableFuture<Void> asyncVoidMethod() {
+        return CompletableFuture.runAsync(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                throw new IllegalStateException(e);
+            }
+
+        });
+    }
 }

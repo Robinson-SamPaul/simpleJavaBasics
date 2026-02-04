@@ -102,6 +102,7 @@ public class AibSwitchStatement {
 		sb.append("My name is ").append("Robinson").append(" and I am ").append(27).append(" years old.");
 		System.out.println(sb.toString());
 		
+		// string interpolation
 //        System.out.println(STR."hi \{name}"); // removed in recent version
 	}
 
@@ -120,6 +121,13 @@ public class AibSwitchStatement {
         	System.out.println("");
         });
         // some async methods can also be an underscore
+        /*
+         * CompletableFuture
+		    .supplyAsync(() -> "result")
+		    .thenAccept(_ -> {
+		        System.out.println("Completed");
+		    });
+         */
     }
 
     public static void patternMatchingJdk16(Object a) {

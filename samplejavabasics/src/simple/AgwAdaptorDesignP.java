@@ -11,7 +11,7 @@ public class AgwAdaptorDesignP {
 		 */
         Car myCar = new Car();
         Vehicle myVehicle = new CarAdapter(myCar);
-        myVehicle.accelerate(); // it's like method reference
+        myVehicle.accelerate(); // it's like method delegation with interface
     }
 
 }

@@ -50,6 +50,7 @@ public class AhsBinaryMethods {
 		return 1 + numNodesLeft + numNodesRight;
 	}
 
+	// guess its wrong
 	private static <T> int maxDepth(BinaryTreeNode<T> root) {
 		if (root == null) {
 			return 0;

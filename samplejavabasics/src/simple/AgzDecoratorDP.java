@@ -62,7 +62,7 @@ class MilkDecorator implements CondimentDecorator {
 
 	@Override
 	public double getCost() {
-		return beverage.getCost() + 0.5; // Additional cost for milk
+		return beverage.getCost() + 0.5; // Additional cost for milk (Adding additional functionality to and interface or abstract clasS)
 	}
 }
 class SugarDecorator implements CondimentDecorator {

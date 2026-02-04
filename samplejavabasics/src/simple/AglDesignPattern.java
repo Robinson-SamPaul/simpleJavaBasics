@@ -98,6 +98,37 @@ public class AglDesignPattern {
 }
 
 /*
+| Pattern          | Correct one-liner                         | Simple terms
+| ---------------- | ----------------------------------------- | ---------------------------------------------------|
+| CREATIONAL       | ----------------------------------------- | ---------------------------------------------------|
+| Singleton        | Only one instance with controlled access  | One object only available                          |
+| Factory          | Encapsulates object creation              | Let other class handles object creation            |
+| Abstract Factory | Encapsulates related objects creation     | Let other class handles related objects creation   |
+| Prototype        | Creates objects by cloning                | Lets copy from existing object                     |
+| Builder          | Constructs complex objects step by step   | Initialize field by field for a class              |
+| STRUCTURAL       | ----------------------------------------- | ---------------------------------------------------|
+| Adapter          | Method delegation of an interface         | Method reference like a structure                  |
+| Bridge           | Separates abstraction from implementation | Common abstract class for connecting classes       |
+| Composite        | Treats individual objects and run together| Invokes common methods on multiple objects         |
+| Decorator        | Adds behavior to an object dynamically    | Add second level interface for more things         |
+| Facade           | Simplifies access to a complex subsystem  | Invokes different methods on unrelated classes     |
+| Flyweight        | Reduces memory by sharing common objects  | One key for one value, many keys for many value    |
+| Proxy            | Controls access to an object              | Object with same parent, different class doing job |
+| BEHAVIORAL       | ----------------------------------------- | ---------------------------------------------------|
+| CO Responsibility| Passes request along a chain of handlers  | Request moves step by step until handled           |
+| Command          | Encapsulates a request as an object       | Commands can store state and reverse themselves    |
+| Interpreter	   | Defines a grammar and expressions         | Evaluates expressions by recursively interpreting  |
+| Iterator	       | Way to access elements of a collection    | Client traverses elements uniformly using iterator |
+| Memento          | Captures and stores an object’s state     | State can restore later without exposing internals |
+| Mediator         | Centralizes communication between objects | Objects interact indirectly through a mediator     |
+| State            | Alter behavior when its internal changes  | Object changes behavior dynamically internal state |
+| Observer         | Defines one-to-many dependency objects    | Observers are notified, when subject state changes |
+| Strategy         | Defines interchangeable algorithms        | Behavior can be selected dynamically by the client |
+| Visitor          | Separates algorithm from object structure | New operations can be added without changing object|
+| Template         | Defines skeleton of an algorithm          | Subclasses can override specific steps             |
+*/
+
+/*
 	The 23 design patterns often referred to as the "Gang of Four" (GoF) patterns come from 
 	the seminal book "Design Patterns: Elements of Reusable Object-Oriented Software" 
 	by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides. 

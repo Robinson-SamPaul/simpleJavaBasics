@@ -316,6 +316,16 @@ public class AhrBinaryTree {
 	}
 
 	private static void inOrderWithStackTrial() {
+
+		/*
+		       A
+		      / \
+		     B   C
+		    / \ / \
+		   D   EF  G
+		  / \   
+		 H   I   
+		 */
 		BinaryTreeNode<String> a = new BinaryTreeNode<>("Alice");
 		BinaryTreeNode<String> b = new BinaryTreeNode<>("Bob");
 		BinaryTreeNode<String> c = new BinaryTreeNode<>("Charles");
@@ -452,13 +462,22 @@ public class AhrBinaryTree {
 		breadthFirst(a);
 
 		d.setLeftChild(f);
-		d.setRightChild(h);
+		d.setRightChild(g);
 
 		System.out.println("\n");
 		breadthFirst(a);
 
-		e.setRightChild(g);
+		e.setRightChild(h);
 
+		/*
+		       A
+		      / \
+		     B   C
+		        / \
+		       D   E
+		      / \   \
+		     F   H   G
+		 */
 		System.out.println("\n");
 		breadthFirst(a);
 	}
@@ -476,14 +495,14 @@ public class AhrBinaryTree {
 		while (!queue.isEmpty()) {
 
 			BinaryTreeNode<T> node = queue.remove();
-			System.out.print(node);
+			System.out.print(node); // P
 
 			if (node.getLeftChild() != null) {
-				queue.add(node.getLeftChild());
+				queue.add(node.getLeftChild()); // L
 			}
 
 			if (node.getRightChild() != null) {
-				queue.add(node.getRightChild());
+				queue.add(node.getRightChild()); // R
 			}
 
 		}

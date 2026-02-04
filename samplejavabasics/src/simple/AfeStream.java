@@ -96,10 +96,10 @@ public class AfeStream {
 		/* FlatMap */
 		List<String> sentences = Arrays.asList("Hello", "World");
 
-		Function<? super String, ? extends Stream<? extends String>> mapper = new Function<>() {
+		Function<String, Stream<String>> mapper = new Function<>() {
 
 			@Override
-			public Stream<? extends String> apply(String strVal) {
+			public Stream<String> apply(String strVal) {
 				return strVal
 						.chars() // returns IntStream
 						.mapToObj(ch -> (char) ch) // int to Char

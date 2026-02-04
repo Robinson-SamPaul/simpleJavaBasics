@@ -35,3 +35,19 @@ public class HAExecutorService {
         executor.shutdown();
     }
 }
+/*
+ * Executors.newVirtualThreadPerTaskExecutor()	- 	Creates one virtual thread per task
+ * Executors.newFixedThreadPool(N)			   	-	Thread pool with a fixed number of threads (N)
+ * Executors.newCachedThreadPool()				-	Creates threads as needed, reuses idle threads
+ * 
+ * In production systems, avoid Executors.* and prefer explicit ThreadPoolExecutor.
+ * ExecutorService executor = new ThreadPoolExecutor(
+    2,
+    4,
+    30,
+    TimeUnit.SECONDS,
+    new ArrayBlockingQueue<>(100),
+    new ThreadPoolExecutor.CallerRunsPolicy()
+);
+
+ */ 

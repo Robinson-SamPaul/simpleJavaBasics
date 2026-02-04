@@ -6,11 +6,11 @@ public class AhbFlyweightDP {
 
 	public static void main(String[] args) {
 		Aletter obj1 = (Aletter) CharLetterFactory.getChar("Apple");
-		System.out.println(obj1.hashCode());
+		System.out.println(obj1 + " " + obj1.hashCode());
 		Aletter obj2 = (Aletter) CharLetterFactory.getChar("Apple");
-		System.out.println(obj2.hashCode());
+		System.out.println(obj2 + " " + obj2.hashCode());
 		Aletter obj3 = (Aletter) CharLetterFactory.getChar("Banana");
-		System.out.println(obj3.hashCode());
+		System.out.println(obj3 + " " + obj3.hashCode());
 	}
 }
 
@@ -28,6 +28,11 @@ class Aletter implements CharLetter {
 	@Override
 	public void display() {
 		System.out.println("A for " + word);	
+	}
+
+	@Override
+	public String toString() {
+		return word;	
 	}
 }
 class CharLetterFactory {

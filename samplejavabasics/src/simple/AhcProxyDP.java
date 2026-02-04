@@ -14,7 +14,7 @@ public class AhcProxyDP {
 interface Transport {
     void accelerate();
 }
-class Jeep implements Transport{
+class Jeep implements Transport { // Adaptor won't implement, as its random class method
 
 	@Override
 	public void accelerate() {
@@ -26,7 +26,7 @@ class JeepProxy implements Transport {
 
     @Override
     public void accelerate() {
-    	if(car == null) {
+    	if(car == null) { // Adaptor won't have lazy initialization
     		car = new Jeep();
     	}
         car.accelerate();
@@ -36,16 +36,16 @@ class JeepProxy implements Transport {
 interface Transport {
     void accelerate();
 }
-class Jeep {
+class Jeep { // Adaptee
 
-	public void acclMethod() {
+	public void accelerate() {
         System.out.println("Car is accelerating.");
 	}
 }
-class JeepProxy implements Transport {
+class JeepAdaptor implements Transport { // Adapter
     private Jeep car;
     
-    public JeepProxy(Jeep value) {
+    public JeepAdaptor(Jeep value) {
     	car = value;
     }
 

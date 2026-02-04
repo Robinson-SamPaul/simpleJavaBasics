@@ -4,16 +4,16 @@ public class AgsFactoryMethodDP {
 
 	public static void main(String[] args) {
 		
-		Shape shape = new Circle(); // Tight coupling
+		Shape shape = new Circle(); // Nope
 		shape.draw();
 		
 		CommonShapeFactory shapeFactory = new CommonShapeFactory();
-		Shape circleObj = shapeFactory.createCircle(); // will have all shape methods, if want new, need to modify 
+		Shape circleObj = shapeFactory.createCircle(); // Good, but could be better 
 		circleObj.draw();
 
 		/* best practice for this DP */
 		ShapeFactory circleFactory = new CircleFactory();
-		Shape circle = circleFactory.createShape(); // each will have it's own method, if want new, need to add new class 
+		Shape circle = circleFactory.createShape(); // Perfection 
 		circle.draw();
 	}
 }

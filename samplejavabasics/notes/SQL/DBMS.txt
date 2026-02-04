@@ -1,0 +1,320 @@
+Data 
+    It is raw, unprocessed facts that by themselves do not convey meaning.
+    Without overriding toString() - Employee@6d06d69c <Just for understanding purpose, added this example>
+Information 
+    It is processed, organized, and contextualized data that has meaning and can be used for decision-making.
+    With overridden toString() - Employee{id=101, name='Sam', salary=50000}
+All information is data, but not all data is information.
+***********************************************************************************************************************************************************
+
+The term schema is used in two ways: 
+    one refers to the logical design of tables and relationships, and the 
+    other refers to a SQL namespace that groups database objects. 
+The context determines the meaning.
+
+• A schema is a logical namespace that groups database objects such as tables, views, indexes, and procedures.
+  Used in Oracle, PostgreSQL, SQL (standard)
+• A schema is the blueprint or structural design that defines tables, fields, relationships, and constraints.
+  Referred as Table definitions, ER diagrams, Column data types, Foreign keys, Constraints
+
+Design schema   → what the data looks like
+SQL schema      → where the data lives
+
+DBMS is the engine
+Database is the container
+Connection is session between client and DB
+Schema is the folder/namespace
+Table is the structure
+Row is the data
+
+| DB         | Tool (GUI)      | Connection | DBMS              | Container                |
+| ---------- | --------------- | ---------- | ----------------- | ------------------------ |
+| MySQL      | MySQL Workbench | Available  | MySQL Server      | Database (Schema)        |
+| PostgreSQL | pgAdmin         | Available  | PostgreSQL Server | Database & Schema        |
+| Oracle     | SQL Developer   | Available  | Oracle Database   | Database & Schema (user) |
+
+MySQL Server
+ └── Database (schema)
+      └── Table
+
+PostgreSQL Server
+ └── Database
+      └── Schema
+           └── Table
+
+Oracle Server
+ └── Instance
+      └── Database
+           └── Schema (User-owned)
+                └── Table
+***********************************************************************************************************************************************************
+
+Database
+    A database is an organized, persistent collection of data, managed by a DBMS, stored on disk, and accessed using queries.
+DBMS
+    A database is a collection of data, and a DBMS is the software system that allows us to store, retrieve, update, delete, and manage that data safely and efficiently.
+Data lake
+    A data lake is a centralized storage system that holds raw data in its original format, from many sources, at large scale, primarily for future processing, analytics, and machine learning.
+Data Warehouse
+    A data warehouse is a centralized system designed to store historical, integrated, read-optimized data from multiple sources for analytics and reporting, not for day-to-day transactions.
+Data Models
+    A data model defines how data is logically stored, organized, and related in a database. It’s like the blueprint for your data.
+
+OLTP
+    OLTP systems handle day-to-day transactional operations with fast, simple queries.
+    Databases were used commonly for OLTP.
+OLAP
+    OLAP systems support analytical queries over large volumes of historical data. (might have combined different table data)
+    Data warehouses were used commonly for OLAP.
+
+OLTP Databases (MySQL / Postgres)
+            ↓
+        Data Lake (raw)
+            ↓
+     Data Warehouse (clean)
+            ↓
+        Analytics / BI
+***********************************************************************************************************************************************************
+
+File-based system
+    A file-based system stores data in files directly managed by the application.
+    Example: Java app writes data to: .txt, .csv, .dat, .json
+
+Advantages of DBMS
+    Reduced data redundancy
+    Data consistency
+    Concurrency control
+    Security
+    Backup & recovery
+    Data abstraction
+Disadvantages of DBMS
+    Complexity
+    Cost
+    Performance overhead
+    Single point of failure
+***********************************************************************************************************************************************************
+
+ER Modeling
+    ER (Entity-Relationship) modeling is a conceptual way to represent data, their attributes, and relationships before implementing in a database. It helps visualize and design databases logically.
+
+Entities and Entity Sets
+    Entity      - A real-world object or thing. Has a unique identity
+    Entity Set  - A collection of similar entities
+
+Attributes
+    Attributes describe properties of entities.
+        | Type        | Meaning                          | Example                                 |
+        | ----------- | -------------------------------- | --------------------------------------- |
+        | Simple      | Single-valued, atomic            | `name`, `age`                           |
+        | Composite   | Can be broken down               | `full_name` → `first_name`, `last_name` |
+        | Multivalued | Multiple values allowed          | `phone_numbers`                         |
+        | Derived     | Calculated from other attributes | `age` from `dob`                        |
+
+Keys
+    refer other file in this folder
+
+Relationship        - Association between two or more entities. Can have attributes too.
+Relationship Set    - Collection of similar relationships
+
+ER Diagrams
+    Symbols (standard)
+        Rectangle → Entity
+        Oval → Attribute
+        Diamond → Relationship
+        Double Oval → Multivalued attribute
+        Dashed Oval → Derived attribute
+        Double Rectangle → Weak entity
+        Lines → Connect entities to relationships or attributes
+***********************************************************************************************************************************************************
+
+ACID
+    | Property    | Meaning         |
+    | ----------- | --------------- |
+    | Atomicity   | All or nothing  |
+    | Consistency | Valid state     |
+    | Isolation   | No interference |
+    | Durability  | Permanent       |
+
+BASE
+    | Property             | Meaning          |
+    | -------------------- | ---------------- |
+    | Basically Available  | System stays up  |
+    | Soft state           | Data may change  |
+    | Eventual consistency | Consistent later |
+
+DBMS
+    Generic term
+    Manages databases
+    May not enforce relations
+
+RDBMS
+    Based on relational model
+    Uses tables & keys
+    Enforces ACID
+    Uses SQL
+
+Examples:
+    MySQL
+    PostgreSQL
+    Oracle
+
+NoSQL
+    Non-relational
+    Schema-flexible
+    Horizontally scalable
+    BASE-oriented
+
+Types:
+    Key–Value (Redis)
+    Document (MongoDB)
+    Column-family (Cassandra)
+    Graph (Neo4j)
+
+| Feature  | RDBMS        | NoSQL                 |
+| -------- | ------------ | --------------------- |
+| Schema   | Fixed        | Flexible              |
+| Scaling  | Vertical     | Horizontal            |
+| ACID     | Yes          | Partial / No          |
+| Joins    | Supported    | Limited               |
+| Use case | Transactions | Big data, distributed |
+
+SQL
+    SQL databases store structured and related data in tables with a fixed format, so relationships and data consistency are strictly enforced. They are used when accuracy and clear data relationships matter most.
+NoSQL
+    NoSQL databases store data in a more flexible way and follow the BASE approach, meaning they stay available and fast even if data becomes consistent a bit later. They are used when systems need to scale big and change often.
+***********************************************************************************************************************************************************
+
+Single-Tenant Architecture
+    Each customer gets their own dedicated application instance.
+
+Multi-tenant means:
+    One running application instance serves multiple customers (tenants).
+    Example types:
+        Master DB (Tenant Registry)
+        Request → tenant → master DB → tenant DBs
+
+        Config Server (No Master DB)
+        Request → tenant → config service → tenant DBs
+
+        Environment-Based Routing (Limited use)
+        App_A → DB_A, DB_B 
+***********************************************************************************************************************************************************
+
+SQL commands are grouped into 5 main categories:
+    DDL – Data Definition Language
+    DML – Data Manipulation Language
+    DQL – Data Query Language
+    TCL – Transaction Control Language
+    DCL – Data Control Language
+
+Data Definition Language
+    Define or change the structure of the database.
+    “Database structure” means the database schema, which includes:
+        Tables, Columns, Data types, Constraints, Indexes, Views, Sequences,Schemas (namespaces)
+    Commands: CREATE, ALTER, DROP, TRUNCATE, RENAME
+
+Data Manipulation Language
+    Insert, update, delete data
+    Commands: INSERT, UPDATE, DELETE, MERGE (DB-specific)
+
+Data Query Language
+    Read data
+    Commands: SELECT
+
+Transaction Control Language
+    Control transactions
+    Commands: COMMIT, ROLLBACK, SAVEPOINT, SET TRANSACTION
+
+Data Control Language
+    Control access and permissions
+    Commands: GRANT, REVOKE
+***********************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 13. Recovery System
+
+* Failures (transaction, system, disk)
+* Log-based recovery
+* Write-ahead logging (WAL)
+* Checkpoints
+* Undo and redo operations
+* Shadow paging
+
+## 14. Indexing and File Organization
+
+* File organization methods
+* Heap files
+* Sequential files
+* Hashing
+* Static vs dynamic hashing
+* B-tree
+* B+ tree
+* Index selection strategies
+
+## 15. Query Processing & Optimization
+
+* Query evaluation
+* Query execution plans
+* Cost-based optimization
+* Heuristic optimization
+* Join algorithms (nested loop, hash join, merge join)
+
+## 16. Storage & Memory Management
+
+* Disk structure
+* Blocks and pages
+* Buffer management
+* Record storage
+* File organization
+
+## 17. Security & Authorization
+
+* Database security concepts
+* Authentication vs authorization
+* GRANT and REVOKE
+* Roles and privileges
+* SQL injection (concept)
+
+## 18. Distributed Databases
+
+* Distributed DBMS concepts
+* Data fragmentation
+* Replication
+* Transparency
+* Two-phase commit (2PC)
+
+## 19. NoSQL & Modern Databases (Conceptual)
+
+* Limitations of RDBMS
+* CAP theorem
+* BASE properties
+* Key–value stores
+* Document databases
+* Column-family databases
+* Graph databases
+* SQL vs NoSQL comparison
+
+

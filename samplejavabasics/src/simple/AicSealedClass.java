@@ -25,6 +25,17 @@ public class AicSealedClass {
 	}
 }
 
+/*
+sealed class don't allow normal class to inherit it,
+but non-sealed class allow normal class.
+if we extend non-sealed class from sealed class and
+extend normal class from non-selaed class,
+technically sealed class got extended by normal class - Imma Hacker 😎
+
+Sealing restricts only direct subclasses. 
+Allowing a non-sealed subclass is an explicit design choice that delegates further inheritance. 
+This is intentional, not a loophole, and supports API evolution and pattern matching.
+ */
 sealed class SealedClass permits SubSeal1, SubSeal2, SubSeal3 {} // Main class
 /*1*/final class SubSeal1 extends SealedClass {} // Sub final class
 /*2*/sealed class SubSeal2 extends SealedClass permits SubSubSeal1 {} // Sub sealed class
@@ -32,6 +43,7 @@ sealed class SealedClass permits SubSeal1, SubSeal2, SubSeal3 {} // Main class
 /*3*/non-sealed class SubSeal3 extends SealedClass {} // Sub non-sealed class
 		class SubSubSeal2 extends SubSeal3 {} // Sub->sub non-sealed class, will allow any class to extend
 		// non-sealed class SubSeal3 {} // can't use it alone
+		// sealed class SealedClass2 {} // can't use it alone
 		
 //Let's try for Interface
 sealed interface SealedInterface permits Intrfs1, Intrfs2, Class1, Class2, Class3 {}

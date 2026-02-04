@@ -3,6 +3,15 @@ package simple;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Pattern “type” (Structural / Behavioral / Creational) is NOT decided by code shape.
+ * It is decided by what problem the pattern addresses.
+ * 
+ * Composite answers:
+ * 		How do I represent part–whole relationships? → Structural
+ * Mediator answers:
+ * 		How do objects communicate without tight coupling? → Behavioral
+ */
 public class AhiMediatorDP {
     public static void main(String[] args) {
         WhatsAppMediator whatsAppMediator = new WhatsApp();

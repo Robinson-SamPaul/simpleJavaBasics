@@ -21,7 +21,7 @@ public class HDAwaitTerminationExample {
         };
 
         executor.submit(task);
-        executor.submit(task);
+        executor.submit(task); // valid
 
         executor.shutdown(); // No more tasks accepted
 

@@ -388,6 +388,7 @@ MySQL is a good choice for applications requiring complex transactions, strong d
 MongoDB is suited for applications needing high flexibility, scalability, and handling of unstructured or semi-structured data. It excels in environments with rapidly changing requirements and large volumes of data.
 Choosing between MySQL and MongoDB depends on your specific use case, data requirements, and performance needs.
 ******************************************************************************************************************************************************
+A transaction is a sequence of one or more database operations that are executed as a single logical unit of work.
 START TRANSACTION
 This command begins a new transaction. Any SQL statements executed after this command will be part of the transaction until a COMMIT or ROLLBACK is issued.
 COMMIT

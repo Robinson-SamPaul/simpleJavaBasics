@@ -2,6 +2,12 @@ package simple;
 
 import java.util.Stack;
 
+/*
+ * Use Memento when…
+ * 		You want to capture and restore object state safely.
+ * Use Command when…
+ * 		You want to model operations as objects.
+ */
 public class AhjMemento {
     public static void main(String[] args) {
         TextEditor textEditor = new TextEditor();

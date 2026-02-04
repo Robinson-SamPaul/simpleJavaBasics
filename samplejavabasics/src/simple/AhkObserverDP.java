@@ -3,6 +3,17 @@ package simple;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Composite, Observer, and Mediator can look identical in code — all iterate over a collection and invoke a method. 
+ * The difference lies entirely in intent: 
+ * 		Composite models a structural hierarchy, 
+ * 		Observer models event-driven notification, and 
+ * 		Mediator models centralized coordination of interactions.
+ * 
+ * Composite Pattern — Use When You Need Structure
+ * Mediator Pattern — Use When You Need Coordination
+ * Observer Pattern — Use When You Need Notifications
+ */
 public class AhkObserverDP {
     public static void main(String[] args) {
         ConcreteSubject subject = new ConcreteSubject();

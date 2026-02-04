@@ -6,6 +6,9 @@ import java.util.Objects;
 // JDK 16
 public class AidRecordClass {
 
+	/*
+	 * Custom immutable class can extend any parent class, whereas records can't
+	 */
 	public static void main(String[] args) {
 		Record1 record1 = new Record1(1, "Sam");
 		Record2 record2 = new Record2(1, "Sam");

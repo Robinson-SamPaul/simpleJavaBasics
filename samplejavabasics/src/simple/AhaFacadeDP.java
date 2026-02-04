@@ -1,5 +1,11 @@
 package simple;
 
+/*
+ * | Pattern   | What it does                                                                             |
+ * | --------- | ---------------------------------------------------------------------------------------- |
+ * | Composite | Invokes **common methods** on multiple objects via a **shared interface**                |
+ * | Facade    | Invokes **different methods** on multiple unrelated classes via a **single entry point** |
+ */
 public class AhaFacadeDP {
 	public static void main(String[] args) {
 		// Create the facade

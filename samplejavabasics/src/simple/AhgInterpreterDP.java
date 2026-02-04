@@ -2,6 +2,15 @@ package simple;
 
 public class AhgInterpreterDP {
 
+	/*
+	 * Design patterns are distinguished by intent, not by structure.
+	 * 
+	 * Command and Interpreter both looks same from code structure
+	 * Use Command Pattern when…
+	 * 		You want to encapsulate an action or request as an object.'
+	 * Use Interpreter Pattern when…
+	 * 		You want to evaluate or interpret expressions of a small language.
+	 */
     public static void main(String[] args) {
         Transporter jeep = new Transporter() {
 			
